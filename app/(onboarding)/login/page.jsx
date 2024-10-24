@@ -21,7 +21,7 @@ const Login = () => {
           <Image src={logo} className='w-2/4 p-10' alt='text' />
         </div>
 
-        <div className="md:w-4/12 w-full flex p-4 flex-col justify-center bg-white ">
+        <div className="md:w-4/12 w-full m-10 flex p-4 flex-col justify-center bg-white ">
           <h1 className='text-2xl font-bold font-mono  text-blue-400'>Welcome to Adam's Drive</h1>
           <span className='text-gray-600 text-lg font-thin '>Sign-in</span>
           <input placeholder='Email' type='email' onChange={(e)=>setemail(e.target.value)} className='p-3  shadow-md shadow-blue-200 border-2 border-blue-300 m-4 hover:border-blue-900  transition-all duration-200 ease-in-out ml-0 rounded-md ' />
