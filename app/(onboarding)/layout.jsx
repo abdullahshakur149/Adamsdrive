@@ -1,11 +1,11 @@
 import React from 'react'
 import "@/app/globals.css"
-const RootLayout = ({children}) => {
+const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
-                <body>
-                <main>{children}</main>
-                </body>
+      <body>
+        <main>{children}</main>
+      </body>
     </html>
   )
 }
