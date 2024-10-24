@@ -24,9 +24,9 @@ const Login = () => {
         <div className="md:w-4/12 w-full flex p-4 flex-col justify-center bg-white ">
           <h1 className='text-2xl font-bold font-mono  text-blue-400'>Welcome to Adam's Drive</h1>
           <span className='text-gray-600 text-lg font-thin '>Sign-in</span>
-          <input placeholder='Email' type='email' onChange={(e)=>setemail(e.target.value)} className='p-3  border-2 border-blue-300 m-4 hover:border-blue-900  transition-all duration-200 ease-in-out ml-0 rounded-md ' />
+          <input placeholder='Email' type='email' onChange={(e)=>setemail(e.target.value)} className='p-3  shadow-md shadow-blue-200 border-2 border-blue-300 m-4 hover:border-blue-900  transition-all duration-200 ease-in-out ml-0 rounded-md ' />
           <div className="multiinput  relative m-3 mt-0 ml-0">
-          <input placeholder='Password' type='password' onChange={(e)=>setpassword(e.target.value)}  className='p-3 w-full   border-2 border-blue-300 m-4 ml-0 hover:border-blue-900 transition-all duration-200 ease-in-out rounded-md ' />
+          <input placeholder='Password' type='password' onChange={(e)=>setpassword(e.target.value)}  className='p-3 shadow-md shadow-blue-200 w-full   border-2 border-blue-300 m-4 ml-0 hover:border-blue-900 transition-all duration-200 ease-in-out rounded-md ' />
           <button className='absolute top-7   right-4'><FaEye className='text-blue-500 m-1'/></button>
           </div>
 
