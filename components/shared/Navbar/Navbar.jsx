@@ -1,34 +1,38 @@
 "use client"
 import React, { useState } from 'react';
 import "./Navbar.css";
-import logo from "@/public/img/adamsdrive.png";
+import logo from "@/public/img/Loginlogo.png";
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaPhone, FaPhoneAlt, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const Links = [
-    { pathname: "Number1", path: "/number1" },
-    { pathname: "Number2", path: "/number2" },
-    { pathname: "Number3", path: "/number3" },
+    { pathname: "Courses and Pricing", path: "#" },
+    { pathname: "About Us", path: "#" },
+    { pathname: "Number3", path: "#" },
+    { pathname: "Our Instructors", path: "#" },
+    { pathname: "News", path: "#" },
+    { pathname: "Testimonials", path: "#" },
+    { pathname: "Contact Us", path: "#" },
   ];
 
   return (
     <div>
       {/* Navbar for larger screens */}
-      <div className='container md:mt-2 md:p-2 md:flex hidden justify-between'>
+      <div className=' md:mt-5 md:p-2 md:flex hidden justify-between'>
         <div className="Logo-Links flex justify-center items-center">
           <div className="Navbar-logo translate-x-5">
-            <Link href='#'><Image src={logo} className='w-16' alt='logo' /></Link>
+            <Link href='#'><Image src={logo} className='w-20' alt='logo' /></Link>
           </div>
 
-          <div className="Navbar-links translate-x-10">
+          <div className="Navbar-links translate-x-16">
             <ul className='flex'>
               {Links.map((link, idx) => (
                 <li key={idx}>
-                  <Link href={link.path} className='p-2'>{link.pathname}</Link>
+                  <Link href={link.path} className='p-4 links font-semibold  text-sm text-zinc-900'>{link.pathname}</Link>
                 </li>
               ))}
             </ul>
@@ -36,11 +40,12 @@ const Navbar = () => {
         </div>
 
         <div className="number-Login flex justify-center items-center">
-          <div className="number m-2">
-            <Link href='#'>+91-802342523</Link>
+          <div className="number m-2 flex">
+
+           <FaPhoneAlt className='mt-2 mr-2 text-xl text-yellow-700/75'/> <Link href='#' className='font-bold font-sans text-2xl text-pretty md:mr-4'>+91-802342523</Link>
           </div>
           <div className="login-btn m-2">
-            <Link href='/login' className='bg-blue-500 px-4 py-2 text-white rounded-lg'>Login</Link>
+            <Link href='/login' className='bg-blue-600 px-7 py-2 text-white rounded-lg mr-10'>Login</Link>
           </div>
         </div>
       </div>
