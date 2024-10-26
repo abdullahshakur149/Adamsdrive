@@ -18,7 +18,10 @@ module.exports = {
       fontFamily:{
         mona:["mona-sans","sans-serif"],
         monaBold:["mona-sans-bold",'sans-serif']
-      }
+      },
+      screens: {
+        '2xl': '1800px', // Adjust as needed
+      },
       
     },
   },
