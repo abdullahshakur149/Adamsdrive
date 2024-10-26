@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { FaBackward, FaFacebook, FaForward, FaInstagram, FaPaperclip, FaTwitter } from "react-icons/fa";
+import { FaBackward, FaFacebook, FaForward, FaInstagram, FaClipboardList, FaTwitter } from "react-icons/fa";
 import image from "@/public/img/Loginlogo.png";
 
 const Instructors = () => {
@@ -13,7 +13,7 @@ const Instructors = () => {
       name: "Rogan Massey",
       status: "Practical Instructor",
       description: "Hey, my name is Massey and I am a very good instructor.",
-      boardIcon: <FaPaperclip />,
+      boardIcon: <FaClipboardList />,
       effectivenessPercent: "99.7%",
       effectivenessDesc: "Effectiveness of passing stats exam",
       facebookIcon: <FaFacebook />,
@@ -25,7 +25,7 @@ const Instructors = () => {
       name: "Rogan ",
       status: "Practical Instructor",
       description: "Hey, my name is Massey and I am a very good instructor.",
-      boardIcon: <FaPaperclip />,
+      boardIcon: <FaClipboardList />,
       effectivenessPercent: "99.7%",
       effectivenessDesc: "Effectiveness of passing stats exam",
       facebookIcon: <FaFacebook />,
@@ -37,7 +37,7 @@ const Instructors = () => {
       name: "Rogan Mass",
       status: "Practical Instructor",
       description: "Hey, my name is Massey and I am a very good instructor.",
-      boardIcon: <FaPaperclip />,
+      boardIcon: <FaClipboardList />,
       effectivenessPercent: "99.7%",
       effectivenessDesc: "Effectiveness of passing stats exam",
       facebookIcon: <FaFacebook />,
@@ -49,7 +49,7 @@ const Instructors = () => {
       name: "Rogan Masse",
       status: "Practical Instructor",
       description: "Hey, my name is Massey and I am a very good instructor.",
-      boardIcon: <FaPaperclip />,
+      boardIcon: <FaClipboardList />,
       effectivenessPercent: "99.7%",
       effectivenessDesc: "Effectiveness of passing stats exam",
       facebookIcon: <FaFacebook />,
@@ -102,7 +102,7 @@ const Instructors = () => {
                     <div className="description1 mb-5 font-mona font-bold">
                       {instructor.description}
                     </div>
-                    <div className="icon flex justify-center mb-5">
+                    <div className="icon flex justify-center mb-5 text-orange-500 text-3xl">
                       {instructor.boardIcon}
                     </div>
                     <div className="icon flex justify-center font-monaBold text-3xl ">

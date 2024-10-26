@@ -1,6 +1,7 @@
 .links{
     transition: all 0.3s ease-in-out;
     position: relative;
+    font-weight: 800;
 }
 
 .links::after{

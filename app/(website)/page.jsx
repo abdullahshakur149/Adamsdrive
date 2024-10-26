@@ -10,8 +10,10 @@ const MainLanding = () => {
   return (
 
     <div>
+<div className="w-11/12 mx-auto">
+<Navbar />
+</div>
 
-      <Navbar />
 
       
       <div className="w-10/12 mx-auto">

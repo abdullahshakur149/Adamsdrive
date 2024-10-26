@@ -12,7 +12,6 @@ const Navbar = () => {
   const Links = [
     { pathname: "Courses and Pricing", path: "#" },
     { pathname: "About Us", path: "#" },
-    { pathname: "Number3", path: "#" },
     { pathname: "Our Instructors", path: "#" },
     { pathname: "News", path: "#" },
     { pathname: "Testimonials", path: "#" },
@@ -20,7 +19,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div>
+    <div className='bg-white'>
       {/* Navbar for larger screens */}
       <div className=' md:mt-5 md:p-2 md:flex hidden justify-between'>
         <div className="Logo-Links flex justify-center items-center">
@@ -28,11 +27,11 @@ const Navbar = () => {
             <Link href='#'><Image src={logo} className='w-20' alt='logo' /></Link>
           </div>
 
-          <div className="Navbar-links translate-x-16">
+          <div className="Navbar-links md:translate-x-10   3xl:translate-x-16 ">
             <ul className='flex'>
               {Links.map((link, idx) => (
                 <li key={idx}>
-                  <Link href={link.path} className='p-4 links font-semibold  text-sm text-zinc-900'>{link.pathname}</Link>
+                  <Link href={link.path} className=' md:p-2 3xl:p-4   links  text-sm text-zinc-900 font-monaBold'>{link.pathname}</Link>
                 </li>
               ))}
             </ul>
