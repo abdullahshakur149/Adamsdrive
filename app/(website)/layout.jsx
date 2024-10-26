@@ -1,9 +1,10 @@
 import React from 'react'
 import "@/app/globals.css"
+
 const RootLayout = ({children}) => {
   return (
     <html lang='en'>
-                <body className='bg-white text-black'>
+                <body className='bg-default  font-mona text-black'>
                 <main>{children}</main>
                 </body>
     </html>
