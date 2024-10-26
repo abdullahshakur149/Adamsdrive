@@ -8,12 +8,12 @@ const IntroSection = () => {
     <div className=" w-full bg-blue-50">
       {/* Intro Image and Text */}
       <Image src={intro} className="w-full relative" alt="Driving School" />
-      <div className="absolute top-12 left-2 sm:top-14 sm:left-4 md:top-20 md:left-24 lg:top-24 lg:left-28 xl:top-48 xl:left-64 2xl:left-80 2xl:top-1/4   text-black">
+      <div className="absolute top-12 left-2 sm:top-14 sm:left-4 md:top-20 md:left-24 lg:top-44 lg:left-40 xl:top-48 xl:left-64 2xl:left-80 2xl:top-1/4   text-black">
       
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-5xl font-monaBold leading-snug">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-5xl 2xl:text-5xl font-monaBold leading-snug">
           The truest drive <br /> comes from doing <br /> what you love.
         </h1>
-        <div className="mt-4 sm:mt-6 md:mt-8">
+        <div className="mt-5 ">
           <div className="feature flex items-center mb-2">
             <FaCheckCircle className="text-blue-600 flex mr-2 text-xs sm:text-sm md:text-sm" />
             <span className="text-xs sm:text-sm md:text-base lg:text-sm font-sans font-bold">
@@ -33,11 +33,11 @@ const IntroSection = () => {
             </span>
           </div>
         </div>
-        <div className="buttons flex space-x-2 sm:space-x-3 md:space-x-4">
-          <button className="p-2 sm:p-2 md:p-2 bg-orange-500 text-xs sm:text-sm lg:text-base text-white font-bold rounded-lg shadow-lg">
+        <div className="buttons flex space-x-2 ">
+          <button className="p-2 sm:p-2 md:p-2 bg-orange-500 text-xs sm:text-sm lg:text-xs xl:text-lg text-white font-bold rounded-lg shadow-lg">
             Courses & Pricing
           </button>
-          <button className="p-2 sm:p-2 md:p-2 text-xs sm:text-sm lg:text-base bg-black text-white font-bold rounded-lg shadow-lg">
+          <button className="p-2 sm:p-2 md:p-2 text-xs sm:text-sm lg:text-xs xl:text-lg bg-black text-white font-bold rounded-lg shadow-lg">
             About Us
           </button>
         </div>

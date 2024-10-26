@@ -20,7 +20,8 @@ module.exports = {
         monaBold:["mona-sans-bold",'sans-serif']
       },
       screens: {
-        '2xl': '1800px', // Adjust as needed
+        '2xl': '1800px',
+        'lg':'1023px' // Adjust as needed
       },
       
     },
