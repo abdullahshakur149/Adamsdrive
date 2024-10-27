@@ -14,6 +14,7 @@ module.exports = {
       },
       backgroundColor:{
         default:"#ececf6"
+
       },
       fontFamily:{
         mona:["mona-sans","sans-serif"],

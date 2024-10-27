@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { FaBackward, FaFacebook, FaForward, FaInstagram, FaClipboardList, FaTwitter } from "react-icons/fa";
+import { FaBackward, FaFacebook, FaForward, FaInstagram, FaClipboardList, FaTwitter, FaArrowCircleLeft, FaArrowCircleRight, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import image from "@/public/img/Loginlogo.png";
+import bgimage from '@/public/img/images/images/Course&price.gif';
 
 const Instructors = () => {
   const [currentindex, setcurrentindex] = useState(0);
-  const [isFading,setisFading] = useState(false);
+  const [isFading, setisFading] = useState(false);
   const [instructors, setInstructors] = useState([
     {
       image: <Image src={image} alt="Rogan Massey" width={100} height={100} className="mx-auto" />,
@@ -58,10 +59,9 @@ const Instructors = () => {
     },
   ]);
 
-  // Display only the first instructor
-  const instructor = instructors.slice(currentindex,currentindex+3);
-    
-  const changecard = (newindex)=>{
+  const instructor = instructors.slice(currentindex, currentindex + 3);
+
+  const changecard = (newindex) => {
     setisFading(true);
     setTimeout(() => {
       setcurrentindex(newindex);
@@ -70,48 +70,62 @@ const Instructors = () => {
   }
 
   return (
-    <div>
-      <div className="text-center mt-20">
+    <div className="relative">
+      <Image
+        src={bgimage}
+        className="absolute top-0 left-0 w-full h-full object-contain"
+        alt="Course Pricing Background"
+        layout="fill"
+      />      
+      <div className="text-center mt-20 relative">
         <h1 className="text-md text-blue-500 font-monaBold mt-4">Courses & Pricing</h1>
         <h1 className="text-4xl font-monaBold text-center mt-3 mb-8">
           It's only you who chooses
           <br /> who will be your instructor
         </h1>
       </div>
-      <div className="instructors flex justify-center">
-        <div className="my-auto">
-        {currentindex!==0 && (<button className="text-xl" onClick={()=>changecard(currentindex-1)}><FaBackward className="text-blue-500 p-2 text-5xl rounded-3xl bg-gray-400"/></button>) }  
+      <div className="instructors flex justify-center relative">
+        {/* Left Arrow */}
+        <div className="my-auto mx-auto">
+          {currentindex !== 0 && (
+            <button
+              className="text-xl bg-blue-500  text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+              onClick={() => changecard(currentindex - 1)}
+            >
+              <FaArrowLeft />
+            </button>
+          )}
         </div>
-      
-        <div className="flex justify-center  w-3/4 transition-opacity duration-500">
+
+        {/* Instructor Cards */}
+        <div className="flex justify-center  w-1/3 transition-opacity duration-500">
           {instructor.map((instructor, index) => (
             <div
               key={index}
-              className={`md:w-2/6 w-full  m-1 transition-opacity duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
+              className={`m-1 transition-opacity   duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
             >
-              <div className="w-full bg-white rounded-lg  h-auto border  shadow-md flex-col p-14">
-                <div className="image">{instructor.image}</div>
-                <div className="status text-blue-600 font-monaBold text-2xl pt-5 text-center mb-7">
+              <div className="w-full bg-white rounded-3xl relative mt-10  h-auto border shadow-md flex-col p-14">
+                <div className="image absolute -top-8 left-0 right-0 rounded-3xl ">{instructor.image}</div>
+                <div className="status text-blue-600 font-monaBold text-xl pt-5 text-center mb-7">
                   {instructor.name}
                   <br />
                   <span className="text-xs text-neutral-400">{instructor.status}</span>
                 </div>
 
-                <div className="description text-center ">
-                  
-                    <div className="description1 mb-5 font-mona font-bold">
-                      {instructor.description}
-                    </div>
-                    <div className="icon flex justify-center mb-5 text-orange-500 text-3xl">
-                      {instructor.boardIcon}
-                    </div>
-                    <div className="icon flex justify-center font-monaBold text-3xl ">
-                      {instructor.effectivenessPercent}
-                    </div>
-                    <div className="icon flex justify-center font-sans text-sm text-gray-400 mb-5">
-                      {instructor.effectivenessDesc}
-                    </div>
-                    
+                <div className="description text-center">
+                  <div className="description1 mb-5 font-mona font-bold">
+                    {instructor.description}
+                  </div>
+                  <div className="icon flex justify-center mb-5 text-orange-500 text-3xl">
+                    {instructor.boardIcon}
+                  </div>
+                  <div className="icon flex justify-center font-monaBold text-3xl">
+                    {instructor.effectivenessPercent}
+                  </div>
+                  <div className="icon flex justify-center font-sans text-sm text-gray-400 mb-5">
+                    {instructor.effectivenessDesc}
+                  </div>
+
                   <div className="social-icons flex justify-center">
                     <button className="m-2 text-neutral-600 bg-gray-300 p-4 rounded-3xl">
                       {instructor.facebookIcon}
@@ -129,18 +143,25 @@ const Instructors = () => {
           ))}
         </div>
 
-      <div className="my-auto ml-6">
-      {currentindex!==instructors.length-1 && (<button className="text-xl" onClick={()=>changecard(currentindex+1)}><FaForward className="text-blue-500 p-2 text-5xl rounded-3xl bg-gray-400"/></button>) }        </div>
-      
+        {/* Right Arrow */}
+        <div className="my-auto mx-auto ">
+          {currentindex !== instructors.length - 1 && (
+             <button
+             className="text-xl bg-blue-500  text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+             onClick={() => changecard(currentindex + 1)}
+           >
+              <FaArrowRight />
+            </button>
+          )}
+        </div>
       </div>
-      
+
+      {/* Dots Navigation */}
       <div className="flex justify-center mt-6 mb-10">
         {instructors.map((_, index) => (
           <div
             key={index}
-            className={`w-2 h-2 mx-2 rounded-full cursor-pointer ${
-              currentindex === index ? "bg-blue-500" : "bg-gray-300"
-            }`}
+            className={`w-2 h-2 mx-2 rounded-full cursor-pointer ${currentindex === index ? "bg-blue-500" : "bg-gray-300"}`}
             onClick={() => changecard(index)}
           />
         ))}

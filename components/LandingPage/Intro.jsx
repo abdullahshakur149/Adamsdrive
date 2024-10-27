@@ -5,12 +5,12 @@ import intro from '@/public/img/images/images/intro.gif';
 
 const IntroSection = () => {
   return (
-    <div className=" w-full bg-blue-50">
+    <div className=" w-full ">
       {/* Intro Image and Text */}
       <Image src={intro} className="w-full relative" alt="Driving School" />
       <div className="absolute top-12 left-2 sm:top-14 sm:left-4 md:top-20 md:left-24 lg:top-44 lg:left-40 xl:top-48 xl:left-64 2xl:left-80 2xl:top-1/4   text-black">
       
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-5xl 2xl:text-5xl font-monaBold leading-snug">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-5xl 2xl:text-5xl font-monaBold leading-snug">
           The truest drive <br /> comes from doing <br /> what you love.
         </h1>
         <div className="mt-5 ">
@@ -34,17 +34,17 @@ const IntroSection = () => {
           </div>
         </div>
         <div className="buttons flex space-x-2 ">
-          <button className="p-2 sm:p-2 md:p-2 bg-orange-500 text-xs sm:text-sm lg:text-xs xl:text-lg text-white font-bold rounded-lg shadow-lg">
+          <button className="p-2 sm:p-2 md:p-2 bg-orange-500 text-xs sm:text-sm lg:text-xs xl:text-sm xl:px-6 xl:py-3 xl:mt-10 text-white font-bold rounded-lg shadow-lg">
             Courses & Pricing
           </button>
-          <button className="p-2 sm:p-2 md:p-2 text-xs sm:text-sm lg:text-xs xl:text-lg bg-black text-white font-bold rounded-lg shadow-lg">
+          <button className="p-2 sm:p-2 md:p-2 text-xs sm:text-sm  lg:text-xs xl:text-sm xl:px-6 bg-black xl:mt-10 text-white font-bold rounded-lg shadow-lg">
             About Us
           </button>
         </div>
       </div>
 
       {/* Stats Section */}
-      <div className="container mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-20 p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+      <div className="container mx-auto bg-default  p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         <div className="stat flex">
           <div className="icon">
             <FaUser className="text-orange-500 text-2xl sm:text-3xl md:text-4xl mx-auto mb-1 mt-1 mr-3" />
