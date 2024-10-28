@@ -18,7 +18,7 @@ const Advantage_Experience = () => {
         <Image src={logo} alt='aboutus'   className='object-cover  w-full rounded-l-2xl ' />
       </div>
 
-      <div className="w-full xl:w-6/12 bg-white rounded-3xl shadow-lg flex flex-col p-6 md:p-10">
+      <div className="w-full xl:w-6/12 bg-white rounded-r-3xl shadow-lg flex flex-col p-6 md:p-10">
         {/* About Us Title */}
         <div className="text-center mt-6 lg:mt-12">
           <h1 className="text-sm md:text-base text-blue-500 font-bold mt-4">About us</h1>
