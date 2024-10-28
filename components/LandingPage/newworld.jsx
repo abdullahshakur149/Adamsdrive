@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useState,useEffect } from "react";
 import Image from 'next/image'
 import driving from "@/public/img/driving.jpg";
-import opinion from "@/public/img/images/images/news.gif";
+import opinion from "@/public/img/images/images/news.png";
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import { FaArrowRight, FaFacebook } from 'react-icons/fa'
@@ -17,7 +17,7 @@ const Newworld = () => {
       },[])
     return (
         <div   className='bg-white flex justify-center relative mt-32 mb-32   w-full'>
-            {/* <Image src={opinion} className='absolute' /> */}
+            <Image src={opinion} className='absolute top-0 left-0 lg:flex hidden'  />
             <div className="data z-50 flex justify-center md:flex-row flex-col">
                 <div data-aos="fade-up" className="md:w-4/12 w-full  m-8 flex-col space-y-8 mt-32">
                     <span className='text-blue-500 text-sm font-extrabold font-monaBold'>News</span>

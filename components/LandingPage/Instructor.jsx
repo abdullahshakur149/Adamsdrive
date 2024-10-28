@@ -96,7 +96,7 @@ const Instructors = () => {
   }
 
   return (
-    <div data-aos="fade-up" className="relative ">
+    <div data-aos="fade-up" className="relative mt-40 ">
       <Image
         src={bgimage}
         className="absolute top-0 left-0  w-full h-full object-cover"
@@ -104,7 +104,7 @@ const Instructors = () => {
         layout="fill"
       />      
       <div className="text-center mt-20 relative">
-        <h1 className="text-md text-blue-500 font-monaBold mt-4">Courses & Pricing</h1>
+        <h1 className="text-md text-blue-500 font-monaBold mt-4">Our Instructors</h1>
         <h1 className="text-4xl font-monaBold text-center mt-3 mb-8">
           It's only you who chooses
           <br /> who will be your instructor
