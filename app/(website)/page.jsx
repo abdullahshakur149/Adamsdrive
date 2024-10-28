@@ -12,27 +12,27 @@ const MainLanding = () => {
   return (
 
     <div>
-<div className="w-11/12 mx-auto">
-<Navbar />
-</div>
+      <div className="w-11/12 mx-auto">
+        <Navbar />
+      </div>
 
 
-      
+
       <div className="w-11/12 bg-default  mx-auto">
-      <Intro  />
-      <CourseandPricing />
-      <Advantage_Experience />
-      <Instructor/>
-      <Newworld/>
+        <Intro />
+        <CourseandPricing />
+        <Advantage_Experience />
+        <Instructor />
+        <Newworld />
       </div>
       <div className='w-11/12 bg-white mx-auto'>
-      <Testimonials/>
-      <ContactUs/>      
-      </div>      
-      
+        <Testimonials />
+        <ContactUs />
+      </div>
 
 
-      
+
+
     </div>
   )
 }
