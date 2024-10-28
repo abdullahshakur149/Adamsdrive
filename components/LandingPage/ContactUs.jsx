@@ -1,12 +1,21 @@
 "use client"; // Make the component a Client Component
 import logo from "@/public/img/Loginlogo.png";
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import React from 'react';
+import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaArrowUp } from 'react-icons/fa';
+import React, { useEffect } from 'react';
 import contactimage from "@/public/img/images/images/contactus.png";
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaArrowUp } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ContactUs = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 800, // Animation duration in milliseconds
+            offset: 100,  // Offset from the original trigger point
+            easing: 'ease-in-out',  // Easing function for animations
+        });
+    }, []);
+
     const scroll = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -14,18 +23,18 @@ const ContactUs = () => {
     return (
         <div className='text-center relative bg-default py-12'>
             <Image src={contactimage} className='absolute object-cover w-full h-full' />
-            <div className="content relative mt-20 w-10/12 md:w-8/12 mx-auto ">
-                <h1 className="text-blue-500 font-extrabold font-mona text-sm md:text-md mb-5">Contact Us</h1>
-                <h1 className="text-4xl font-monaBold">If you have any questions,<br /> feel free to contact</h1>
+            <div data-aos="fade-up" className="content relative mt-20 w-10/12 md:w-8/12 mx-auto">
+                <h1 data-aos="fade-down" className="text-blue-500 font-extrabold font-mona text-sm md:text-md mb-5">Contact Us</h1>
+                <h1 data-aos="fade-up" className="text-4xl font-monaBold">If you have any questions,<br /> feel free to contact</h1>
 
                 <div className="py-12 px-4">
                     <div className="max-w-5xl mx-auto flex flex-wrap justify-center">
                         {/* Contact Form Section (8 columns) */}
-                        <div className="bg-white p-8 rounded-2xl shadow-lg flex-1 md:w-8/12 mb-8">
+                        <div data-aos="fade-right" className="bg-white p-8 rounded-2xl shadow-lg flex-1 md:w-8/12 mb-8">
                             <h2 className="text-orange-500 text-lg font-bold flex items-center">
                                 <span className="mr-2"><FaMapMarkerAlt /></span> Online Form
                             </h2>
-                            <p className="text-gray-600 mt-2 mb-8 text-start font-bold">
+                            <p data-aos="fade-left" className="text-gray-600 mt-2 mb-8 text-start font-bold">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed porttitor, tristique velit eget.
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -47,34 +56,25 @@ const ContactUs = () => {
                         </div>
 
                         {/* Address Section (4 columns) */}
-                        <div className="w-full md:w-4/12 bg-blue-500/95 text-start text-white rounded-lg p-10 font-sans mb-8">
+                        <div data-aos="zoom-in" className="w-full md:w-4/12 bg-blue-500/95 text-start text-white rounded-lg p-10 font-sans mb-8">
                             <div className="mb-8">
-                                {/* Icon and Title */}
                                 <div className="flex items-center mb-3">
                                     <FaMapMarkerAlt className="text-white text-xl" />
                                     <h3 className="text-lg font-semibold ml-2">Our address</h3>
                                 </div>
-
-                                {/* Address */}
                                 <p className="text-sm leading-6">
                                     100 Orchard St,<br />
                                     New York, NY 10002,<br />
                                     USA
                                 </p>
-
-                                {/* Opening Hours */}
                                 <div className="mt-4 text-sm">
                                     <p><strong>Monday - Friday</strong><br />08:00 AM - 06:00 PM</p>
                                     <p className="mt-3"><strong>Saturday</strong><br />08:00 AM - 06:00 PM</p>
                                 </div>
-
-                                {/* Contact */}
                                 <p className="mt-4 text-sm">
                                     <a href="mailto:office@muffingroup.com" className="hover:underline">office@muffingroup.com</a><br />
                                     +91-8010300865
                                 </p>
-
-                                {/* Social Icons */}
                                 <div className="flex mt-4 space-x-3">
                                     <a href="#" className="text-blue-600 bg-blue-300 p-2 rounded-3xl">
                                         <FaFacebook className="text-xl" />
@@ -89,24 +89,23 @@ const ContactUs = () => {
                             </div>
 
                             {/* Help Desk Section */}
-                            <div className="w-full mt-8 rounded-lg">
+                            <div data-aos="flip-up" className="w-full mt-8 rounded-lg">
                                 <p className="text-sm">
                                     Our help desk is available for you<br />every day, 07:00 AM - 10:00 PM
                                 </p>
                                 <div className="flex justify-center items-center mt-3">
-                                    <p className="text-4xl font-bold"><span className="text-sm font-monaBold">+91</span><br /> 8010200666</p>
+                                    <p className=" text-xl xl:text-4xl lg:text-3xl font-bold"><span className=" xl:text-sm font-monaBold">+91</span><br /> 8010200666</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <footer className="py-8 px-4">
+                    <footer data-aos="fade-up" className="py-8 px-4">
                         <div className="max-w-5xl mx-auto flex flex-col space-y-4 md:space-y-0">
-                            {/* Logo and Text */}
                             <div className="flex space-x-2 mt-6 mb-5">
                                 <div className="w-8 h-8 rounded-full">
                                     <Image src={logo} />
-                                </div> {/* Placeholder for logo image */}
+                                </div>
                                 <span className="text-xl font-monaBold text-blue-600">Adam's Drive</span>
                                 <button
                                     onClick={scroll}
@@ -117,7 +116,6 @@ const ContactUs = () => {
                                 </button>
                             </div>
 
-                            {/* Navigation Links */}
                             <div className="flex flex-wrap  space-x-6 text-gray-900 font-bold text-sm">
                                 <a className="hover:underline" href="#courses">Courses & Pricing</a>
                                 <a className="hover:underline" href="#about">About us</a>
@@ -128,9 +126,8 @@ const ContactUs = () => {
                             </div>
                         </div>
 
-                        {/* Bottom Text */}
                         <div className="mt-2 text-gray-500 text-sm text-start">
-                            © 2024 BeDriver - BeTheme. All Rights Reserved. Muffin group
+                            © 2024 Adam's Drive All Rights Reserved. Muffin group
                         </div>
                     </footer>
                 </div>

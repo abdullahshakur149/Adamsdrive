@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@shadcn/ui": "^0.0.4",
+    "aos": "^2.3.4",
     "formik": "^2.4.6",
     "next": "14.2.16",
     "react": "^18",

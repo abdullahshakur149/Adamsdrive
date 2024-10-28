@@ -24,6 +24,9 @@ module.exports = {
         '2xl': '1800px',
         'lg':'1023px' // Adjust as needed
       },
+      fontSize:{
+        'xsmall':"7px"
+      }
       
     },
   },

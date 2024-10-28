@@ -1,9 +1,19 @@
-import React from 'react'
+
+"use client"
+import React, { useEffect } from 'react';
 import Image from 'next/image'
 import logo from "@/public/img/driving.jpg"
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 const Advantage_Experience = () => {
+  useEffect(()=>{
+    Aos.init({
+      duration:1000,
+      once:false
+    })
+  },[])
   return (
-    <div className=' flex lg:flex-row flex-col    m-20   md:mt-40 mt-96 ' >
+    <div data-aos="zoom-in" className=' flex lg:flex-row flex-col  m-5  md:m-20   md:mt-40 lg:mt-0 mt-96 ' >
       <div className=" relative   xl:w-6/12 w-full xl:flex hidden   ">
         <Image src={logo} alt='aboutus'   className='object-cover  w-full rounded-l-2xl ' />
       </div>
@@ -21,7 +31,7 @@ const Advantage_Experience = () => {
         <div className="history flex flex-col md:flex-row items-center md:items-start pl-0 md:pl-10 mt-6 md:mt-16 mx-auto space-y-6 md:space-y-0">
           
           {/* Since 1992 Section */}
-          <div className="w-full lg:w-6/12 flex flex-col items-center md:items-start p-2">
+          <div className="w-full lg:w-6/12 flex flex-col items-center md:items-start md:p-2">
             <span className="text-blue-600 font-bold text-xs md:text-sm">Since</span>
             <span className="text-blue-600 font-extrabold text-5xl md:text-6xl xl:text-7xl">1992</span>
 
@@ -32,7 +42,7 @@ const Advantage_Experience = () => {
           </div>
 
           {/* Additional Text Section */}
-          <div className="w-full md:w-6/12 p-2 pr-6 text-center md:text-left">
+          <div className="w-full md:w-6/12 md:p-2 md:pr-6 text-center md:text-left">
             <p className="font-semibold text-xs md:text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam magni!</p>
             <p className="mt-4 md:mt-10 text-xs md:text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam magni! magni!</p>
             <p className="mt-4 md:mt-10 text-xs md:text-sm">Lorem ipsum dolor, ipsam magni! Adipisicing elit.</p>

@@ -4,13 +4,20 @@ import React, { useState,useEffect } from "react";
 import { FaFacebook, FaInstagram, FaClipboardList, FaTwitter,  FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import image from "@/public/img/Loginlogo.png";
 import bgimage from '@/public/img/images/images/Course&price.gif';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Instructors = () => {
   const [currentindex, setcurrentindex] = useState(0);
   const [isFading, setisFading] = useState(false);
   const [isMdScreen, setIsMdScreen] = useState(false);
   const [isLGScreen, setIsLGScreen] = useState(false);
-
+  useEffect(() => {
+    AOS.init({
+        duration: 800, // Animation duration in milliseconds
+        offset: 100,  // Offset from the original trigger point
+        easing: 'ease-in-out',  // Easing function for animations
+    });
+}, []);
   const [instructors, setInstructors] = useState([
     {
       image: <Image src={image} alt="Rogan Massey" width={100} height={100} className="mx-auto" />,
@@ -89,10 +96,10 @@ const Instructors = () => {
   }
 
   return (
-    <div className="relative">
+    <div data-aos="fade-up" className="relative ">
       <Image
         src={bgimage}
-        className="absolute top-0 left-0 w-full h-full object-contain"
+        className="absolute top-0 left-0  w-full h-full object-cover"
         alt="Course Pricing Background"
         layout="fill"
       />      
@@ -177,11 +184,11 @@ const Instructors = () => {
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex justify-center mt-6 z-50   mb-10">
+      <div className="flex justify-center z-50 mt-6 mb-10">
         {instructors.map((_, index) => (
           <div
             key={index}
-            className={`w-2 h-2 mx-2 rounded-full cursor-pointer z-50 ${currentindex === index ? "bg-blue-500" : "bg-gray-300"}`}
+            className={`w-2 h-2 mx-2 z-50 rounded-full cursor-pointer ${currentindex === index ? "bg-blue-500" : "bg-gray-300"}`}
             onClick={() => changecard(index)}
           />
         ))}

@@ -65,12 +65,12 @@ const Testimonials = () => {
 
         {/* Navigation Arrows */}
         <div className="absolute inset-y-44
-         md:inset-y-0 md:left-20 lg:left-36 xl:left-80 left-0 flex items-center">
+         md:inset-y-0 md:left-24 lg:left-36 xl:left-80 left-0 flex items-center">
           <button onClick={handlePrev} className="text-sm bg-gray-200  text-gray-500 p-1 rounded-full shadow-lg hover:scale-110 transition-transform">
             <FaArrowLeft size={20} />
           </button>
         </div>
-        <div className="absolute inset-y-44 md:inset-y-0 md:right-20 lg:right-36 xl:right-80 right-0 flex items-center">
+        <div className="absolute inset-y-44 md:inset-y-0 md:right-24 lg:right-36 xl:right-80 right-0 flex items-center">
           <button onClick={handleNext} className="text-sm bg-gray-200  text-gray-500 p-1 rounded-full shadow-lg hover:scale-110 transition-transform">
             <FaArrowRight size={20} />
           </button>
