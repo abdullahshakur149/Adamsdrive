@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import logo from "@/public/img/Loginlogo.png";
 import Image from "next/image";
 import Link from "next/link";
+import "./Navbar.css"
 import { FaBars, FaPhoneAlt, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
@@ -20,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="w-full">
       {/* Navbar for larger screens */}
-      <div className="hidden md:flex md:mt-5 md:p-2 justify-between items-center">
+      <div className="hidden lg:flex md:mt-5  justify-between items-center">
         {/* Logo and Links */}
         <div className="flex items-center">
           <div className="md:ml-5">
@@ -28,13 +29,13 @@ const Navbar = () => {
               <Image src={logo} className="w-16 md:w-20" alt="logo" />
             </Link>
           </div>
-          <div className="ml-10">
-            <ul className="flex space-x-4">
+          <div className="xl:ml-10 lg:ml-3">
+            <ul className="flex md:space-x-2 lg:space-x-4">
               {Links.map((link, idx) => (
                 <li key={idx}>
                   <Link
                     href={link.path}
-                    className="text-sm md:text-base text-zinc-900 font-semibold hover:text-blue-500 transition"
+                    className=" links md:text-xs xl:text-base  text-zinc-900 font-semibold hover:text-blue-500 transition"
                   >
                     {link.pathname}
                   </Link>
@@ -48,14 +49,14 @@ const Navbar = () => {
         <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
           <div className="flex items-center text-gray-700">
             <FaPhoneAlt className="text-yellow-700/75 mr-2 text-lg lg:text-xl" />
-            <Link href="#" className="font-bold text-base md:text-lg lg:text-xl">
+            <Link href="#" className="font-monaBold text-base md:text-sm lg:text-base xl:text-xl">
               +91-802342523
             </Link>
           </div>
           <div>
             <Link
               href="/login"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm md:text-base lg:text-lg hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm md:text-base lg:text-base hover:bg-blue-700 transition"
             >
               Login
             </Link>
@@ -64,7 +65,7 @@ const Navbar = () => {
       </div>
 
       {/* Sidebar and toggle button for mobile */}
-      <div className="md:hidden flex items-center justify-between p-4 w-full">
+      <div className="lg:hidden flex items-center justify-between p-4 w-full">
         <Link href="#">
           <Image src={logo} className="w-12" alt="logo" />
         </Link>
@@ -88,7 +89,7 @@ const Navbar = () => {
       >
         <div className="flex justify-between items-center mb-8">
           <Link href="#">
-            <Image src={logo} className="w-12" alt="logo" />
+            <Image src={logo} className="w-10" alt="logo" />
           </Link>
           <button onClick={() => setSidebarOpen(false)} aria-label="Close Menu">
             <FaTimes size={24} />

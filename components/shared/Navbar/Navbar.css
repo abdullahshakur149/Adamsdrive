@@ -10,10 +10,13 @@
     width: 0%;
     height: 2px;
     left: 0;
-    bottom: 0;
-    background-color: #22227c; /* Change to your desired underline color */
+    bottom: 10;
+    display: flex;
+    justify-items: center;
+    background-color: #2892ca; /* Change to your desired underline color */
 }
 .links:hover::after{
     width: 100%;
+    
     transition: 0.3s ease;
 }

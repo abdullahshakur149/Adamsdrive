@@ -3,42 +3,42 @@ import Image from 'next/image'
 import logo from "@/public/img/driving.jpg"
 const Advantage_Experience = () => {
   return (
-    <div className=' flex md:flex-row mt-36  flex-col m-20  ' >
-      <div className=" relative   md:w-6/12 ">
-        <Image src={logo} alt='aboutus' layout='fill'  className='object-cover  w-full rounded-l-2xl ' />
+    <div className=' flex lg:flex-row flex-col    m-20   md:mt-40 mt-96 ' >
+      <div className=" relative   xl:w-6/12 w-full xl:flex hidden   ">
+        <Image src={logo} alt='aboutus'   className='object-cover  w-full rounded-l-2xl ' />
       </div>
 
-      <div className="w-6/12 bg-white h-full   rounded-r-3xl shadow-lg">
-
-        <div className="info text-center mt-24 ">
-          <h1 className='text-md text-blue-500 font-monaBold mt-4'>About us </h1>
-          <h1 className='xl:text-4xl font-monaBold   text-center mt-3 mb-8 '>Our advantage is experience <br></br> and knowledge </h1>
+      <div className="w-full xl:w-6/12 bg-white rounded-3xl shadow-lg flex flex-col p-6 md:p-10">
+        {/* About Us Title */}
+        <div className="text-center mt-6 lg:mt-12">
+          <h1 className="text-sm md:text-base text-blue-500 font-bold mt-4">About us</h1>
+          <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold mt-3 mb-8">
+            Our advantage is experience <br /> and knowledge
+          </h2>
         </div>
 
-        <div className="history   pl-20 mt-16 mx-auto flex">
+        {/* History Section */}
+        <div className="history flex flex-col md:flex-row items-center md:items-start pl-0 md:pl-10 mt-6 md:mt-16 mx-auto space-y-6 md:space-y-0">
+          
+          {/* Since 1992 Section */}
+          <div className="w-full lg:w-6/12 flex flex-col items-center md:items-start p-2">
+            <span className="text-blue-600 font-bold text-xs md:text-sm">Since</span>
+            <span className="text-blue-600 font-extrabold text-5xl md:text-6xl xl:text-7xl">1992</span>
 
-          <div className="w-6/12 mx-auto flex flex-col p-2 ">
-            <span className='text-blue-600 font-mona font-extrabold text-sm'>Since</span>
-            <span className='text-blue-600 font-monaBold  text-7xl'>1992</span>
-
-            <div className="text  flex-col mt-7 mb-10 font-bold ">
-              <p className='text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.ic ipsam magni!.</p>
-              <p className='mt-10 text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.ic ipsam !.</p>
-
+            <div className="mt-5 md:mt-7 mb-5 md:mb-10 text-center md:text-left">
+              <p className="text-xs md:text-sm font-semibold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam magni!</p>
+              <p className="mt-4 md:mt-10 text-xs md:text-sm font-semibold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam!</p>
             </div>
           </div>
 
-          <div className="w-6/12 mt-4 p-2 pr-6 ">
-          <div className="text flex-col   ">
-              <p className='font-bold text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.ic ipsam magni!.</p>
-              <p className='mt-10 text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.ic ipsam magni! magni!.</p>
-              <p className='mt-10 text-sm'>Lorem ipsum, dolor.ic ipsam magni!r adipisicing elit.ic ipsam !.</p>
-
-            </div>          
-            </div>
+          {/* Additional Text Section */}
+          <div className="w-full md:w-6/12 p-2 pr-6 text-center md:text-left">
+            <p className="font-semibold text-xs md:text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam magni!</p>
+            <p className="mt-4 md:mt-10 text-xs md:text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam magni! magni!</p>
+            <p className="mt-4 md:mt-10 text-xs md:text-sm">Lorem ipsum dolor, ipsam magni! Adipisicing elit.</p>
+          </div>
 
         </div>
-
       </div>
     </div>
   )

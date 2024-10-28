@@ -1,13 +1,16 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
-import { FaBackward, FaFacebook, FaForward, FaInstagram, FaClipboardList, FaTwitter, FaArrowCircleLeft, FaArrowCircleRight, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import React, { useState,useEffect } from "react";
+import { FaFacebook, FaInstagram, FaClipboardList, FaTwitter,  FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import image from "@/public/img/Loginlogo.png";
 import bgimage from '@/public/img/images/images/Course&price.gif';
 
 const Instructors = () => {
   const [currentindex, setcurrentindex] = useState(0);
   const [isFading, setisFading] = useState(false);
+  const [isMdScreen, setIsMdScreen] = useState(false);
+  const [isLGScreen, setIsLGScreen] = useState(false);
+
   const [instructors, setInstructors] = useState([
     {
       image: <Image src={image} alt="Rogan Massey" width={100} height={100} className="mx-auto" />,
@@ -58,8 +61,24 @@ const Instructors = () => {
       instagramIcon: <FaInstagram />,
     },
   ]);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMdScreen(window.innerWidth >= 768);
+      setIsLGScreen(window.innerWidth >= 1280);
 
-  const instructor = instructors.slice(currentindex, currentindex + 3);
+    };
+
+    handleResize(); // Call on initial load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Show one card when screen width is md
+  const instructor = isLGScreen
+  ? instructors.slice(currentindex, currentindex + 3)
+  : isMdScreen
+  ? instructors.slice(currentindex, currentindex + 2)
+  : instructors.slice(currentindex, currentindex + 1);
 
   const changecard = (newindex) => {
     setisFading(true);
@@ -86,10 +105,10 @@ const Instructors = () => {
       </div>
       <div className="instructors flex justify-center relative">
         {/* Left Arrow */}
-        <div className="my-auto mx-auto">
+        <div className="my-auto mx-auto  z-50 -translate-x-10 sm:-translate-x-20 lg:translate-x-0  ">
           {currentindex !== 0 && (
             <button
-              className="text-xl bg-blue-500  text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+              className="text-xl bg-blue-500 z-50    text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
               onClick={() => changecard(currentindex - 1)}
             >
               <FaArrowLeft />
@@ -141,13 +160,14 @@ const Instructors = () => {
               </div>
             </div>
           ))}
+          
         </div>
 
         {/* Right Arrow */}
-        <div className="my-auto mx-auto ">
+        <div className="my-auto mx-auto z-50 translate-x-10 sm:translate-x-20 lg:translate-x-0   ">
           {currentindex !== instructors.length - 1 && (
              <button
-             className="text-xl bg-blue-500  text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+             className="text-xl bg-blue-500 z-50   text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
              onClick={() => changecard(currentindex + 1)}
            >
               <FaArrowRight />
@@ -157,11 +177,11 @@ const Instructors = () => {
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex justify-center mt-6 mb-10">
+      <div className="flex justify-center mt-6 z-50   mb-10">
         {instructors.map((_, index) => (
           <div
             key={index}
-            className={`w-2 h-2 mx-2 rounded-full cursor-pointer ${currentindex === index ? "bg-blue-500" : "bg-gray-300"}`}
+            className={`w-2 h-2 mx-2 rounded-full cursor-pointer z-50 ${currentindex === index ? "bg-blue-500" : "bg-gray-300"}`}
             onClick={() => changecard(index)}
           />
         ))}

@@ -39,8 +39,8 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-white text-center relative py-12">
-      <Image src={opinion} className=' absolute '/>
+    <div className="bg-white text-center relative mb-12 mt-0 ">
+      <Image src={opinion} className=' absolute md:flex hidden '/>
       <h1 className="text-blue-500 font-extrabold font-mona text-sm text-md mb-5">Testimonials</h1>
       <h1 className="text-4xl font-monaBold">The opinions of our students<br></br> confirm our effectiveness</h1>
 
@@ -57,20 +57,21 @@ const Testimonials = () => {
             ))}
           </div>
 
-          <p className="mt-6 text-gray-700 max-w-xl">
+          <p className="mt-6 text-gray-700 text-center max-w-lg ">
             {testimonials[currentIndex].desc}
           </p>
           <span className="text-blue-500 font-bold">{testimonials[currentIndex].name_city}</span>
         </div>
 
         {/* Navigation Arrows */}
-        <div className="absolute inset-y-0 left-0 flex items-center">
-          <button onClick={handlePrev} className="text-xl bg-gray-200  text-gray-500 p-2 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <div className="absolute inset-y-44
+         md:inset-y-0 md:left-20 lg:left-36 xl:left-80 left-0 flex items-center">
+          <button onClick={handlePrev} className="text-sm bg-gray-200  text-gray-500 p-1 rounded-full shadow-lg hover:scale-110 transition-transform">
             <FaArrowLeft size={20} />
           </button>
         </div>
-        <div className="absolute inset-y-0 right-0 flex items-center">
-          <button onClick={handleNext} className="text-xl bg-gray-200  text-gray-500 p-2 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <div className="absolute inset-y-44 md:inset-y-0 md:right-20 lg:right-36 xl:right-80 right-0 flex items-center">
+          <button onClick={handleNext} className="text-sm bg-gray-200  text-gray-500 p-1 rounded-full shadow-lg hover:scale-110 transition-transform">
             <FaArrowRight size={20} />
           </button>
         </div>
