@@ -53,7 +53,7 @@ const IntroSection = () => {
       </div>
 
       {/* Stats Section */}
-      <div data-aos='fade-in' className="container  bg-default   p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 ">
+      <div data-aos='fade-in' className="container  bg-default   p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center mx-auto lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 ">
         <div className="stat flex">
           <div className="icon">
             <FaUser className="text-orange-500 text-2xl sm:text-3xl md:text-4xl mx-auto mb-1 mt-1 mr-3" />
