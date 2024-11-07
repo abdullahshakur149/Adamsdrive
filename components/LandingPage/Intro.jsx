@@ -14,10 +14,10 @@ const IntroSection = () => {
     })
   },[])
   return (
-    <div className=" w-full  ">
+    <div className=" w-full   ">
       {/* Intro Image and Text */}
       <Image src={intro} className="w-full " data-aos='fade-in' alt="Driving School" />
-      <div data-aos="fade-right" data-aos-delay= "1500" className="absolute top-20   left-10 sm:top-32 sm:left-24 md:top-28 md:left6-24 lg:top-32 lg:left-36 xl:top-44 xl:left-52 2xl:left-80 2xl:top-60     text-black">
+      <div data-aos="fade-right" data-aos-delay= "1500" className="absolute top-20   left-10 sm:top-32 sm:left-24 md:top-28 md:left-24 lg:top-32 lg:left-36 xl:top-52 xl:left-52 2xl:left-80 2xl:top-72     text-black">
       
         <h1 className="  text-xs  sm:text-xl md:text-xl lg:text-4xl xl:text-5xl 2xl:text-6xl  font-monaBold leading-snug">
           The truest drive <br /> comes from doing <br /> what you love.
@@ -53,10 +53,10 @@ const IntroSection = () => {
       </div>
 
       {/* Stats Section */}
-      <div data-aos='fade-in' className="container  bg-default   p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center mx-auto lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 ">
+      <div data-aos='fade-in' className="container   bg-default   p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center mx-auto lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 ">
         <div className="stat flex">
           <div className="icon">
-            <FaUser className="text-orange-500 text-2xl sm:text-3xl md:text-4xl mx-auto mb-1 mt-1 mr-3" />
+            <FaUser className="text-orange-500 text-2xl sm:text-3xl md:text-2xl mx-auto mb-1 mt-1 mr-3" />
           </div>
           <div className="info">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">8649</h2>
@@ -67,7 +67,7 @@ const IntroSection = () => {
         </div>
         <div className="stat flex">
           <div className="icon">
-            <FaCar className="text-orange-500 text-2xl sm:text-3xl md:text-4xl mx-auto mb-1 mt-1 mr-3" />
+            <FaCar className="text-orange-500 text-2xl sm:text-3xl md:text-2xl mx-auto mb-1 mt-1 mr-3" />
           </div>
           <div className="info">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">76</h2>
@@ -78,7 +78,7 @@ const IntroSection = () => {
         </div>
         <div className="stat flex">
           <div className="icon">
-            <FaClipboardList className="text-orange-500 text-2xl sm:text-3xl md:text-4xl mx-auto mb-1 mt-1 mr-3" />
+            <FaClipboardList className="text-orange-500 text-2xl sm:text-3xl md:text-2xl mx-auto mb-1 mt-1 mr-3" />
           </div>
           <div className="info">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">99.8%</h2>
@@ -89,7 +89,7 @@ const IntroSection = () => {
         </div>
         <div className="stat flex ">
           <div className="icon">
-            <FaSync className="text-orange-500 text-2xl sm:text-3xl md:text-4xl mx-auto mb-1 mt-1 mr-3" />
+            <FaSync className="text-orange-500 text-2xl sm:text-3xl md:text-2xl mx-auto mb-1 mt-1 mr-3" />
           </div>
           <div className="info  md:mb-16 lg:mb-0">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">3472</h2>

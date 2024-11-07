@@ -83,7 +83,7 @@ const Navbar = () => {
 
       {/* Sidebar content */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-80 bg-gray-900 text-white p-6 transition-transform duration-300 ${
+        className={`fixed sidebar top-0 right-0 z-50 h-full w-80 bg-gray-900 text-white p-6 transition-transform duration-300 ${
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -127,7 +127,7 @@ const Navbar = () => {
       {/* Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50"
+          className="fixed inset-0 z-50 bg-black  opacity-50"
           onClick={() => setSidebarOpen(false)}
         ></div>
       )}
