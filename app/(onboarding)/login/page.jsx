@@ -19,8 +19,11 @@ const Login = () => {
 
   return (
     <div>
+    <div className="w-11/12 mx-auto">
       <Navbar />
-      <div className="container flex md:flex-row flex-col">
+      </div>
+      <div>
+      <div className="container mx-auto flex md:flex-row flex-col">
         {/* Left side - Logo */}
         <div className="md:w-7/12 w-full bg-white flex justify-center items-center">
           <Image src={logo} className="w-8/12 max-sm:ml-4 mt-16" alt="logo" />
@@ -103,6 +106,8 @@ const Login = () => {
           </Formik>
         </div>
       </div>
+      </div>
+     
     </div>
   );
 };
