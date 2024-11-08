@@ -13,7 +13,7 @@ const Courses = () => {
             try {
                 const response = await axios.get('/api/courses');
                 if (response.data) {
-                    setCourses(response.data.courses);  // Assuming API returns data in { courses: [] } format
+                    setCourses(response.data.courses);  
                 }
             } catch (error) {
                 console.error("Error fetching courses data:", error);
