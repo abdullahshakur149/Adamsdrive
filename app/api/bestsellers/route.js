@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { getAllCourses } from "@/lib/functions/getallcourses";
+import { bestCourses } from "@/lib/functions/bestsellers"
 
 export async function GET() {
     try {
-        const courses = await getAllCourses();
+        const bestcourses = await bestCourses();
+        console.log(bestcourses)
         return NextResponse.json({ status: 200 });
     } catch (error) {
-        console.error(error);
         return NextResponse.json({ status: 500 });
     }
 }

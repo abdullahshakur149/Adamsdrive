@@ -6,7 +6,7 @@ const CourseSchema = new Schema({
     courseCategory: { type: String, enum: ['intensive', 'hourly'], required: true },
     courseDescription: { type: String },
     coursePrice: { type: Number, required: true },
-    duration: { type: Number, required: true }, 
+    duration: { type: Number, required: true },
     fastTrackIncluded: { type: Boolean, default: false },
     bestSeller: { type: Boolean, default: false },
     fastTrackTest: { type: Boolean, default: true }
