@@ -10,7 +10,7 @@ const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const Links = [
-    { pathname: "Courses and Pricing", path: "#" },
+    { pathname: "Courses and Pricing", path: "/courses" },
     { pathname: "About Us", path: "#" },
     { pathname: "Our Instructors", path: "#" },
     { pathname: "News", path: "#" },
@@ -25,7 +25,7 @@ const Navbar = () => {
         {/* Logo and Links */}
         <div className="flex items-center">
           <div className="md:ml-5">
-            <Link href="#">
+            <Link href="/">
               <Image src={logo} className="w-16 md:w-20" alt="logo" />
             </Link>
           </div>

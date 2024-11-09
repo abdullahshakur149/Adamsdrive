@@ -71,11 +71,11 @@ const ContactUs = () => {
                                     <p><strong>Monday - Friday</strong><br />08:00 AM - 06:00 PM</p>
                                     <p className="mt-3"><strong>Saturday</strong><br />08:00 AM - 06:00 PM</p>
                                 </div>
-                                <p className="mt-4 text-sm">
+                                <p className="mt-4 lg:text-sm text-xs">
                                     <a href="mailto:office@muffingroup.com" className="hover:underline">office@muffingroup.com</a><br />
                                     +91-8010300865
                                 </p>
-                                <div className="flex mt-4 space-x-3">
+                                <div className="flex mt-4 lg:space-x-3">
                                     <a href="#" className="text-blue-600 bg-blue-300 p-2 rounded-3xl">
                                         <FaFacebook className="text-xl" />
                                     </a>

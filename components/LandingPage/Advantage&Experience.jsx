@@ -14,7 +14,7 @@ const Advantage_Experience = () => {
     })
   },[])
   return (
-    <div data-aos="zoom-in" className=' flex lg:flex-row flex-col    m-5  md:m-20   md:mt-40 lg:mt-0 xl:mt-36 mt-96 ' >
+    <div data-aos="zoom-in" className=' flex lg:flex-row flex-col    m-5  md:m-20   md:mt-64 lg:mt-40 xl:mt-40 mt-96 ' >
       <div className="xl:flex hidden">
       <Image src={blueicon} className='absolute z-20 opacity-75  object-cover -top-14 xl:left-60 2xl:left-96 
       '/>
