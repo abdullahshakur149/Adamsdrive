@@ -51,7 +51,7 @@ const CourseDetails = () => {
         <div className="w-11/12 mx-auto">
                             <Navbar />
 
-<div className="lg:w-1/3    mt-10 p-6 bg-white rounded-lg shadow-md border border-gray-200">
+<div className="lg:w-1/3 mx-auto    mt-10 p-6 bg-white rounded-lg shadow-md border border-gray-200">
             {/* "Find lesson pricing near you" Section */}
 
 
