@@ -5,15 +5,16 @@ import Navbar from '@/components/shared/Navbar/Navbar';
 import axios from 'axios';
 
 const Courses = () => {
-    const [courses, setCourses] = useState([]);
+    const [Course, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchCoursesData = async () => {
             try {
-                const response = await axios.get('/api/courses');
+                const response = await axios.get('/api/courses/');
                 if (response.data) {
-                    setCourses(response.data.courses);  
+                    console.log(response.data.courses);
+                    setCourses(response.data.courses);
                 }
             } catch (error) {
                 console.error("Error fetching courses data:", error);
@@ -32,7 +33,7 @@ const Courses = () => {
             <div className="w-11/12 mx-auto">
                 <Navbar />
                 <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {courses.map((course) => (
+                {/* {Course.map((course) => (
                     <div key={course.courseId} className="p-4 border rounded-lg shadow-lg">
                         <h3 className="text-xl font-semibold">{course.courseTitle}</h3>
                         <p className="mt-1 text-gray-600">{course.courseDescription}</p>
@@ -44,7 +45,7 @@ const Courses = () => {
                              Learn More
                         </Link>
                     </div>
-                ))}
+                ))} */}
             </div>
             </div>
             
