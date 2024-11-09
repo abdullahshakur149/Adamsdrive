@@ -12,8 +12,8 @@ const Courses = () => {
         const fetchCoursesData = async () => {
             try {
                 const response = await axios.get('/api/courses/');
+                console.log(response.data)
                 if (response.data) {
-                    console.log(response.data.courses);
                     setCourses(response.data.courses);
                 }
             } catch (error) {
