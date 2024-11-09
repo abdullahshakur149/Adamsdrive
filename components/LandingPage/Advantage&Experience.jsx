@@ -5,6 +5,7 @@ import Image from 'next/image'
 import logo from "@/public/img/driving.jpg"
 import 'aos/dist/aos.css';
 import Aos from 'aos';
+import "@/app/globals.css";
 import blueicon from "@/public/img/images/images/blueicons.png";
 const Advantage_Experience = () => {
   useEffect(()=>{
@@ -14,7 +15,7 @@ const Advantage_Experience = () => {
     })
   },[])
   return (
-    <div data-aos="zoom-in" className=' flex lg:flex-row flex-col    m-5  md:m-20   md:mt-64 lg:mt-40 xl:mt-40 mt-96 ' >
+    <div data-aos="zoom-in" className=' flex lg:flex-row flex-col    m-5 exp md:mt-96    lg:-mt-60 xl:mt-20  ' >
       <div className="xl:flex hidden">
       <Image src={blueicon} className='absolute z-20 opacity-75  object-cover -top-14 xl:left-60 2xl:left-96 
       '/>
