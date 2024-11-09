@@ -6,6 +6,7 @@ import Image from 'next/image';
 import axios from 'axios';
 import { FaArrowRight } from 'react-icons/fa';
 import driving from "@/public/img/images/images/intro.gif";
+import ContactUs from '@/components/LandingPage/ContactUs';
 
 const Courses = () => {
     const [Course, setCourses] = useState([]);
@@ -46,10 +47,10 @@ const Courses = () => {
                 <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {Course.map((course, index) => {
                         const colorClass = colorClasses[index % colorClasses.length];
-                        
+
                         return (
-                            <div 
-                                key={course.courseId} 
+                            <div
+                                key={course.courseId}
                                 className={`relative bg-white ${colorClass.border} border-2 rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
                             >
                                 {/* Course Image */}
@@ -84,7 +85,9 @@ const Courses = () => {
                         );
                     })}
                 </div>
-            </div>
+                <div className="footer mt-10">
+                    <ContactUs />
+                </div>            </div>
         </div>
     );
 };
