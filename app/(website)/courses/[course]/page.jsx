@@ -14,7 +14,7 @@ const CourseDetails = () => {
         const fetchCoursesData = async () => {
             try {
                 const response = await axios.get('/api/courses');  // Fetch all courses
-                const courses = response.data.courses;
+                const courses = response.data.data;
 
                 const matchedCourse = courses.find((c) => c.courseId === courseId);  // Find course by courseId
                 setCourseDetail(matchedCourse);
