@@ -32,11 +32,11 @@ const Courses = () => {
 
     // Define color options for each card
     const colorClasses = [
-        { border: 'border-blue-600', bg: 'bg-blue-600' },
-        { border: 'border-red-600', bg: 'bg-red-600' },
-        { border: 'border-green-600', bg: 'bg-green-600' },
-        { border: 'border-yellow-600', bg: 'bg-yellow-600' },
-        { border: 'border-purple-600', bg: 'bg-purple-600' },
+        { border: 'border-blue-600/50', bg: 'bg-blue-600' },
+        { border: 'border-red-600/50', bg: 'bg-red-600' },
+        { border: 'border-green-600/50', bg: 'bg-green-600' },
+        { border: 'border-yellow-600/50', bg: 'bg-yellow-600' },
+        { border: 'border-purple-600/50', bg: 'bg-purple-600' },
     ];
 
     return (
@@ -50,7 +50,7 @@ const Courses = () => {
                         return (
                             <div 
                                 key={course.courseId} 
-                                className={`relative bg-white ${colorClass.border} border-4 rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
+                                className={`relative bg-white ${colorClass.border} border-2 rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
                             >
                                 {/* Course Image */}
                                 <div className="w-full h-48 relative">
