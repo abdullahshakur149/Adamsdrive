@@ -12,7 +12,7 @@ import axios from 'axios';
 import { useParams } from 'next/navigation';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import ContactUs from '@/components/LandingPage/ContactUs';
-
+import Link from 'next/link';
 const CourseDetails = () => {
     const { course: courseId } = useParams();
     const [courseDetail, setCourseDetail] = useState(null);
@@ -47,6 +47,7 @@ const CourseDetails = () => {
 
                 const matchedCourse = courses.find((c) => c.courseId === courseId);
                 setCourseDetail(matchedCourse);
+            
             } catch (error) {
                 console.error("Error fetching course details:", error);
             } finally {
@@ -55,6 +56,7 @@ const CourseDetails = () => {
         };
 
         fetchCoursesData();
+        
     }, [courseId]);
 
     const handlePostcodeChange = (e) => {
@@ -67,6 +69,8 @@ const CourseDetails = () => {
 
     const handleBookNow = () => {
         console.log("Book Now clicked");
+        console.log(courseDetail);
+        localStorage.setItem("coursedetail",JSON.stringify(courseDetail));
     };
 
     if (loading) return <div className='flex justify-center items-center mt-60 text-3xl font-monaBold'>Loading Course...</div>;
@@ -81,9 +85,8 @@ const CourseDetails = () => {
 
             <div className="w-11/12 lg:w-3/4 mx-auto ">
                 {/* Course Title */}
-
                 <div className="data mt-20">
-                    <h1 className="text-5xl font-bold text-blue-600 text-center lg:text-left mb-6">{courseDetail.courseTitle}</h1>
+                    <h1 className="lg:text-5xl font-bold  rounded-xl  text-blue-600 text-center lg:text-left mb-6">{courseDetail.courseTitle}</h1>
 
                     <div className="flex flex-col lg:flex-row gap-10">
 
@@ -145,7 +148,7 @@ const CourseDetails = () => {
                             </div>
 
                             {/* "Prices from £580" and "Book Now" Button */}
-                            <div className="p-4 bg-white rounded-lg shadow-md text-center">
+                            <Link href={"/Info"} className="p-4 bg-white rounded-lg shadow-md text-center">
                                 <p className="text-xl font-semibold text-gray-700 mb-2">Prices from</p>
                                 <p className="text-3xl font-bold text-blue-800">£{courseDetail.coursePrice}</p>
                                 <button
@@ -154,7 +157,7 @@ const CourseDetails = () => {
                                 >
                                     BOOK NOW
                                 </button>
-                            </div>
+                            </Link>
                         </div>
 
                     </div>
@@ -205,9 +208,9 @@ const CourseDetails = () => {
                             </div>
                         
                             <div className="btn text-center mt-16">
-                                <button className='px-4 py-2 font-semibold text-white text-xl bg-orange-500 rounded-lg hover:bg-orange-600 transition'>
+                                <Link href={"/Info"} className='px-4 py-4 font-semibold text-white text-xl bg-orange-500 rounded-lg hover:bg-orange-600 transition'>
                                     Book Now
-                                </button>
+                                </Link>
                             </div>
                         </div>
                         

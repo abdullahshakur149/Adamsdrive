@@ -45,15 +45,21 @@ const Login = () => {
           >
             {({ errors, touched }) => (
               <Form>
-                <div className="mb-7 mt-3">
+                <div className="mb-7 relative mt-3">
                   <Field
                     name="email"
                     type="email"
-                    placeholder="Email"
+                    placeholder=""
                     className={`p-3 shadow-md shadow-blue-200 border-2 border-blue-300 w-full rounded-md transition-all duration-200 ease-in-out ${
                       touched.email && errors.email ? "border-red-500" : "hover:border-blue-900"
                     }`}
                   />
+                   <label
+                            htmlFor="email"
+                            className="absolute left-4 -top-2.5 bg-white px-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                        >
+                            Email
+                        </label>
                   <ErrorMessage
                     name="email"
                     component="div"
@@ -65,12 +71,18 @@ const Login = () => {
                   <Field
                     name="password"
                     type={showpassword ? "text" : "password"}
-                    placeholder="Password"
+                    placeholder=""
                     className={`p-3 shadow-md  shadow-blue-200 border-2 border-blue-300 w-full rounded-md transition-all duration-200 ease-in-out ${
                       touched.password && errors.password ? "border-red-500" : "hover:border-blue-900"
                     }`}
                     
                   />
+                   <label
+                            htmlFor="phonenumber"
+                            className="absolute left-4 -top-2.5 bg-white px-1 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                        >
+                            Password
+                        </label>
                   <button onClick={()=>setshowpassword(!showpassword)} type="button" className="absolute top-3 right-4">
                     {showpassword ? <FaEyeSlash className="text-blue-500 mt-1" /> : <FaEye className="text-blue-500 mt-1" /> }
                   </button>
