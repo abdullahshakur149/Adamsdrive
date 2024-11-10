@@ -2,6 +2,8 @@
 import React, { useState,useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Navbar from '@/components/shared/Navbar/Navbar';
+import ContactUs from '@/components/LandingPage/ContactUs';
 
 const Page = () => {
 
@@ -43,7 +45,13 @@ const Page = () => {
     });
     
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50">
+        <div>
+            <div className="navbar w-11/12 mx-auto">
+            <Navbar/>
+            </div>
+            
+        <div className="flex  flex-col items-center justify-center min-h-screen ">
+            
             <div className="w-full max-w-lg bg-white shadow-xl rounded-2xl p-10 border border-gray-200">
                 <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Contact Information</h1>
                 <form onSubmit={formik.handleSubmit} className="space-y-6">
@@ -155,6 +163,8 @@ const Page = () => {
                     </button>
                 </form>
             </div>
+        </div>
+        <ContactUs/>
         </div>
     );
 }
