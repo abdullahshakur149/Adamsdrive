@@ -82,6 +82,19 @@ const CourseDetails = () => {
         }
     };
 
+    const handleBookNow2 = (course) => {
+        
+        if(course){
+            const courseData = {
+                courseCategory: course.courseCategory,
+                courseTitle: course.courseTitle,
+                coursePrice: course.coursePrice,
+                courseDuration: course.duration,
+            };
+            localStorage.setItem("coursedetail", JSON.stringify(courseData));
+        }
+    };
+
     if (loading) return <div className='flex justify-center items-center mt-60 text-3xl font-monaBold'>Loading Course...</div>;
     if (!courseDetail) return <div className="text-center mt-20 text-red-500">Course not found.</div>;
 
@@ -221,7 +234,7 @@ const CourseDetails = () => {
                                 </div>
 
                                 <div className="btn text-center mt-16">
-                                    <Link href={"/Info"} className='px-4 py-4 font-semibold text-white text-xl bg-orange-500 rounded-lg hover:bg-orange-600 transition'>
+                                    <Link href={"/Info"} onClick={()=>handleBookNow2(course)} className='px-4 py-4 font-semibold text-white text-xl bg-orange-500 rounded-lg hover:bg-orange-600 transition'>
                                         Book Now
                                     </Link>
                                 </div>
