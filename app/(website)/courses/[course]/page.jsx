@@ -84,7 +84,7 @@ const CourseDetails = () => {
             </div>
 
                 
-            <div className="w-11/12 lg:w-3/4 mx-auto bg-gradient-to-r from-gray-700 via-gray-600 to-gray-400
+            <div className="w-11/12 lg:w-3/4 mx-auto bg-gradient-to-r from-gray-700 via-gray-600 to-gray-400 rounded-lg
 
 
 
