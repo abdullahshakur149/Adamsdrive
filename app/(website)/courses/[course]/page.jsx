@@ -70,7 +70,6 @@ const CourseDetails = () => {
 
     
     const handleBookNow = () => {
-        console.log("Book Now clicked");
         
         if(courseDetail){
             const courseData = {
@@ -80,7 +79,6 @@ const CourseDetails = () => {
                 courseDuration: courseDetail.duration,
             };
             localStorage.setItem("coursedetail", JSON.stringify(courseData));
-            console.log(courseData);
         }
     };
 

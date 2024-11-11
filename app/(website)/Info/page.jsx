@@ -38,7 +38,6 @@ const Page = () => {
                 .min(5, 'Address must be at least 5 characters'),
         }),
         onSubmit: (values,{resetForm}) => {
-            console.log(values);
             const formData = {...values,coursedetail};
             console.log(formData);
             resetForm();
