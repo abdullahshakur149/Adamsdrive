@@ -84,7 +84,12 @@ const CourseDetails = () => {
             </div>
 
                 
-            <div className="w-11/12 lg:w-3/4 mx-auto bg-gradient-to-r from-blue-600 via-cyan-900 to-green-200 ">
+            <div className="w-11/12 lg:w-3/4 mx-auto bg-gradient-to-r from-gray-700 via-gray-600 to-gray-400
+
+
+
+
+ ">
                 {/* Course Title */}
                 <div className="data mt-20   p-10 rounded-xl shadow-md">
                     <h1 className="lg:text-5xl font-bold text-center lg:text-left mb-6 text-white">
