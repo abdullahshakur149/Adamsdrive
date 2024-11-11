@@ -39,8 +39,11 @@ const Page = () => {
         }),
         onSubmit: (values,{resetForm}) => {
             console.log(values);
+            const formData = {...values,coursedetail};
+            console.log(formData);
             resetForm();
-            console.log(coursedetail);
+            
+            
         }
     });
     

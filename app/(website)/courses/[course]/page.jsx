@@ -68,10 +68,20 @@ const CourseDetails = () => {
         console.log("Postcode:", postcode);
     };
 
+    
     const handleBookNow = () => {
         console.log("Book Now clicked");
-        console.log(courseDetail);
-        localStorage.setItem("coursedetail", JSON.stringify(courseDetail));
+        
+        if(courseDetail){
+            const courseData = {
+                courseCategory: courseDetail.courseCategory,
+                courseTitle: courseDetail.courseTitle,
+                coursePrice: courseDetail.coursePrice,
+                courseDuration: courseDetail.duration,
+            };
+            localStorage.setItem("coursedetail", JSON.stringify(courseData));
+            console.log(courseData);
+        }
     };
 
     if (loading) return <div className='flex justify-center items-center mt-60 text-3xl font-monaBold'>Loading Course...</div>;
