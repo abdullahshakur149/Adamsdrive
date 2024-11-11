@@ -8,6 +8,7 @@ import Aos from 'aos';
 import icon1 from "@/public/img/images/images/icon1.png";
 import icon2 from "@/public/img/images/images/11.png";
 import axios from 'axios';
+import Link from 'next/link';
 
 const CourseandPricing = () => {
     useEffect(() => {
@@ -30,6 +31,21 @@ const CourseandPricing = () => {
         };
         getData();
     }, []);
+
+    const handleBookNow = (course) => {
+        console.log("Book Now clicked");
+        
+        if(course){
+            const courseData = {
+                courseCategory: course.courseCategory,
+                courseTitle: course.courseTitle,
+                coursePrice: course.coursePrice,
+                courseDuration: course.duration,
+            };
+            localStorage.setItem("coursedetail", JSON.stringify(courseData));
+            console.log(courseData);
+        }
+    };
 
     return (
         <div className="main-container relative w-full h-screen mt-80   md:mt-52  md:mb-64 lg:-mt-52 xl:mt-10 2xl:-mt-20 ">
@@ -85,9 +101,9 @@ const CourseandPricing = () => {
                             </div>
                         
                             <div className="btn text-center mt-16">
-                                <button className='px-4 py-2 font-semibold text-white text-xl bg-orange-500 rounded-lg hover:bg-orange-600 transition'>
+                                <Link onClick={()=>handleBookNow(course)} href="/Info" className='px-4 py-4 font-semibold text-white text-xl bg-orange-500 rounded-lg hover:bg-orange-600 transition'>
                                     Book Now
-                                </button>
+                                </Link>
                             </div>
                         </div>
                         
