@@ -6,9 +6,9 @@ import { FaArrowLeft } from 'react-icons/fa';
 import Link from 'next/link';
 
 const packages = [
-  { hours: 2, price: 80 },
-  { hours: 6, price: 210, originalPrice: 240, savings: 30 },
-  { hours: 10, price: 350, originalPrice: 400, savings: 50 }
+  { hours: 2, price: 70 },
+  { hours: 1.5, price: 55 },
+  
 ];
 
 const Instructor = () => {
@@ -52,7 +52,7 @@ const Instructor = () => {
       
       {/* Package Hours */}
       <h3 className="text-lg font-semibold mb-2">Choose Your Package Hours</h3>
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-2 gap-4 mb-6">
         {packages.map((pkg, index) => (
           <div
             key={index}
