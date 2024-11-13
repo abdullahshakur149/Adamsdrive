@@ -20,7 +20,7 @@ const Pick = () => {
     <div className="data  bg-cyan-100 h-screen w-full">
        
 <div className='flex flex-col  w-5/12 mx-auto  justify-center '>
-            <h1 className='text-4xl mt-44 font-bold text-gray-600'>Hey! Let's get you driving. Ready to go?</h1>
+            <h1 className='lg:text-4xl mt-44 font-bold text-gray-600'>Hey! Let's get you driving. Ready to go?</h1>
 
             <div className="input flex flex-col mt-10">
                 <span className='text-base font-semibold text-gray-600'>Where do you want to be picked up from?</span>
