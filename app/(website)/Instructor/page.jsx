@@ -19,16 +19,16 @@ const Pick = () => {
     return (
         <>
             <Navbar />
-            <div className="bg-cyan-100 h-screen w-full flex justify-center items-center">
-                <div className="bg-white p-8 rounded-xl shadow-xl w-full sm:w-11/12 md:w-8/12 lg:w-6/12">
-                    <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800 text-center mb-6">Hey! Let's get you driving. Ready to go?</h1>
+            <div className="data bg-cyan-100 h-screen w-full">
+                <div className="flex flex-col w-11/12 sm:w-8/12 md:w-5/12 mx-auto justify-center">
+                    <h1 className="lg:text-4xl mt-20 sm:mt-32 font-bold text-gray-600 text-center sm:text-left">Hey! Let's get you driving. Ready to go?</h1>
 
-                    <div className="flex flex-col mt-8">
-                        <span className="text-lg font-medium text-gray-600">Where do you want to be picked up from?</span>
-                        <div className="flex mt-4 items-center border-b-2 border-blue-950">
-                            <FaLocationArrow className="text-blue-950 mr-3 text-xl" />
+                    <div className="input flex flex-col mt-10">
+                        <span className="text-base font-semibold text-gray-600">Where do you want to be picked up from?</span>
+                        <div className="input-icon flex mt-3 items-center">
+                            <FaLocationArrow className="text-blue-950" />
                             <input
-                                className="w-full py-2 px-4 bg-transparent text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="translate-x-3 border-b-2 p-1 bg-transparent focus:outline-none border-blue-950 w-full"
                                 id="Postalcode"
                                 name="Postalcode"
                                 type="text"
@@ -37,10 +37,9 @@ const Pick = () => {
                                 placeholder="Enter a postcode"
                             />
                         </div>
-
                         <Link
                             onClick={formik.handleSubmit}
-                            className={`mx-auto mt-8 text-xl px-16 py-3 rounded-lg font-semibold transition duration-300 ${postalyes ? 'bg-orange-500 text-white hover:bg-orange-600' : 'bg-gray-700 text-gray-300 cursor-not-allowed'}`}
+                            className={`mx-auto ${postalyes ? 'bg-orange-500 text-white' : 'cursor-not-allowed text-gray-300 bg-gray-700'} mt-16 text-xl px-16 py-3 rounded-lg`}
                             href={postalyes ? "/Instructor" : "#"}
                         >
                             Continue
