@@ -5,11 +5,13 @@ import Contactpopup from '../contactpopup';
 const Ad = () => {
   const [popup, setPopup] = useState(false);
 
-  setTimeout(() => {
-    setPopup(true); // Open the popup on page load
-    
-  }, 3000);
-  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setPopup(true); 
+    }, 3000);
+
+    return () => clearTimeout(timer); 
+  }, []);
 
   return (
     <div className='relative '>
