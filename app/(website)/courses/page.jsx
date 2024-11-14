@@ -34,7 +34,7 @@ const Courses = () => {
             <Navbar />
             <div className="content bg-gradient-to-r rounded-xl from-gray-300 to-gray-200">
             <h1 data-aos="fade-up" className='text-3xl lg:text-4xl font-monaBold text-center mt-16 p-4 text-blue-700 '>
-                All Courses<br /> 
+                intensive Courses<br /> 
             </h1>
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 xl:gap-8 p-5 mt-10 ">
                 {Course.map((course) => (

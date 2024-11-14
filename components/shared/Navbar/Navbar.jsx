@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const Links = [
     { pathname: "Courses and Pricing", path: "/courses",isDropdown:true,sublinks:[
-      {pathname: "ALL Courses", path: "/courses",},
+      {pathname: "intensive Courses", path: "/courses",},
       {pathname: "Hourly Courses", path: "/pick-up",},
     ] 
     },
@@ -54,7 +54,7 @@ const Navbar = () => {
                     <FaChevronDown className=" max-md:ml-5 ml-1 text-black inline" onClick={()=>setDropdownOpen(true)} />
                   )}
                   {link.isDropdown && dropdownOpen[link.pathname.toLowerCase()] && (
-                    <div className="absolute top-full left-0  w-40 z-50 bg-gray-800 text-white rounded shadow-lg">
+                    <div className="absolute top-full left-0  w-44 z-50 bg-gray-800 text-white rounded shadow-lg">
                       {link.sublinks.map((sublink, subIdx) => (
                         <Link key={subIdx} href={sublink.path} className="block px-4 py-2 hover:bg-gray-700">
                           {sublink.pathname}
