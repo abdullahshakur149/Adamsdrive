@@ -20,7 +20,7 @@ const Navbar = () => {
     { pathname: "Our Instructors", path: "#" },
     { pathname: "News", path: "#" },
     { pathname: "Testimonials", path: "#" },
-    { pathname: "Contact Us", path: "#" },
+    { pathname: "Contact Us", path: "/contactus" },
   ];
 
   const handleDropdownToggle = (name) => {
