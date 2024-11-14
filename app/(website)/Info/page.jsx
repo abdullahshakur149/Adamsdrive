@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Navbar from "@/components/shared/Navbar/Navbar";
-import ContactUs from "@/components/LandingPage/ContactUs";
+// import ContactUs from "@/components/LandingPage/ContactUs";
 
 const Page = () => {
   const [coursedetail, setcoursedetail] = useState(null);
@@ -195,7 +195,7 @@ const Page = () => {
           </form>
         </div>
       </div>
-      <ContactUs />
+      {/* <ContactUs /> */}
     </div>
   );
 };

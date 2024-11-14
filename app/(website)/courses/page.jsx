@@ -27,13 +27,13 @@ const Courses = () => {
         fetchCoursesData();
     }, []);
 
-    if (loading) return <div className='flex justify-center items-center mt-40'>Loading courses...</div>;
+    if (loading) return <div className='flex font-bold text-4xl justify-center items-center mt-60'>Loading courses...</div>;
 
     return (
         <div className="w-11/12 mx-auto">
             <Navbar />
 
-            <h1 data-aos="fade-up" className='text-3xl lg:text-4xl font-monaBold text-center mt-16 text-orange-400 '>
+            <h1 data-aos="fade-up" className='text-3xl lg:text-4xl font-monaBold text-center mt-16 text-blue-700 '>
                 All Courses<br /> 
             </h1>
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 xl:gap-8 p-5 mt-10">
@@ -44,7 +44,7 @@ const Courses = () => {
                         style={{ minHeight: "400px", display: "flex", flexDirection: "column", justifyContent: "space-between" }} // Ensures the button stays at the bottom
                     >
                         <div>
-                            <h3 className="text-2xl font-semibold text-center text-blue-700 mb-4">
+                            <h3 className="text-2xl font-semibold text-center text-cyan-700 mb-4">
                                 {course.courseTitle}
                             </h3>
                             
@@ -56,7 +56,7 @@ const Courses = () => {
                         <div className="text-center mt-4">
                             <Link 
                                 href={`/courses/${course.courseId}`} 
-                                className="inline-flex items-center w-full px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition duration-300 text-lg font-semibold"
+                                className="inline-flex items-center w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 text-lg font-semibold"
                             >
                                 <span className="mr-2">Learn More</span>
                                 <FaArrowRight />
