@@ -29,7 +29,7 @@ const Ad = () => {
           >
             ×
           </button>
-          <div className="popup-area lg:w-8/12 w-full   p-6  ">
+          <div className="popup-area lg:w-8/12    p-6  ">
             <Contactpopup />
           </div>
         </div>

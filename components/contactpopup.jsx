@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
 
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 const Contactpopup = () => {
     // useEffect(() => {
@@ -16,7 +15,7 @@ const Contactpopup = () => {
   return (
     <div className='text-center   py-12'>
     <div data-aos="fade-up" className="content  mt-20 w-10/12 md:w-8/12 mx-auto">
-        <h1 data-aos="fade-up" className="text-4xl text-white font-monaBold">Contact Us</h1>
+        <h1  className="text-4xl text-white font-monaBold">Contact Us</h1>
 
         <div className="py-12 px-4">
             <div className="max-w-5xl mx-auto flex flex-wrap justify-center">

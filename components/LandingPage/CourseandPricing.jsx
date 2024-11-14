@@ -46,7 +46,7 @@ const CourseandPricing = () => {
     };
 
     return (
-        <div className="main-container relative w-full h-screen mt-80   md:mt-52  md:mb-64 lg:-mt-52 xl:mt-10 2xl:-mt-20 ">
+        <div className="main-container relative w-full h-screen mt-80   md:mt-52  md:mb-64  xl:mt-10 2xl:-mt-20 ">
             <Image
                 src={bgimage}
                 className="absolute top-0 left-0 w-full h-full object-contain"
