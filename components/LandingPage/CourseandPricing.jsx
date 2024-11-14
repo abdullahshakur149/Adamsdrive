@@ -56,8 +56,8 @@ const CourseandPricing = () => {
 
             <div className='absolute top-0 left-0 right-0 bottom-0 bg-gray-00 bg-opacity-50 flex flex-col justify-center items-center '>
                 <h1 data-aos="fade-in" className='sm:text-xs lg:text-md text-blue-500 font-monaBold max-sm:mt-52 md:mt-40'>Courses & Pricing</h1>
-                <h1 data-aos="fade-up" className='text-3xl lg:text-4xl font-monaBold text-center mt-3 md:mb-10 lg:mb-20'>
-                    Sign Up for a course<br /> in the selected category
+                <h1 data-aos="fade-up" className='text-3xl lg:text-5xl mt-6 font-monaBold text-center  md:mb-10 lg:mb-20'>
+                    Best Sellers
                 </h1>
 
                 <div className="flex flex-wrap justify-center gap-4 md:gap-6 xl:gap-8 p-5">
