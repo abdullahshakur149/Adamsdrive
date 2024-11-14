@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { NextResponse } from 'next/server'; // Ensure you import NextResponse if you're using it
+import { NextResponse } from 'next/server';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -20,7 +20,7 @@ export async function POST(req) {
       line_items: [
         {
           price_data: {
-            currency: 'usd',
+            currency: 'GBP',
             product_data: {
               name: courseTitle,
             },
