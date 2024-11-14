@@ -79,7 +79,7 @@ const Navbar = () => {
           <div>
             <Link
               href="/login"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm md:text-base lg:text-base hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white xl:px-7 xl:py-3 rounded-lg text-sm md:text-base lg:text-base hover:bg-blue-700 transition"
             >
               Login
             </Link>
