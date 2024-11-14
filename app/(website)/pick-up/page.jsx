@@ -15,7 +15,7 @@ const Pick = () => {
     });
     const postalyes = formik.values.Postalcode === "w73zh" ;
   return (
-    <>
+    <div className='w-11/12 mx-auto'>
      <Navbar/>
     <div className="data   h-screen w-full">
        
@@ -37,11 +37,11 @@ const Pick = () => {
                         
                         />
                 </div>
-                <Link onSubmit={formik.handleSubmit} className={`mx-auto ${postalyes ? 'bg-orange-500 text-white' : 'cursor-not-allowed text-gray-300 bg-gray-700'  } mt-16  text-xl px-16 py-3 rounded-lg`} href={postalyes ? "/Instructor" : "#"}>Continue</Link>
+                <Link onSubmit={formik.handleSubmit} className={`mx-auto ${postalyes ? 'bg-blue-500 text-white' : 'cursor-not-allowed text-gray-300 bg-gray-700'  } mt-16  text-xl px-16 py-3 rounded-lg`} href={postalyes ? "/Instructor" : "#"}>Continue</Link>
             </div>
     </div>
     </div>
-    </>
+    </div>
   )
 }
 

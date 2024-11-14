@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import * as Yup from 'yup';
 import { FaArrowLeft } from 'react-icons/fa';
 import Link from 'next/link';
 import axios from 'axios';
@@ -26,12 +26,12 @@ useEffect( ()=>{
 
 
   // Formik validation schema
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    phone: Yup.string().required('Phone number is required'),
-    postalCode: Yup.string().required('Postal code is required'),
-  });
+  // const validationSchema = Yup.object({
+  //   name: Yup.string().required('Name is required'),
+  //   email: Yup.string().email('Invalid email address').required('Email is required'),
+  //   phone: Yup.string().required('Phone number is required'),
+  //   postalCode: Yup.string().required('Postal code is required'),
+  // });
 
   const handlePackageSelect = (pkg,index) => {
     setSelectedPackage(index);
@@ -102,19 +102,21 @@ useEffect( ()=>{
 
       {/* Contact Form */}
      
-      
-      {/* Continue Button */}
-      <Link href="/Info" className="w-full bg-orange-500  text-white p-2 rounded mt-4 mb-4">
-        Continue
+      <div className="link flex justify-center">
+      <Link href="/Info" className=" bg-orange-500 text-center     text-white px-6 py-4 text-xl rounded mt-4 mb-4">
+        Continue 
       </Link>
+      </div>
+      {/* Continue Button */}
+      
 
-      <button
-        onClick={() => setShowForm(!showForm)}
+      <Link href={"/contactus"}
+        
         className="text-indigo-600 hover:text-blue-950 mb-6"
       >
         Not interested? Contact us
-      </button>
-      {showForm && (
+      </Link>
+      {/* {showForm && (
         <Formik
           initialValues={{ name: '', email: '', phone: '', postalCode: '' }}
           validationSchema={validationSchema}
@@ -173,7 +175,7 @@ useEffect( ()=>{
             </Form>
           )}
         </Formik>
-      )}
+      )} */}
     </div>
   );
 };

@@ -4,13 +4,18 @@ import logo from "@/public/img/Loginlogo.png";
 import Image from "next/image";
 import Link from "next/link";
 import "./Navbar.css"
-import { FaBars, FaPhoneAlt, FaTimes } from "react-icons/fa";
+import { FaBars, FaPhoneAlt, FaTimes,FaChevronDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState({ Courses:false });
 
   const Links = [
-    { pathname: "Courses and Pricing", path: "/courses" },
+    { pathname: "Courses and Pricing", path: "/courses",isDropdown:true,sublinks:[
+      {pathname: "ALL Courses", path: "/courses",},
+      {pathname: "Hourly Courses", path: "/pick-up",},
+    ] 
+    },
     { pathname: "About Us", path: "#" },
     { pathname: "Our Instructors", path: "#" },
     { pathname: "News", path: "#" },
@@ -18,6 +23,9 @@ const Navbar = () => {
     { pathname: "Contact Us", path: "#" },
   ];
 
+  const handleDropdownToggle = (name) => {
+    setDropdownOpen((prev) => ({ ...prev, [name]: !prev[name] }));
+  };
   return (
     <div className="w-full">
       {/* Navbar for larger screens */}
@@ -32,13 +40,28 @@ const Navbar = () => {
           <div className="xl:ml-10 lg:ml-3">
             <ul className="flex md:space-x-2 lg:space-x-4">
               {Links.map((link, idx) => (
-                <li key={idx}>
+                <li key={idx}
+                className="relative group"
+                onMouseEnter={() => link.isDropdown && handleDropdownToggle(link.pathname.toLowerCase())}
+                onMouseLeave={() => link.isDropdown && handleDropdownToggle(link.pathname.toLowerCase())}>
                   <Link
                     href={link.path}
                     className=" links md:text-xs xl:text-base  text-zinc-900 font-semibold hover:text-blue-500 transition"
                   >
                     {link.pathname}
                   </Link>
+                  {link.isDropdown && (
+                    <FaChevronDown className=" max-md:ml-5 ml-1 text-black inline" onClick={()=>setDropdownOpen(true)} />
+                  )}
+                  {link.isDropdown && dropdownOpen[link.pathname.toLowerCase()] && (
+                    <div className="absolute top-full left-0  w-40 z-50 bg-gray-800 text-white rounded shadow-lg">
+                      {link.sublinks.map((sublink, subIdx) => (
+                        <Link key={subIdx} href={sublink.path} className="block px-4 py-2 hover:bg-gray-700">
+                          {sublink.pathname}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -102,10 +125,24 @@ const Navbar = () => {
               <Link
                 href={link.path}
                 className="block p-2 hover:bg-gray-700 rounded"
-                onClick={() => setSidebarOpen(false)}
+                onClick={() => link.isDropdown ? handleDropdownToggle(link.pathname.toLowerCase()) : setSidebarOpen(false)}
               >
                 {link.pathname}
               </Link>
+              {link.isDropdown && dropdownOpen[link.pathname.toLowerCase()] && (
+                <div className="ml-4 mt-2 space-y-2">
+                  {link.sublinks.map((sublink, subIdx) => (
+                    <Link
+                      key={subIdx}
+                      href={sublink.path}
+                      className="block pl-4 p-2 text-white hover:bg-gray-700 rounded"
+                      onClick={() => setSidebarOpen(false)}
+                    >
+                      {sublink.pathname}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </li>
           ))}
         </ul>
