@@ -8,10 +8,12 @@ import Instructor from "@/components/LandingPage/Instructor";
 import Newworld from '@/components/LandingPage/newworld'
 import Testimonials from '@/components/LandingPage/Testimonials'
 import ContactUs from '@/components/LandingPage/ContactUs'
+import Ad from '@/components/ad/Ad'
 const MainLanding = () => {
   return (
 
     <div>
+      <Ad/>
       <div className="w-11/12 mx-auto">
         <Navbar />
       </div>
