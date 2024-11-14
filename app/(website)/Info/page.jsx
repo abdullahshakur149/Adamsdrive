@@ -39,6 +39,7 @@ const Page = () => {
     onSubmit: async (values, { resetForm }) => {
       const formData = { ...values, coursedetail };
       console.log(formData);
+      
 
       try {
         const response = await fetch("/api/create-checkout-session", {

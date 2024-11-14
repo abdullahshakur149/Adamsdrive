@@ -1,19 +1,29 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FaArrowLeft } from 'react-icons/fa';
 import Link from 'next/link';
+import axios from 'axios';
 
-const packages = [
-  { hours: 2, price: 70 },
-  { hours: 1.5, price: 55 },
-  
-];
+
 
 const Instructor = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState(null);
+  const [HourlyPackages,setHourPackages] = useState([]);
+
+useEffect( ()=>{
+  
+  const getData = async()=>{
+      const response = await axios.get("/api/hourlyCourses/");
+      setHourPackages(response.data.data);
+      console.log(response.data.data);
+  }
+
+  getData();
+},[])
+
 
   // Formik validation schema
   const validationSchema = Yup.object({
@@ -23,8 +33,18 @@ const Instructor = () => {
     postalCode: Yup.string().required('Postal code is required'),
   });
 
-  const handlePackageSelect = (index) => {
+  const handlePackageSelect = (pkg,index) => {
     setSelectedPackage(index);
+    const hourlypackage = {
+      courseId:pkg.courseId,
+      coursePrice:pkg.coursePrice,
+      courseTitle:pkg.courseTitle,
+      courseduration:pkg.duration,
+    }
+    if(hourlypackage){
+      localStorage.setItem("coursedetail", JSON.stringify(hourlypackage));
+      console.log(hourlypackage);
+    }
   };
 
   return (
@@ -46,26 +66,26 @@ const Instructor = () => {
         </div>
         <div>
           <p className="font-semibold">Mr Mahamed Khalif Warsame</p>
-          <p className="text-gray-600">£40/hr</p>
+          {/* <p className="text-gray-600">£40/hr</p> */}
         </div>
       </div>
       
       {/* Package Hours */}
       <h3 className="text-lg font-semibold mb-2">Choose Your Package Hours</h3>
       <div className="grid grid-cols-2 gap-4 mb-6">
-        {packages.map((pkg, index) => (
+        {HourlyPackages.map((pkg, index) => (
           <div
             key={index}
-            onClick={() => handlePackageSelect(index)}
+            onClick={() => handlePackageSelect(pkg,index)}
             className={`border rounded-lg p-4 text-center cursor-pointer 
               ${selectedPackage === index ? 'border-2 border-orange-500 ' : 'hover:border-gray-400'} 
               
             `}
           >
-            <p className="text-2xl font-bold">{pkg.hours}</p>
+            <p className="text-2xl font-bold">{pkg.duration}</p>
             <p className="text-gray-600">Hours</p>
             <p className="text-lg font-semibold">
-              £{pkg.price}{' '}
+              £{pkg.coursePrice}{' '}
               {pkg.originalPrice && (
                 <span className="line-through text-gray-500">£{pkg.originalPrice}</span>
               )}
@@ -84,9 +104,9 @@ const Instructor = () => {
      
       
       {/* Continue Button */}
-      <button className="w-full bg-orange-500 text-white p-2 rounded mt-4 mb-4">
+      <Link href="/Info" className="w-full bg-orange-500  text-white p-2 rounded mt-4 mb-4">
         Continue
-      </button>
+      </Link>
 
       <button
         onClick={() => setShowForm(!showForm)}

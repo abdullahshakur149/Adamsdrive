@@ -17,7 +17,7 @@ const Pick = () => {
   return (
     <>
      <Navbar/>
-    <div className="data  bg-cyan-100 h-screen w-full">
+    <div className="data   h-screen w-full">
        
 <div className='flex flex-col  w-5/12 mx-auto  justify-center '>
             <h1 className='lg:text-4xl mt-44 font-bold text-gray-600'>Hey! Let's get you driving. Ready to go?</h1>
