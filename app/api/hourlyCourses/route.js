@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import { getAllCourses } from "@/lib/functions/getallcourses";
+import { hourlyCourses } from "@/lib/functions/hourlyCourses";
 
 export async function GET() {
     try {
-        const courses = await getAllCourses();
+        const courses = await hourlyCourses();
+        console.log(courses)
 
         return NextResponse.json({ status: 200, data: courses });
     } catch (error) {
