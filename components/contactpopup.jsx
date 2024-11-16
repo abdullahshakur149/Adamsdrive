@@ -1,7 +1,7 @@
 "use client"; 
 
 import React, { useEffect } from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 import 'aos/dist/aos.css';
 const Contactpopup = () => {
