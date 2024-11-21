@@ -16,10 +16,10 @@ const Navbar = () => {
       {pathname: "Hourly Courses", path: "/pick-up",},
     ] 
     },
-    { pathname: "About Us", path: "#" },
-    { pathname: "Our Instructors", path: "#" },
-    { pathname: "News", path: "#" },
-    { pathname: "Testimonials", path: "#" },
+    // { pathname: "About Us", path: "#" },
+    // { pathname: "Our Instructors", path: "#" },
+    // { pathname: "News", path: "#" },
+    // { pathname: "Testimonials", path: "#" },
     { pathname: "Contact Us", path: "/contactus" },
   ];
 
