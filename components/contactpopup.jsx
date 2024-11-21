@@ -1,29 +1,57 @@
-"use client"; 
+"use client";
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
 import 'aos/dist/aos.css';
+import axios from 'axios';
 const Contactpopup = () => {
-    // useEffect(() => {
-    //     AOS.init({
-    //         duration: 800, // Animation duration in milliseconds
-    //         offset: 100,  // Offset from the original trigger point
-    //         easing: 'ease-in-out',  // Easing function for animations
-    //     });
-    // }, []);
+    const [courses, setcourses] = useState([]);
+    const [fillteredcourse, setfilteredcourse] = useState([]);
 
-    // useEffect(()=>{
-    //     const getData = ()=>{
-    //         const response = 
-    //     }
-    // }
-    // ,[])
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/api/courses/allCourses/");
+                setcourses(response.data.data);
+                // console.log(courses);  
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+        getData();
+
+
+    }
+        , [])
+    // console.log(courses);
+
+    const setCategory = (Category) => {
+        if (Category === "hourly") {
+            const hourlyCourse = courses.filter((courses) => courses.courseCategory === "hourly")
+            setfilteredcourse(hourlyCourse)
+            console.log("Hourly Courses", hourlyCourse);
+
+        }
+        if (Category === "intensive") {
+            const intensivecourses = courses.filter((courses) => courses.courseCategory === "intensive")
+            setfilteredcourse(intensivecourses);
+            console.log("intensive Courses", intensivecourses);
+        }
+
+    }
+    const GetCourse = (Course) => {
+       console.log(Course);
+
+    }
     return (
         <div className='text-center   py-12'>
+
             <div data-aos="fade-up" className="content  mt-20 w-10/12 md:w-8/12 mx-auto">
                 <h1 className="text-4xl text-white font-monaBold">Contact Us</h1>
-
+                5
                 <div className="py-12 px-4">
                     <div className="max-w-5xl mx-auto flex flex-wrap justify-center">
                         {/* Contact Form Section (8 columns) */}
@@ -39,15 +67,38 @@ const Contactpopup = () => {
                                 <input type="text" placeholder="Select City" className="p-3 border rounded-lg w-full" />
                                 <input type="text" placeholder="Email address" className="p-3 border rounded-lg w-full" />
                                 <input type="text" placeholder="Phone Number" className="p-3 border rounded-lg w-full" />
-                                <select id='course' className='p-3 border rounded-lg w-full'>
+                                <select id='course' onChange={(e) => setCategory(e.target.value)} className='p-3 border rounded-lg w-full'>
                                     <option className='p-3 border rounded-lg w-full' value="" disabled selected hidden>Select a Category</option>
-                                    <option className='p-3 border rounded-lg w-full' value="saab">Hourly</option>
-                                    <option className='p-3 border rounded-lg w-full' value="opel">Intensive</option>
-                                    
+                                    <option className='p-3 border rounded-lg w-full' value="hourly">Hourly</option>
+                                    <option className='p-3 border rounded-lg w-full' value="intensive">Intensive</option>
+
                                 </select>
                                 {/* <input type="text" placeholder="Select Category" className="p-3 border rounded-lg w-full" /> */}
 
-                                <input type="text" placeholder="sign up for a course" className="p-3 border rounded-lg w-full" />
+
+
+                                <select id='hourlycourse' className={`p-3 border transition-all duration-200 ease-in ${fillteredcourse ? "flex":"hidden "} rounded-lg w-full`} onChange={(e)=>GetCourse(e.target.value)}>
+                                <option className='p-3 border rounded-lg w-full text-black text-xs'  disabled selected hidden>Select a Course</option>
+
+                                    {
+                                        fillteredcourse.map((course, index) => {
+                                           return <option key={index} className='p-3 border text-xs rounded-lg w-full'  placeholder="" value={course.courseTitle} >{course.courseTitle}</option>
+
+                                            
+                                        })
+
+
+                                    }
+                                   
+
+                                    
+                                </select>
+                                {/* <select id='course' className='p-3 border rounded-lg w-full'>
+                                    <option className='p-3 border rounded-lg w-full' value="" disabled selected hidden>Select a Category</option>
+                                    <option className='p-3 border rounded-lg w-full' value="hourly">Hourly</option>
+                                    <option className='p-3 border rounded-lg w-full' value="intensive">Intensive</option>
+
+                                </select>                             */}
                             </div>
                             <textarea placeholder="Your message..." className="p-3 border rounded-lg w-full mb-4" rows="4"></textarea>
                             <div className="flex items-center mb-4">

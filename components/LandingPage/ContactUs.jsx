@@ -1,21 +1,38 @@
 "use client"; // Make the component a Client Component
 import logo from "@/public/img/Loginlogo.png";
-import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaArrowUp } from 'react-icons/fa';
-import React, { useEffect } from 'react';
+import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
+import React, { useEffect,useState } from 'react';
 import contactimage from "@/public/img/images/images/contactus.png";
 import Image from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import axios from "axios";
 const ContactUs = () => {
+    // const [courseCategory,setcourseCategory] = useState();
+    // const [courses,setcourses] = useState();
+
     useEffect(() => {
         AOS.init({
             duration: 800, // Animation duration in milliseconds
             offset: 100,  // Offset from the original trigger point
             easing: 'ease-in-out',  // Easing function for animations
         });
+        // const getData = async ()=>{
+        //     try {
+        //         const response = await axios.get("http://localhost:3000/api/courses/allCourses/");
+        //         console.log(response)    
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+            
+        // }
+        // getData();
     }, []);
+    
 
+
+  
+   
     const scroll = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
