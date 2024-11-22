@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <QueryClientProvider client={queryClient}>
         <html lang="en">
-          <body className={` bg-black text-white`}>
+          <body className={` bg-white text-black`}>
             <div className="absolute inset-0 -z-10 w-full h-full hidden md:flex md:w-auto md:h-auto">
               
             </div>

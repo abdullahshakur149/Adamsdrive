@@ -9,7 +9,7 @@ const DashNav = ({ settogglebutton }) => {
   };
   return (
     <div>
-      <header className="flex  h-14 items-center gap-4 border-b hover:border-blue-400 transition-all duration-300 ease-in-out bg-muted/40  lg:h-[65px]  ">
+      <header className="flex  h-14 items-center gap-4 border-b border-blue-300 hover:border-blue-900 transition-all duration-300 ease-in-out bg-muted/40  lg:h-[65px]  ">
         <button
           onClick={settogglebutton}
           className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-red-950 hover:bg-accent hover:text-accent-foreground h-10 w-10 shrink-0 md:hidden"
@@ -41,7 +41,7 @@ const DashNav = ({ settogglebutton }) => {
         <div className="w-full flex-1"></div>
         <button
           onClick={toggleUserMenu}
-          className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 w-10 rounded-full bg-primary hover:bg-red-800 mr-10 transition ease-in duration-200 "
+          className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-10 w-10 rounded-full bg-primary hover:bg-blue-400 mr-10 transition ease-in duration-200 "
           aria-label="Toggle user menu"
           type="button"
           id="radix-:R1mbta:"
@@ -68,20 +68,20 @@ const DashNav = ({ settogglebutton }) => {
           <span className="sr-only">Toggle user menu</span>
         </button>
         {isUserMenuOpen && (
-          <div className="absolute top-16 right-4 w-48 bg-white shadow-md rounded-md">
+          <div className="absolute top-16 right-4 w-48  shadow-md rounded-md">
             <Link
               href="/profile"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-900 hover:text-white"
+              className="block  px-4 py-2 text-sm  hover:bg-blue-500 "
             >
               Profile
             </Link>
             <Link
               href="/settings"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-900 hover:text-white"
+              className="block px-4 py-2 text-sm   hover:bg-blue-500 "
             >
               Settings
             </Link>
-            <button className="block w-full text-left  px-4 py-2 text-sm text-gray-700 hover:bg-red-900 hover:text-white">
+            <button className="block w-full text-left  px-4 py-2 text-sm  hover:bg-blue-500 ">
               Logout
             </button>
           </div>
