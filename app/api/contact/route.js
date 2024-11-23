@@ -1,62 +1,62 @@
 import { NextResponse } from "next/server";
-import Contact from "@/models/contact"; 
-import connectDB from "@/lib/db"; 
+import connectDB from "@/lib/db";
+import Contact from "@/models/Contact";
 
 export async function POST(req) {
   try {
+    // Connect to the database
+    await connectDB();
+
+    // Parse the request body
+    const body = await req.json();
+
     const {
       name,
+      city,
       email,
       phonenumber,
-      city,
       courseTitle,
-      courseCategory,
       message,
       privacyUnderstand,
-    } = await req.json();
+    } = body;
 
-   
+//   console.log(courseTitle)
+// return NextResponse.json({status: 200})
+    // Validate required fields
     if (
       !name ||
+      !city ||
       !email ||
       !phonenumber ||
-      !city ||
       !courseTitle ||
-      !courseCategory ||
       !message ||
-      !privacyUnderstand
+      privacyUnderstand === undefined
     ) {
       return NextResponse.json(
-        { status: 400, message: "Please fill all the fields" },
-        { status: 400 }
+        { success: false, error: "All fields are required." },
+        { status: 200 }
       );
     }
 
-    
-    await connectDB();
-
-   
-    const contact = new Contact({
+    // Save the contact document
+    const contact = await Contact.create({
       name,
+      city,
       email,
       phonenumber,
-      city,
-      courseTitle,
-      courseCategory,
+      courseTitle, 
       message,
-      privacyUnderstand,
+      privacyUnderstand: privacyUnderstand.toString(),
     });
 
-    await contact.save();
+    console.log(contact)
 
-    return NextResponse.json(
-      { status: 200, message: "Contact saved successfully" },
-      { status: 200 }
-    );
+  
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error("Error saving contact:", error);
+    console.error("Error creating contact:", error);
     return NextResponse.json(
-      { status: 500, message: "Internal server error" },
+      { success: false, error: "Server error. Please try again later." },
       { status: 500 }
     );
   }

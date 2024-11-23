@@ -6,10 +6,6 @@ const ContactSchema = new Schema(
     city: { type: String, required: true },
     email: { type: String, required: true },
     phonenumber: { type: String, required: true },
-    courseCategory: {
-      type: mongoose.Types.ObjectId, 
-      ref: "Course",
-    },
     courseTitle: {
       type: mongoose.Types.ObjectId,
       ref: "Course",
