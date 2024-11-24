@@ -1,5 +1,5 @@
 "use client"; // Make the component a Client Component
-import logo from "@/public/img/Loginlogo.png";
+import logo from "@/public/img/logo.png";
 import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaArrowUp } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import contactimage from "@/public/img/images/images/contactus.png";
@@ -239,7 +239,7 @@ const ContactUs = () => {
           <footer className="mt-10 text-gray-500">
             <div className="flex justify-between items-center px-4">
               <div className="flex items-center space-x-2">
-                <Image src={logo} alt="Logo" className="w-8 h-8" />
+                <Image src={logo} alt="Logo" className="w-24 h-20" />
                 <span className="text-xl font-bold text-blue-600">Adam's Drive</span>
               </div>
               <button

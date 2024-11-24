@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import logo from "@/public/img/Loginlogo.png";
+import logo from "@/public/img/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import "./Navbar.css"
@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="flex items-center">
   <div className="md:ml-5">
     <Link href="/">
-      <Image src={logo} className="w-16 md:w-20" alt="logo" />
+      <Image src={logo} className="w-16 md:w-24  " alt="logo" />
     </Link>
   </div>
   <div className="xl:ml-10 lg:ml-3">
