@@ -58,7 +58,7 @@ const IntroSection = () => {
         </div>
         <div className="buttons flex space-x-2 ">
           <button className=" p-1 bg-orange-500 text-xsmall md:text-xs  lg:text-xs xl:text-base xl:px-6 xl:py-3 xl:mt-3 text-white font-bold rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-200 ease-in-out">
-            Courses & Pricing
+            <a href="/courses">Courses & Pricing</a>
           </button>
           <button className="  p-1  text-xsmall md:text-xs   lg:text-xs xl:text-base lg:px-6 xl:px-6 lg:py-2 bg-black xl:mt-3 text-white font-bold rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-200 ease-in-out">
             About Us
