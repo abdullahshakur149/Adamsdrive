@@ -1,156 +1,280 @@
 "use client"; // Make the component a Client Component
 import logo from "@/public/img/Loginlogo.png";
-import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
-import React, { useEffect,useState } from 'react';
+import { FaFacebook, FaTwitter, FaInstagram, FaMapMarkerAlt, FaArrowUp } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
 import contactimage from "@/public/img/images/images/contactus.png";
-import Image from 'next/image';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import axios from "axios";
+
 const ContactUs = () => {
-    // const [courseCategory,setcourseCategory] = useState();
-    // const [courses,setcourses] = useState();
+  const [courses, setCourses] = useState([]);
+  const [filteredCourse, setFilteredCourse] = useState([]);
+  const [selectedData, setSelectedData] = useState({
+    name: "",
+    city: "",
+    email: "",
+    phonenumber: "",
+    courseCategory: "",
+    courseTitle: "",
+    message: "",
+    privacyUnderstand: false,
+  });
 
-    useEffect(() => {
-        AOS.init({
-            duration: 800, // Animation duration in milliseconds
-            offset: 100,  // Offset from the original trigger point
-            easing: 'ease-in-out',  // Easing function for animations
-        });
-        // const getData = async ()=>{
-        //     try {
-        //         const response = await axios.get("http://localhost:3000/api/courses/allCourses/");
-        //         console.log(response)    
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-            
-        // }
-        // getData();
-    }, []);
-    
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      easing: "ease-in-out",
+    });
 
-
-  
-   
-    const scroll = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    const getData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/courses/allCourses/");
+        setCourses(response.data.data);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
     };
+    getData();
+  }, []);
 
-    return (
-        <div className='text-center relative bg-default py-12'>
-            <Image src={contactimage} className='absolute object-cover w-full h-full' />
-            <div data-aos="fade-up" className="content relative mt-20 w-10/12 md:w-8/12 mx-auto">
-                <h1 data-aos="fade-down" className="text-blue-500 font-extrabold font-mona text-sm md:text-md mb-5">Contact Us</h1>
-                <h1 data-aos="fade-up" className="text-4xl font-monaBold">If you have any questions,<br /> feel free to contact</h1>
+  const setCourseCategory = (courseCategory) => {
+    const filtered = courses.filter((course) => course.courseCategory === courseCategory);
+    setFilteredCourse(filtered);
+    setSelectedData({ ...selectedData, courseCategory });
+  };
 
-                <div className="py-12 px-4">
-                    <div className="max-w-5xl mx-auto flex flex-wrap justify-center">
-                        {/* Contact Form Section (8 columns) */}
-                        <div data-aos="fade-right" className="bg-white p-8 rounded-2xl shadow-lg flex-1 md:w-8/12 mb-8">
-                            <h2 className="text-orange-500 text-lg font-bold flex items-center">
-                                <span className="mr-2"><FaMapMarkerAlt /></span> Online Form
-                            </h2>
-                            <p data-aos="fade-left" className="text-gray-600 mt-2 mb-8 text-start font-bold">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed porttitor, tristique velit eget.
-                            </p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <input type="text" placeholder="Your name" className="p-3 border rounded-lg w-full" />
-                                <input type="text" placeholder="Select City" className="p-3 border rounded-lg w-full" />
-                                <input type="text" placeholder="Email address" className="p-3 border rounded-lg w-full" />
-                                <input type="text" placeholder="Phone Number" className="p-3 border rounded-lg w-full" />
-                                <input type="text" placeholder="I want to sign for a course" className="p-3 border rounded-lg w-full" />
-                                <input type="text" placeholder="Select Category" className="p-3 border rounded-lg w-full" />
-                            </div>
-                            <textarea placeholder="Your message..." className="p-3 border rounded-lg w-full mb-4" rows="4"></textarea>
-                            <div className="flex items-center mb-4">
-                                <input type="checkbox" id="privacyPolicy" className="mr-2" />
-                                <label htmlFor="privacyPolicy" className="text-gray-500 text-sm">
-                                    I understand, and a <span className="text-blue-500">Privacy Policy</span> data class required area.
-                                </label>
-                            </div>
-                            <button className="bg-orange-500 flex justify-start text-white py-2 px-6 rounded-lg font-semibold">Send Message</button>
-                        </div>
+  const Submit = async (e) => {
+    e.preventDefault();
 
-                        {/* Address Section (4 columns) */}
-                        <div data-aos="zoom-in" className="w-full md:w-4/12 bg-blue-500/95 text-start text-white rounded-lg p-10 font-sans mb-8">
-                            <div className="mb-8">
-                                <div className="flex items-center mb-3">
-                                    <FaMapMarkerAlt className="text-white text-xl" />
-                                    <h3 className="text-lg font-semibold ml-2">Our address</h3>
-                                </div>
-                                <p className="text-sm leading-6">
-                                    100 Orchard St,<br />
-                                    New York, NY 10002,<br />
-                                    USA
-                                </p>
-                                <div className="mt-4 text-sm">
-                                    <p><strong>Monday - Friday</strong><br />08:00 AM - 06:00 PM</p>
-                                    <p className="mt-3"><strong>Saturday</strong><br />08:00 AM - 06:00 PM</p>
-                                </div>
-                                <p className="mt-4 lg:text-sm text-xs">
-                                    <a href="mailto:office@muffingroup.com" className="hover:underline">office@muffingroup.com</a><br />
-                                    +91-8010300865
-                                </p>
-                                <div className="flex mt-4 lg:space-x-3">
-                                    <a href="#" className="text-blue-600 bg-blue-300 p-2 rounded-3xl">
-                                        <FaFacebook className="text-xl" />
-                                    </a>
-                                    <a href="#" className="text-blue-600 bg-blue-300 p-2 rounded-3xl">
-                                        <FaTwitter className="text-xl" />
-                                    </a>
-                                    <a href="#" className="text-blue-600 bg-blue-300 p-2 rounded-3xl">
-                                        <FaInstagram className="text-xl" />
-                                    </a>
-                                </div>
-                            </div>
+    const { name, email, courseTitle, message, privacyUnderstand } = selectedData;
+    if (!name || !email || !courseTitle || !message || !privacyUnderstand) {
+      alert("Please fill out all required fields.");
+      return;
+    }
 
-                            {/* Help Desk Section */}
-                            <div data-aos="flip-up" className="w-full mt-8 rounded-lg">
-                                <p className="text-sm">
-                                    Our help desk is available for you<br />every day, 07:00 AM - 10:00 PM
-                                </p>
-                                <div className="flex justify-center items-center mt-3">
-                                    <p className=" text-xl xl:text-4xl lg:text-3xl font-bold"><span className=" xl:text-sm font-monaBold">+91</span><br /> 8010200666</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    try {
+      const response = await axios.post("http://localhost:3000/api/contact/", selectedData);
+      if (response.status === 200) {
+        alert("Your message has been sent successfully!");
+        setSelectedData({
+          name: "",
+          city: "",
+          email: "",
+          phonenumber: "",
+          courseCategory: "",
+          courseTitle: "",
+          message: "",
+          privacyUnderstand: false,
+        });
+        setFilteredCourse([]);
+      } else {
+        alert("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error submitting form. Please try again later.");
+    }
+  };
 
-                    <footer data-aos="fade-up" className="py-8 px-4">
-                        <div className="max-w-5xl mx-auto flex flex-col space-y-4 md:space-y-0">
-                            <div className="flex space-x-2 mt-6 mb-5">
-                                <div className="w-8 h-8 rounded-full">
-                                    <Image src={logo} />
-                                </div>
-                                <span className="text-xl font-monaBold text-blue-600">Adam's Drive</span>
-                                <button
-                                    onClick={scroll}
-                                    className="absolute right-5 bg-orange-500 text-white p-3 rounded-l-2xl rounded-b-none rounded-t-2xl shadow-lg"
-                                    aria-label="Scroll to top"
-                                >
-                                    <FaArrowUp />
-                                </button>
-                            </div>
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-                            <div className="flex flex-wrap  space-x-6 text-gray-900 font-bold text-sm">
-                                <a className="hover:underline" href="#courses">Courses & Pricing</a>
-                                <a className="hover:underline" href="#about">About us</a>
-                                <a className="hover:underline" href="#instructors">Our instructors</a>
-                                <a className="hover:underline" href="#news">News</a>
-                                <a className="hover:underline" href="#testimonials">Testimonials</a>
-                                <a className="hover:underline" href="#contact">Contact us</a>
-                            </div>
-                        </div>
+  return (
+    <div className="text-center relative bg-default py-12">
+      <Image src={contactimage} alt="Contact Us" className="absolute object-cover w-full h-full" />
+      <div data-aos="fade-up" className="content relative mt-20 w-10/12 md:w-8/12 mx-auto">
+        <h1 data-aos="fade-down" className="text-blue-500 font-extrabold text-sm md:text-md mb-5">
+          Contact Us
+        </h1>
+        <h1 data-aos="fade-up" className="text-4xl font-bold mt-4 mb-4">
+          If you have any questions,<br /> feel free to contact us
+        </h1>
+        <div className="px-4">
+          <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-6">
+            {/* Contact Form Section */}
+            <form
+              onSubmit={Submit}
+              className="flex-1 bg-white p-8 rounded-lg shadow-lg text-start"
+              data-aos="fade-right"
+            >
+              <h2 className="text-orange-500 text-lg font-bold mb-2 flex items-center">
+                <FaMapMarkerAlt className="mr-2" />
+                Online Form
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Please fill in the form to reach out to us. We’ll get back to you shortly.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                {/* Form Inputs */}
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="p-3 border rounded-lg w-full"
+                  value={selectedData.name}
+                  onChange={(e) => setSelectedData({ ...selectedData, name: e.target.value })}
+                />
+                <input
+                  type="text"
+                  placeholder="Select City"
+                  className="p-3 border rounded-lg w-full"
+                  value={selectedData.city}
+                  onChange={(e) => setSelectedData({ ...selectedData, city: e.target.value })}
+                />
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  className="p-3 border rounded-lg w-full"
+                  value={selectedData.email}
+                  onChange={(e) => setSelectedData({ ...selectedData, email: e.target.value })}
+                />
+                <input
+                  type="text"
+                  placeholder="Phone Number"
+                  className="p-3 border rounded-lg w-full"
+                  value={selectedData.phonenumber}
+                  onChange={(e) => setSelectedData({ ...selectedData, phonenumber: e.target.value })}
+                />
+                <select
+                  className="p-3 border rounded-lg w-full"
+                  value={selectedData.courseCategory}
+                  onChange={(e) => setCourseCategory(e.target.value)}
+                >
+                  <option value="" disabled hidden>
+                    Select a course category
+                  </option>
+                  <option value="hourly">Hourly</option>
+                  <option value="intensive">Intensive</option>
+                </select>
+                {filteredCourse.length > 0 && (
+                  <select
+                    className="p-3 border rounded-lg w-full"
+                    value={selectedData.courseTitle}
+                    onChange={(e) =>
+                      setSelectedData({ ...selectedData, courseTitle: e.target.value })
+                    }
+                  >
+                    <option value="" disabled hidden>
+                      Select a Course
+                    </option>
+                    {filteredCourse.map((course) => (
+                      <option key={course._id} value={course._id}>
+                        {course.courseTitle}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
+              <textarea
+                placeholder="Your message..."
+                className="p-3 border rounded-lg w-full mb-4"
+                rows="4"
+                value={selectedData.message}
+                onChange={(e) => setSelectedData({ ...selectedData, message: e.target.value })}
+              />
+              <div className="flex items-center mb-4">
+                <input
+                  type="checkbox"
+                  id="privacyPolicy"
+                  className="mr-2"
+                  checked={selectedData.privacyUnderstand}
+                  onChange={(e) =>
+                    setSelectedData({ ...selectedData, privacyUnderstand: e.target.checked })
+                  }
+                />
+                <label htmlFor="privacyPolicy" className="text-gray-500 text-sm">
+                  I understand and agree to the{" "}
+                  <span className="text-blue-500">Privacy Policy</span>.
+                </label>
+              </div>
+              <button
+                type="submit"
+                className="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold w-full"
+              >
+                Send Message
+              </button>
+            </form>
 
-                        <div className="mt-2 text-gray-500 text-sm text-start">
-                            © 2024 Adam's Drive All Rights Reserved. Muffin group
-                        </div>
-                    </footer>
-                </div>
+            {/* Address Section */}
+            <div
+              
+              className="w-full md:w-1/3 bg-blue-500/95 text-white p-6 rounded-lg text-start"
+            >
+              <h3 className="text-lg font-semibold mb-4">
+                <FaMapMarkerAlt className="mr-2 inline-block text-white" /> Our Address
+              </h3>
+              <p className="text-sm leading-6 mb-4">
+                100 Orchard St,<br />
+                New York, NY 10002, USA
+              </p>
+              <p className="text-sm">
+                <strong>Monday - Friday:</strong> 08:00 AM - 06:00 PM <br />
+                <strong>Saturday:</strong> 08:00 AM - 06:00 PM
+              </p>
+              <p className="mt-4">
+                <a href="mailto:office@muffingroup.com" className="hover:underline">
+                  office@muffingroup.com
+                </a>
+                <br />
+                +91-8010300865
+              </p>
+              <div className="flex mt-4 space-x-3">
+                <a href="#" className="text-blue-300 p-2 bg-white rounded-full">
+                  <FaFacebook />
+                </a>
+                <a href="#" className="text-blue-300 p-2 bg-white rounded-full">
+                  <FaTwitter />
+                </a>
+                <a href="#" className="text-blue-300 p-2 bg-white rounded-full">
+                  <FaInstagram />
+                </a>
+              </div>
             </div>
+          </div>
+
+          {/* Footer */}
+          <footer className="mt-10 text-gray-500">
+            <div className="flex justify-between items-center px-4">
+              <div className="flex items-center space-x-2">
+                <Image src={logo} alt="Logo" className="w-8 h-8" />
+                <span className="text-xl font-bold text-blue-600">Adam's Drive</span>
+              </div>
+              <button
+                onClick={scrollToTop}
+                className="bg-orange-500 p-3 rounded-full text-white shadow-lg"
+                aria-label="Scroll to Top"
+              >
+                <FaArrowUp />
+              </button>
+            </div>
+            <div className="mt-6 text-center">
+              <ul className="flex justify-center space-x-6 text-sm font-semibold">
+                <li>
+                  <a href="#courses" className="hover:underline">
+                    Courses & Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#about" className="hover:underline">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="hover:underline">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+              <p className="mt-4 text-xs">© 2024 Adam's Drive. All Rights Reserved.</p>
+            </div>
+          </footer>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default ContactUs;
