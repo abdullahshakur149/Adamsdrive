@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
-import Contact from "@/models/Contact";
+import Contact from "@/models/contact";
 
 export async function POST(req) {
   try {
@@ -20,8 +20,8 @@ export async function POST(req) {
       privacyUnderstand,
     } = body;
 
-//   console.log(courseTitle)
-// return NextResponse.json({status: 200})
+    //   console.log(courseTitle)
+    // return NextResponse.json({status: 200})
     // Validate required fields
     if (
       !name ||
@@ -44,14 +44,14 @@ export async function POST(req) {
       city,
       email,
       phonenumber,
-      courseTitle, 
+      courseTitle,
       message,
       privacyUnderstand: privacyUnderstand.toString(),
     });
 
     console.log(contact)
 
-  
+
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error("Error creating contact:", error);
