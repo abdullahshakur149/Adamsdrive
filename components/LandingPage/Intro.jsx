@@ -31,7 +31,7 @@ const IntroSection = () => {
       <div
         data-aos="fade-right"
         data-aos-delay="1500"
-        className="absolute top-20   left-10 sm:top-32 sm:left-24 md:top-28 md:left-24 lg:top-32 lg:left-36 xl:top-38 xl:left-52 2xl:left-80 2xl:top-72     text-black"
+        className="absolute top-20   left-10 sm:top-32 sm:left-24 md:top-28 md:left-24 lg:top-40 lg:left-36 xl:top-38 xl:left-52 2xl:left-80 2xl:top-72     text-black"
       >
         <h1 className="  text-xs  sm:text-xl md:text-xl lg:text-4xl xl:text-5xl 2xl:text-6xl  font-monaBold leading-snug">
           The truest drive <br /> comes from doing <br /> what you love.
