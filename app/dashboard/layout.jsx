@@ -3,7 +3,7 @@ import "@/app/globals.css";
 import { useState } from "react";
 import DashNav from "@/components/dashboard/dashnavbar";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Dashsidebar from "@/components/dashboard/dashsidebar";
+import Dashsidebar from "@/components/dashboard/Dashsidebar";
 
 
 const queryClient = new QueryClient();

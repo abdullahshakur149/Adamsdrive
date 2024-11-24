@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState,useEffect } from "react";
 import { FaFacebook, FaInstagram, FaClipboardList, FaTwitter,  FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import image from "@/public/img/Loginlogo.png";
-import bgimage from '@/public/img/images/images/Course&price.gif';
+import bgimage from '@/public/img/images/images/course&price.gif';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 const Instructors = () => {

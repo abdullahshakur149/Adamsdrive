@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
-import bgimage from '@/public/img/images/images/Course&price.gif';
+import bgimage from '@/public/img/images/images/course&price.gif';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import icon1 from "@/public/img/images/images/icon1.png";
