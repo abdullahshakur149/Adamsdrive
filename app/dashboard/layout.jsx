@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
               
             </div>
             <div className="flex ">
-              <Dashsidebar togglebutton={togglebutton} />
+              <Dashsidebar togglebutton={togglebutton} settogglebutton={settogglebutton} />
               <div className="flex flex-col w-screen h-screen  ">
-                <DashNav settogglebutton={Toggle} />
+                <DashNav settogglebutton={Toggle}  />
                 {children}
               </div>
             </div>

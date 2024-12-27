@@ -28,15 +28,16 @@ const CourseDetails = () => {
         });
     }, []);
 
+    const getData = async () => {
+        try {
+            const response = await axios.get("/api/bestsellers");
+            setbestcourses(response.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await axios.get("/api/bestsellers");
-                setbestcourses(response.data.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+       
         getData();
     }, []);
 

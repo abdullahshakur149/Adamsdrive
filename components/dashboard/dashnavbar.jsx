@@ -12,7 +12,7 @@ const DashNav = ({ settogglebutton }) => {
       <header className="flex  h-14 items-center gap-4 border-b border-blue-300 hover:border-blue-900 transition-all duration-300 ease-in-out bg-muted/40  lg:h-[65px]  ">
         <button
           onClick={settogglebutton}
-          className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-red-950 hover:bg-accent hover:text-accent-foreground h-10 w-10 shrink-0 md:hidden"
+          className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-blue-600 text-white hover:bg-accent hover:text-accent-foreground h-10 w-10 shrink-0 md:hidden"
           aia-label="Toggle navigation menu"
           type="button"
           aria-haspopup="dialog"
