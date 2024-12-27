@@ -1,17 +1,17 @@
-// import { withAuth } from "next-auth/middleware";
+import { withAuth } from "next-auth/middleware";
 
-// export default withAuth(
-//     function middleware(req) {
-//     },
-//     {
-//         callbacks: {
-//             authorized: ({ token }) => {
-//                 return token?.role === "admin";
-//             },
-//         },
-//     }
-// );
+export default withAuth(
+    function middleware(req) {
+    },
+    {
+        callbacks: {
+            authorized: ({ token }) => {
+                return token?.role === "admin";
+            },
+        },
+    }
+);
 
-// export const config = {
-//     matcher: ["/dashboard/:path*"],
-// };
+export const config = {
+    matcher: [],
+};
