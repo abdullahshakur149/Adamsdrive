@@ -116,66 +116,7 @@ useEffect( ()=>{
       >
         Not interested? Contact us
       </Link>
-      {/* {showForm && (
-        <Formik
-          initialValues={{ name: '', email: '', phone: '', postalCode: '' }}
-          validationSchema={validationSchema}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
-        >
-          {() => (
-            <Form className="space-y-4">
-              <div>
-                <label className="block text-gray-700">Name</label>
-                <Field
-                  name="name"
-                  type="text"
-                  className="w-full p-2 border rounded"
-                />
-                <ErrorMessage name="name" component="div" className="text-red-500 text-sm" />
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Email</label>
-                <Field
-                  name="email"
-                  type="email"
-                  className="w-full p-2 border rounded"
-                />
-                <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Phone Number</label>
-                <Field
-                  name="phone"
-                  type="text"
-                  className="w-full p-2 border rounded"
-                />
-                <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Postal Code</label>
-                <Field
-                  name="postalCode"
-                  type="text"
-                  className="w-full p-2 border rounded"
-                />
-                <ErrorMessage name="postalCode" component="div" className="text-red-500 text-sm" />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-orange-500 text-white p-2 rounded mt-4"
-              >
-                Contact Me
-              </button>
-            </Form>
-          )}
-        </Formik>
-      )} */}
+      
     </div>
   );
 };
