@@ -4,7 +4,18 @@ import { FaLocationArrow } from 'react-icons/fa'
 import {  useFormik } from 'formik'
 import Navbar from '@/components/shared/Navbar/Navbar'
 import Link from 'next/link'
+import axios from 'axios'
 const Pick = () => {
+
+
+    try {
+        const getPostalCode =  async () =>{
+            const response = await axios.get("")
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
     const formik = useFormik({
         initialValues:{
             Postalcode:"",
