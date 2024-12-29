@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server';
-import connectDB from '@/lib/db';
-import PostalCode from '@/models/PostalCode';
+// import { NextResponse } from 'next/server';
+// import connectDB from '@/lib/db';
+// import PostalCode from '@/models/PostalCode';
 
 // export async function POST(req) {
 //     // Connect to the database
