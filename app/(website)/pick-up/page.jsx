@@ -10,7 +10,7 @@ const Pick = () => {
     const [showpackage, setshowpackage] = useState(false);
     const [courseData, setcourseData] = useState([]);
     const [selectedPackage, setSelectedPackage] = useState(null);
-
+    const [course,setcourse] = useState([]);
     const formik = useFormik({
         initialValues: {
             Postalcode: "",
@@ -34,10 +34,20 @@ const Pick = () => {
         },
     });
 
-    const handlePackageClick = (packageType) => {
+    const handlePackageClick = (packageType,PackageRate,id) => {
         setSelectedPackage(packageType);
+        const datatosend = {
+            courseid:id,
+            packageType:packageType,
+            PackageRate:PackageRate
+        }
+        if(datatosend){
+            localStorage.setItem("coursedetail", JSON.stringify(datatosend));
+
+        }
     };
 
+    
     return (
         <div className="w-11/12 mx-auto">
             <Navbar />
@@ -78,13 +88,13 @@ const Pick = () => {
                     {showpackage && courseData && (
                         <div>
                             <div className="p-6 max-w-xl mx-auto ">
-                                <Link
+                                <button onClick={()=>setshowpackage(false)}
                                     href="/pick-up"
                                     className="flex items-center mb-10 hover:underline text-gray-500"
                                 >
                                     <FaArrowLeft />
                                     <span className="ml-2">back</span>
-                                </Link>
+                                </button>
 
                                 {/* Gearbox Display */}
                                 <div className="text-lg font-medium mb-4">
@@ -111,7 +121,7 @@ const Pick = () => {
                                 <div className="grid grid-cols-3 gap-4 mb-6">
                                     {/* 1 Hour Package */}
                                     <div
-                                        onClick={() => handlePackageClick("1-hour")}
+                                        onClick={() => handlePackageClick("1-hour",courseData.hourlyRates.oneHour,courseData._id)}
                                         className={`border rounded-lg p-4 text-center cursor-pointer ${
                                             selectedPackage === "1-hour"
                                                 ? " border-2 border-orange-500"
@@ -130,7 +140,7 @@ const Pick = () => {
 
                                     {/* 1.5 Hour Package */}
                                     <div
-                                        onClick={() => handlePackageClick("1.5-hour")}
+                                        onClick={() => handlePackageClick("1.5-hour",courseData.hourlyRates.oneAndHalfHour,courseData._id)}
                                         className={`border rounded-lg p-4 text-center cursor-pointer ${
                                             selectedPackage === "1.5-hour"
                                                 ? " border-2 border-orange-500"
@@ -149,7 +159,7 @@ const Pick = () => {
 
                                     {/* 2 Hour Package */}
                                     <div
-                                        onClick={() => handlePackageClick("2-hour")}
+                                        onClick={() => handlePackageClick("2-hour",courseData.hourlyRates.twoHours,courseData._id)}
                                         className={`border rounded-lg p-4 text-center cursor-pointer ${
                                             selectedPackage === "2-hour"
                                                 ? " border-2 border-orange-500"

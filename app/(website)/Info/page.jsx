@@ -14,6 +14,9 @@ const Page = () => {
       setcoursedetail(JSON.parse(storedCourseDetail));
     }
   }, []);
+
+  console.log(coursedetail);
+
   const formik = useFormik({
     initialValues: {
       name: "",
