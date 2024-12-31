@@ -240,7 +240,7 @@ const ContactUs = () => {
             <div className="flex justify-between items-center px-4">
               <div className="flex items-center space-x-2">
                 <Image src={logo} alt="Logo" className="w-24 h-20" />
-                <span className="text-xl font-bold text-blue-600">Adam's Drive</span>
+                <span className="text-xl font-bold text-blue-600"> Lane View Driving School</span>
               </div>
               <button
                 onClick={scrollToTop}
@@ -268,7 +268,7 @@ const ContactUs = () => {
                   </a>
                 </li>
               </ul>
-              <p className="mt-4 text-xs">© 2024 Adam's Drive. All Rights Reserved.</p>
+              <p className="mt-4 text-xs">© 2024  Lane View Driving School. All Rights Reserved.</p>
             </div>
           </footer>
         </div>

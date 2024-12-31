@@ -9,23 +9,18 @@ const Testimonials = () => {
     {
       image: <Image src={driving} alt="Jessica" width={60} height={60} className="rounded-full" />,
       desc: "Only with Adam's Drive I was able to pass my dream driving license! The instructor's knowledge, approach to the student, modern cars were the key elements of my little success!",
-      name_city: "Jessica, Chicago"
+      name_city: "West London, Chicago"
     },
     {
       image: <Image src={driving} alt="Abdullah" width={60} height={60} className="rounded-full" />,
       desc: "Only with Adam's Drive I was able to pass my dream driving license! The instructor's knowledge, approach to the student, modern cars were the key elements of my little success!",
-      name_city: "Abdullah Shakur, Hayatabad"
+      name_city: "Matten, Acton Green"
     },
     {
       image: <Image src={driving} alt="Ali" width={60} height={60} className="rounded-full" />,
       desc: "Only with Adam's Drive I was able to pass my dream driving license! The instructor's knowledge, approach to the student, modern cars were the key elements of my little success!",
-      name_city: "Ali Ameen, Hayatabad"
+      name_city: "Aldywch, Westminister"
     },
-    {
-      image: <Image src={driving} alt="Khamaar" width={60} height={60} className="rounded-full" />,
-      desc: "Only with Adam's Drive I was able to pass my dream driving license! The instructor's knowledge, approach to the student, modern cars were the key elements of my little success!",
-      name_city: "Khamaar Shah, Hayatabad"
-    }
   ]);
   
   const [currentIndex, setCurrentIndex] = useState(0);

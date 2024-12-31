@@ -31,42 +31,7 @@ const Instructors = () => {
       twitterIcon: <FaTwitter />,
       instagramIcon: <FaInstagram />,
     },
-    {
-      image: <Image src={image} alt="Rogan Massey" width={100} height={100} className="mx-auto" />,
-      name: "Rogan ",
-      status: "Practical Instructor",
-      description: "Hey, my name is Massey and I am a very good instructor.",
-      boardIcon: <FaClipboardList />,
-      effectivenessPercent: "99.7%",
-      effectivenessDesc: "Effectiveness of passing stats exam",
-      facebookIcon: <FaFacebook />,
-      twitterIcon: <FaTwitter />,
-      instagramIcon: <FaInstagram />,
-    },
-    {
-      image: <Image src={image} alt="Rogan Massey" width={100} height={100} className="mx-auto" />,
-      name: "Rogan Mass",
-      status: "Practical Instructor",
-      description: "Hey, my name is Massey and I am a very good instructor.",
-      boardIcon: <FaClipboardList />,
-      effectivenessPercent: "99.7%",
-      effectivenessDesc: "Effectiveness of passing stats exam",
-      facebookIcon: <FaFacebook />,
-      twitterIcon: <FaTwitter />,
-      instagramIcon: <FaInstagram />,
-    },
-    {
-      image: <Image src={image} alt="Rogan Massey" width={100} height={100} className="mx-auto" />,
-      name: "Rogan Masse",
-      status: "Practical Instructor",
-      description: "Hey, my name is Massey and I am a very good instructor.",
-      boardIcon: <FaClipboardList />,
-      effectivenessPercent: "99.7%",
-      effectivenessDesc: "Effectiveness of passing stats exam",
-      facebookIcon: <FaFacebook />,
-      twitterIcon: <FaTwitter />,
-      instagramIcon: <FaInstagram />,
-    },
+  
   ]);
   useEffect(() => {
     const handleResize = () => {

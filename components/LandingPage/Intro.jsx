@@ -77,23 +77,10 @@ const IntroSection = () => {
           </div>
           <div className="info">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">
-              8649
+              8100+
             </h2>
             <p className="text-xs  xl:text-base font-bold font-sans">
               Students are trained <br /> every year by our instructors
-            </p>
-          </div>
-        </div>
-        <div className="stat flex">
-          <div className="icon">
-            <FaCar className="text-orange-500 text-2xl sm:text-3xl md:text-2xl mx-auto mb-1 mt-1 mr-3" />
-          </div>
-          <div className="info">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">
-              76
-            </h2>
-            <p className="text-xs  xl:text-base font-bold font-sans">
-              Category B and C Vehicles <br /> available for our students
             </p>
           </div>
         </div>
@@ -103,23 +90,10 @@ const IntroSection = () => {
           </div>
           <div className="info">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">
-              99.8%
+              81.27
             </h2>
             <p className="text-xs  xl:text-base font-bold font-sans">
               Our students pass <br /> the state exam the first time
-            </p>
-          </div>
-        </div>
-        <div className="stat flex ">
-          <div className="icon">
-            <FaSync className="text-orange-500 text-2xl sm:text-3xl md:text-2xl mx-auto mb-1 mt-1 mr-3" />
-          </div>
-          <div className="info  md:mb-16 lg:mb-0">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">
-              3472
-            </h2>
-            <p className="text-xs  xl:text-base font-bold font-sans">
-              Our students drive so many<br></br> kilometers every day
             </p>
           </div>
         </div>
