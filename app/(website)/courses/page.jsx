@@ -13,7 +13,8 @@ const Courses = () => {
     useEffect(() => {
         const fetchCoursesData = async () => {
             try {
-                const response = await axios.get('/api/courses/');
+                const url = process.env.NEXT_PUBLIC_API_BASE_URL
+                const response = await axios.get(`${url}/courses/`);
                 if (response.data) {
                     setCourses(response.data.data);
                 }

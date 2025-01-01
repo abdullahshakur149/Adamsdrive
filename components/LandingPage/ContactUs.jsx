@@ -56,7 +56,8 @@ const ContactUs = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/api/contact/", selectedData);
+      const url = process.env.NEXT_PUBLIC_API_BASE_URL
+      const response = await axios.post(`${url}/contact/`, selectedData);
       if (response.status === 200) {
         alert("Your message has been sent successfully!");
         setSelectedData({

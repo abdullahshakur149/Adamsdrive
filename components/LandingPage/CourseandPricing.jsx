@@ -23,8 +23,10 @@ const CourseandPricing = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get("/api/bestsellers");
+                const url = process.env.NEXT_PUBLIC_API_BASE_URL
+                const response = await axios.get(`${url}/bestsellers`);
                 setbestcourses(response.data.data);
+                console.log(response.data.data);
             } catch (error) {
                 console.log(error);
             }

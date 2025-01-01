@@ -19,8 +19,9 @@ const Pick = () => {
             console.log(values);
 
             try {
+                const url = process.env.NEXT_PUBLIC_API_BASE_URL
                 const response = await axios.post(
-                    "http://localhost:3000/api/PostalCode",
+                    `${url}/PostalCode`,
                     { postalCode: values.Postalcode }
                 );
                 if (response.data) {
