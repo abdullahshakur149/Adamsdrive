@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import axios from "axios";
 import { toast } from "react-toastify";
-import * as Yup from "yup";  // Import Yup for validation
+import * as Yup from "yup"; 
 import { useRouter } from "next/navigation";
 
 // Validation schema using Yup
@@ -33,15 +33,14 @@ const Pick = () => {
             coursePrice: "",
             courseSelected: "",
         },
-        validationSchema, // Add validation schema here
+        validationSchema, 
         onSubmit: async (values, { resetForm }) => {
             console.log(values);
             resetForm();
             try {
                 if (showform) {
-                    // Final submission for contact information
                     toast.success("Data has been saved successfully!");
-                    // router.push("/"); // Redirect after submission if needed
+                    // router.push("/"); 
                 }
             } catch (error) {
                 console.log(error);
@@ -58,7 +57,7 @@ const Pick = () => {
             });
             if (response.data) {
                 setcourseData(response.data.data);
-                setshowpackage(true); // Show the package selection
+                setshowpackage(true); 
             }
         } catch (error) {
             console.log(error);
@@ -82,7 +81,7 @@ const Pick = () => {
                     {!showpackage && !showform && (
                         <form
                             onSubmit={(e) => {
-                                e.preventDefault(); // Prevent form submission
+                                e.preventDefault(); 
                                 handlePostalcodeSubmit(formik.values);
                             }}
                             className="input flex flex-col mt-10"
@@ -106,7 +105,7 @@ const Pick = () => {
                                 />
                             </div>
                             <button
-                                type="button" // Avoid form submission, just move to next step
+                                type="button" 
                                 onClick={() => handlePostalcodeSubmit(formik.values)}
                                 className="mx-auto bg-blue-500 text-white mt-16 text-xl px-16 py-3 rounded-lg"
                             >
