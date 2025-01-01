@@ -24,8 +24,9 @@ const Pick = () => {
             courseSelected: "",
         },
         
-        onSubmit: async (values) => {
+        onSubmit: async (values,{resetForm}) => {
             console.log(values);
+            resetForm();
             try {
                 if (!showpackage && !showform) {
                     const url = process.env.NEXT_PUBLIC_API_BASE_URL;
