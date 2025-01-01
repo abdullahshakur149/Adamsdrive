@@ -5,7 +5,18 @@ import { useFormik } from "formik";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import axios from "axios";
 import { toast } from "react-toastify";
+import * as Yup from "yup";  // Import Yup for validation
 import { useRouter } from "next/navigation";
+
+// Validation schema using Yup
+const validationSchema = Yup.object({
+    name: Yup.string()
+        .required("Name is required")
+        .min(2, "Name must be at least 2 characters long"),
+    phonenumber: Yup.string()
+        .required("Phone number is required")
+        .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits"),
+});
 
 const Pick = () => {
     const [showpackage, setshowpackage] = useState(false);
@@ -22,6 +33,7 @@ const Pick = () => {
             coursePrice: "",
             courseSelected: "",
         },
+        validationSchema, // Add validation schema here
         onSubmit: async (values, { resetForm }) => {
             console.log(values);
             resetForm();
@@ -211,6 +223,9 @@ const Pick = () => {
                                 placeholder="Name"
                                 className="w-full p-3 border rounded-lg"
                             />
+                            {formik.errors.name && formik.touched.name && (
+                                <div className="text-red-500 text-sm">{formik.errors.name}</div>
+                            )}
                             <input
                                 name="phonenumber"
                                 onChange={formik.handleChange}
@@ -218,6 +233,9 @@ const Pick = () => {
                                 placeholder="Phone Number"
                                 className="w-full p-3 border rounded-lg"
                             />
+                            {formik.errors.phonenumber && formik.touched.phonenumber && (
+                                <div className="text-red-500 text-sm">{formik.errors.phonenumber}</div>
+                            )}
                             <input
                                 disabled
                                 value={formik.values.Postalcode}
