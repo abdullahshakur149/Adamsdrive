@@ -62,23 +62,20 @@ const CourseDetails = () => {
         
     }, [courseId]);
 
-    const handlePostcodeChange = (e) => {
-        setPostcode(e.target.value);
-    };
+   
 
-    const handleGetPrices = () => {
-        console.log("Postcode:", postcode);
-    };
+    
 
     
     const handleBookNow = () => {
-        
+        // console.log(courseDetail)
         if(courseDetail){
             const courseData = {
                 courseCategory: courseDetail.courseCategory,
                 courseTitle: courseDetail.courseTitle,
                 coursePrice: courseDetail.coursePrice,
                 courseDuration: courseDetail.duration,
+                courseid:courseDetail._id
             };
             localStorage.setItem("coursedetail", JSON.stringify(courseData));
         }
@@ -92,6 +89,8 @@ const CourseDetails = () => {
                 courseTitle: course.courseTitle,
                 coursePrice: course.coursePrice,
                 courseDuration: course.duration,
+                courseid:course._id
+
             };
             localStorage.setItem("coursedetail", JSON.stringify(courseData));
         }
