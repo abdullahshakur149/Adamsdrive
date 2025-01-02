@@ -16,7 +16,7 @@ const PaymentFailure = () => {
       <p style={styles.message}>
         Oops! Something went wrong. Please check your payment details and try again.
       </p>
-      <Link href="/checkout">
+      <Link href="/courses">
         <button style={styles.button}>Retry Payment</button>
       </Link>
     </div>

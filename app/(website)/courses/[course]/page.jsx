@@ -153,12 +153,12 @@ const CourseDetails = () => {
                         </div>
 
                         {/* Right Column: Booking Section */}
-                        <div className="w-full lg:w-1/3 space-y-6">
+                        <div className="w-full lg:w-1/3 md:space-y-24">
                             {/* "Find lesson pricing near you" Section */}
-                            <div className="p-4  rounded-lg shadow-md">
-                                <h2 className="text-lg font-semibold text-gray-700 mb-2 text-center">Find lesson pricing near you:</h2>
-                                <div className="flex items-center gap-2">
-                                    <div className="relative w-2/3">
+                            <div className="p-4  rounded-lg ">
+                                {/* <h2 className="text-lg font-semibold text-gray-700 mb-2 text-center">Find lesson pricing near you:</h2> */}
+                                <div className="flex items-center  gap-2">
+                                    {/* <div className="relative w-2/3">
                                         <FaMapMarkerAlt className="absolute top-2.5 left-3 text-blue-500" />
                                         <input
                                             type="text"
@@ -173,7 +173,7 @@ const CourseDetails = () => {
                                         className="bg-pink-500 text-white  lg:px-2 lg:py-3 rounded-md font-semibold hover:bg-pink-600"
                                     >
                                         GET PRICES
-                                    </button>
+                                    </button> */}
                                 </div>
                             </div>
 
