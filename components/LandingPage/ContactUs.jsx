@@ -220,7 +220,8 @@ const ContactUs = () => {
                   office@muffingroup.com
                 </a>
                 <br />
-                +91-8010300865
+                +44 7423 843474
+
               </p>
               <div className="flex mt-4 space-x-3">
                 <a href="#" className="text-blue-300 p-2 bg-white rounded-full">

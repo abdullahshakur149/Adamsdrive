@@ -21,9 +21,9 @@ const Instructors = () => {
   const [instructors, setInstructors] = useState([
     {
       image: <Image src={image} alt="Rogan Massey" width={100} height={100} className="mx-auto" />,
-      name: "Rogan Massey",
+      name: "Muhammad Ubaid",
       status: "Practical Instructor",
-      description: "Hey, my name is Massey and I am a very good instructor.",
+      description: "Hi, I’m Muhammad Ubaid, a dedicated Practical Instructor focused on delivering clear, hands-on guidance to help students excel with confidence and ease.",
       boardIcon: <FaClipboardList />,
       effectivenessPercent: "99.7%",
       effectivenessDesc: "Effectiveness of passing stats exam",
@@ -70,10 +70,10 @@ const Instructors = () => {
       />      
       <div className="text-center mt-20 relative">
         <h1 className="text-md text-blue-500 font-monaBold mt-4">Our Instructors</h1>
-        <h1 className="text-4xl font-monaBold text-center mt-3 mb-8">
+        {/* <h1 className="text-4xl font-monaBold text-center mt-3 mb-8">
           It's only you who chooses
           <br /> who will be your instructor
-        </h1>
+        </h1> */}
       </div>
       <div className="instructors flex justify-center relative">
         {/* Left Arrow */}

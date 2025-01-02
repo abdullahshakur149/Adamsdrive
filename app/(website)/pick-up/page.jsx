@@ -4,7 +4,7 @@ import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 import { useFormik } from "formik";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import * as Yup from "yup"; 
 import { useRouter } from "next/navigation";
 
@@ -38,13 +38,31 @@ const Pick = () => {
             console.log(values);
             resetForm();
             try {
-                if (showform) {
-                    toast.success("Data has been saved successfully!");
+                const url = process.env.NEXT_PUBLIC_API_BASE_URL;
+                    const response = await axios.post(`${url}/hourlyOrder`,values); 
+
+                    if(response?.data){
+                        toast.success(" Data has been saved successfully!", {
+                            position: "top-right",
+                            duration: 3000, // Display duration in ms
+                        });
                     // router.push("/"); 
-                }
+                    }
+                    else{
+                        toast.warning(" Data was not saved. Please try again.", {
+                            position: "top-right",
+                            duration: 3000,
+                        });
+                    }
+                
             } catch (error) {
-                console.log(error);
-                toast.error("An error occurred. Please try again.");
+               toast.error(
+            error?.response?.data?.message || "❌ An error occurred. Please try again.",
+            {
+                position: "top-right",
+                duration: 3000,
+            }
+        );
             }
         },
     });
@@ -116,7 +134,7 @@ const Pick = () => {
 
                     {/* Package Selection */}
                     {showpackage && courseData && (
-                        <div>
+                       <div>
                             <div className="p-6 max-w-xl mx-auto">
                                 <button
                                     onClick={() => setshowpackage(false)}
@@ -258,6 +276,7 @@ const Pick = () => {
                     )}
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };

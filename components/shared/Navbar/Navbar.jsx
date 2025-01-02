@@ -1,113 +1,69 @@
 "use client";
 import React, { useState } from "react";
-import logo from "@/public/img/logo.png";
+import logo from "@/public/img/logo.jpeg";
 import Image from "next/image";
 import Link from "next/link";
-import "./Navbar.css"
-import { FaBars, FaPhoneAlt, FaTimes,FaChevronDown } from "react-icons/fa";
+import "./Navbar.css";
+import { FaBars, FaPhoneAlt, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState({ Courses:false });
 
   const Links = [
-    { pathname: "Courses and Pricing", path: "/courses",isDropdown:true,sublinks:[
-      {pathname: "intensive Courses", path: "/courses",},
-      {pathname: "Hourly Courses", path: "/pick-up",},
-    ] 
-    },
-    // { pathname: "About Us", path: "#" },
-    // { pathname: "Our Instructors", path: "#" },
-    // { pathname: "News", path: "#" },
-    // { pathname: "Testimonials", path: "#" },
+    { pathname: "Intensive Courses", path: "/courses" },
+    { pathname: "Hourly Courses", path: "/pick-up" },
     { pathname: "Contact Us", path: "/contactus" },
   ];
 
-  const handleDropdownToggle = (name) => {
-    setDropdownOpen((prev) => ({ ...prev, [name]: !prev[name] }));
-  };
   return (
     <div className="w-full">
       {/* Navbar for larger screens */}
-      <div className="hidden lg:flex md:mt-5  justify-between items-center">
+      <div className="hidden lg:flex md:mt-5 justify-between items-center">
         {/* Logo and Links */}
         <div className="flex items-center">
-  <div className="md:ml-5">
-    <Link href="/">
-      <Image src={logo}  className="w-16 md:w-20" alt="logo" />
-    </Link>
-  </div>
-  <div className="xl:ml-10 lg:ml-3">
-    <ul className="flex md:space-x-2 lg:space-x-4">
-      {Links.map((link, idx) => (
-        <li
-          key={idx}
-          className="relative group"
-          onMouseEnter={() => link.isDropdown && handleDropdownToggle(link.pathname.toLowerCase(), true)}
-          onMouseLeave={() => link.isDropdown && handleDropdownToggle(link.pathname.toLowerCase(), false)}
-        >
-          <div className="flex items-center">
-            <Link
-              href={link.path}
-              className="links md:text-xs xl:text-base text-zinc-900 font-semibold hover:text-blue-500 transition"
-            >
-              {link.pathname}
+          <div className="md:ml-5">
+            <Link href="/">
+              <Image src={logo} className="w-20 md:w-32 " alt="logo" />
             </Link>
-            {link.isDropdown && (
-              <FaChevronDown
-                className="ml-1 text-black cursor-pointer inline"
-                onClick={() => handleDropdownToggle(link.pathname.toLowerCase(), !dropdownOpen[link.pathname.toLowerCase()])}
-              />
-            )}
           </div>
-
-          {/* Dropdown */}
-          {link.isDropdown && (
-            <div
-              className={`absolute top-full left-0 w-44 z-50 bg-gray-800 text-white rounded shadow-lg transition-all duration-300 ease-in-out transform ${
-                dropdownOpen[link.pathname.toLowerCase()] ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-              }`}
-            >
-              {link.sublinks.map((sublink, subIdx) => (
-                <Link
-                  key={subIdx}
-                  href={sublink.path}
-                  className="block px-4 py-2 hover:bg-gray-700"
-                >
-                  {sublink.pathname}
-                </Link>
+          <div className="xl:ml-10 lg:ml-3">
+            <ul className="flex md:space-x-2 lg:space-x-4">
+              {Links.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.path}
+                    className="links md:text-xs xl:text-base text-zinc-900 font-semibold hover:text-blue-500 transition"
+                  >
+                    {link.pathname}
+                  </Link>
+                </li>
               ))}
-            </div>
-          )}
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
-
+            </ul>
+          </div>
+        </div>
 
         {/* Contact Number and Login Button */}
         <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
           <div className="flex items-center text-gray-700">
             <FaPhoneAlt className="text-yellow-700/75 mr-2 text-lg lg:text-xl" />
-            <Link href="#" className="font-monaBold text-base md:text-sm lg:text-base xl:text-xl">
-              +91-802342523
-            </Link>
+            <span  className="font-monaBold text-base md:text-sm lg:text-base xl:text-xl">
+            +44 7423 843474
+            </span>
           </div>
           <div>
-            <Link
+            {/* <Link
               href="/login"
               className="bg-blue-600 text-white xl:px-7 xl:py-3 rounded-lg text-sm md:text-base lg:text-base hover:bg-blue-700 transition"
             >
               Login
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
 
       {/* Sidebar and toggle button for mobile */}
       <div className="lg:hidden flex items-center justify-between p-4 w-full">
-        <Link href="#">
+        <Link href="/">
           <Image src={logo} className="w-12" alt="logo" />
         </Link>
         <button
@@ -129,7 +85,7 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center mb-8">
-          <Link href="#">
+          <Link href="/">
             <Image src={logo} className="w-10" alt="logo" />
           </Link>
           <button onClick={() => setSidebarOpen(false)} aria-label="Close Menu">
@@ -143,32 +99,10 @@ const Navbar = () => {
               <Link
                 href={link.path}
                 className="block p-2 hover:bg-gray-700 rounded"
-                onClick={() => link.isDropdown ? handleDropdownToggle(link.pathname.toLowerCase()) : setSidebarOpen(false)}
+                onClick={() => setSidebarOpen(false)}
               >
                 {link.pathname}
               </Link>
-              {link.isDropdown && (
-              <FaChevronDown
-                className="ml-1 text-white cursor-pointer flex"
-                onClick={() => handleDropdownToggle(link.pathname.toLowerCase(), !dropdownOpen[link.pathname.toLowerCase()])}
-              />
-            )}
-              {link.isDropdown && dropdownOpen[link.pathname.toLowerCase()] && (
-                <div className="ml-4 mt-2 space-y-2">
-                  {link.sublinks.map((sublink, subIdx) => (
-                    <Link
-                      key={subIdx}
-                      href={sublink.path}
-                      className="block pl-4 p-2 text-white hover:bg-gray-700 rounded"
-                      onClick={() => setSidebarOpen(false)}
-                    >
-                      {sublink.pathname}
-                    </Link>
-                    
-                  ))}
-                 
-                </div>
-              )}
             </li>
           ))}
         </ul>
@@ -190,7 +124,7 @@ const Navbar = () => {
       {/* Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black  opacity-50"
+          className="fixed inset-0 z-50 bg-black opacity-50"
           onClick={() => setSidebarOpen(false)}
         ></div>
       )}
