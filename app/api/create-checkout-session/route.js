@@ -8,11 +8,11 @@ export async function POST(req) {
     // Parse the incoming request data
     const data = await req.json();
 
-    console.log(data);
+    console.log('this is the data we first get in json', data);
 
     // Extract the course details and user information from the parsed data
     const { name, email, phonenumber, address, coursedetail } = data;
-    const { courseCategory, courseTitle, coursePrice } = coursedetail;
+    const { courseTitle, coursePrice, courseid } = coursedetail
 
     // Create a new Stripe Checkout session
     const session = await stripe.checkout.sessions.create({
@@ -34,13 +34,15 @@ export async function POST(req) {
       cancel_url: `${req.headers.get('origin')}/pf`,
       customer_email: email,
       metadata: {
-        userName: name,
-        userPhone: phonenumber,
-        userAddress: address,
-        courseTitle: courseTitle,
-        courseCategory: courseCategory,
+        name: name,
+        phonenumber: phonenumber,
+        email: email,
+        address: address,
+        courseid
       },
     });
+    console.log('this is the data we have made in the meta data', session.metadata)
+    console.log('Session URL:', session.url);
 
     return NextResponse.json({ url: session.url });
   } catch (error) {
