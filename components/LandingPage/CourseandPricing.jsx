@@ -38,10 +38,11 @@ const CourseandPricing = () => {
         
         if(course){
             const courseData = {
-                courseCategory: course.courseCategory,
-                courseTitle: course.courseTitle,
-                coursePrice: course.coursePrice,
-                courseDuration: course.duration,
+                // courseCategory: course.courseCategory,
+                // courseTitle: course.courseTitle,
+                // coursePrice: course.coursePrice,
+                // courseDuration: course.duration,
+                courseid:course._id
             };
             localStorage.setItem("coursedetail", JSON.stringify(courseData));
         }
