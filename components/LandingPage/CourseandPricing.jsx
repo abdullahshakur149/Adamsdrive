@@ -73,7 +73,7 @@ const CourseandPricing = () => {
                             </div>
                         
                             <div className="price text-blue-600 font-bold text-3xl sm:text-4xl lg:text-5xl text-center mb-8 lg:mb-10 mt-10">
-                                ${course.coursePrice}
+                            £ {course.coursePrice}
                             </div>
                             <hr className="border-gray-300 mb-8" />
                         

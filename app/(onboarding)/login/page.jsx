@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import logo from "@/public/img/Loginlogo.png";
+import logo from "@/public/img/logo.jpeg";
 import Image from "next/image";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import { FaEye,FaEyeSlash } from "react-icons/fa";
@@ -31,7 +31,7 @@ const Login = () => {
 
         {/* Right side - Form */}
         <div className="md:w-4/12 mt-10  w-full max-sm:ml-3 flex p-4 flex-col justify-center bg-white">
-          <h1 className="text-3xl font-bold font-mono text-blue-400 text-center">Welcome to Adam's Drive</h1>
+          <h1 className="text-3xl font-bold font-mono text-blue-400 text-center">Welcome to Lane View</h1>
           <span className="text-gray-600 text-lg text-center font-thin">Sign-in</span>
 
           {/* Formik Form */}

@@ -91,8 +91,7 @@ const Contactpopup = () => {
                                 data-aos="fade-left"
                                 className="text-gray-600 mt-2 mb-6 text-sm md:text-base text-start font-bold"
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed
-                                porttitor, tristique velit eget.
+                                Please fill in the form to reach out to us. We’ll get back to you shortly.
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <input

@@ -5,6 +5,8 @@ import Navbar from '@/components/shared/Navbar/Navbar';
 import axios from 'axios';
 import { FaArrowRight } from 'react-icons/fa';
 import ContactUs from '@/components/LandingPage/ContactUs';
+import Image from 'next/image';
+import courseprice from "@/public/img/images/images/course&price.gif"
 
 const Courses = () => {
     const [Course, setCourses] = useState([]);
@@ -31,9 +33,14 @@ const Courses = () => {
     if (loading) return <div className='flex font-bold text-4xl justify-center items-center mt-60'>Loading courses...</div>;
 
     return (
+        <div>
+                        <Image src={courseprice} className='fixed -z-50 object-cover w-full h-full top-0 left-0 inset-0'/>
+
+
         <div className="w-11/12 mx-auto ">
             <Navbar />
-            <div className="content bg-gradient-to-r rounded-xl from-gray-300 to-gray-200">
+            <div className="content  rounded-xl ">
+                
             <h1 data-aos="fade-up" className='text-3xl lg:text-4xl font-monaBold text-center mt-16 pt-16 p-4 text-blue-700 '>
                 intensive Courses<br /> 
             </h1>
@@ -70,6 +77,7 @@ const Courses = () => {
             <div className="footer mt-10">
                 <ContactUs />
             </div>
+        </div>
         </div>
     );
 };

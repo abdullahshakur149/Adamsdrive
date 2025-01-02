@@ -60,16 +60,16 @@ const IntroSection = () => {
           <button className=" p-1 bg-orange-500 text-xsmall md:text-xs  lg:text-xs xl:text-base xl:px-6 xl:py-3 xl:mt-3 text-white font-bold rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-200 ease-in-out">
             <a href="/courses">Courses & Pricing</a>
           </button>
-          <button className="  p-1  text-xsmall md:text-xs   lg:text-xs xl:text-base lg:px-6 xl:px-6 lg:py-2 bg-black xl:mt-3 text-white font-bold rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-200 ease-in-out">
+          {/* <button className="  p-1  text-xsmall md:text-xs   lg:text-xs xl:text-base lg:px-6 xl:px-6 lg:py-2 bg-black xl:mt-3 text-white font-bold rounded-lg shadow-lg hover:bg-blue-500 transition-all duration-200 ease-in-out">
             About Us
-          </button>
+          </button> */}
         </div>
       </div>
 
       {/* Stats Section */}
       <div
         data-aos="fade-in"
-        className="container   bg-default   p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center mx-auto lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 "
+        className="container   bg-default   p-4 sm:p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 place-items-center mx-auto lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 "
       >
         <div className="stat flex">
           <div className="icon">
