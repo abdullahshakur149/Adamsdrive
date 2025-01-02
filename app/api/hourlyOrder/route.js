@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
 import hourlyOrder from "@/models/hourlyOrder";
-export async function POST() {
+export async function POST(req) {
     try {
         const { Postalcode, coursePrice, courseSelected, name, phonenumber } = await req.json()
 

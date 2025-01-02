@@ -4,7 +4,7 @@ import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 import { useFormik } from "formik";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import * as Yup from "yup"; 
 import { useRouter } from "next/navigation";
 
@@ -42,14 +42,14 @@ const Pick = () => {
                     const response = await axios.post(`${url}/hourlyOrder`,values); 
 
                     if(response?.data){
-                        toast.success("✅ Data has been saved successfully!", {
+                        toast.success(" Data has been saved successfully!", {
                             position: "top-right",
                             duration: 3000, // Display duration in ms
                         });
                     // router.push("/"); 
                     }
                     else{
-                        toast.warning("⚠️ Data was not saved. Please try again.", {
+                        toast.warning(" Data was not saved. Please try again.", {
                             position: "top-right",
                             duration: 3000,
                         });
@@ -276,6 +276,7 @@ const Pick = () => {
                     )}
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
