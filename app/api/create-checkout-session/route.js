@@ -38,11 +38,11 @@ export async function POST(req) {
         userPhone: phonenumber,
         userAddress: address,
         courseTitle: courseTitle,
+        courseCategory: courseCategory,
       },
     });
 
     return NextResponse.json({ url: session.url });
-
   } catch (error) {
     console.error('Error creating checkout session:', error);
     return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 });
