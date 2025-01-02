@@ -30,8 +30,8 @@ export async function POST(req) {
         },
       ],
       mode: 'payment',
-      success_url: `${req.headers.get('origin')}/success`,
-      cancel_url: `${req.headers.get('origin')}/cancel`,
+      success_url: `${req.headers.get('origin')}/ps`,
+      cancel_url: `${req.headers.get('origin')}/pf`,
       customer_email: email,
       metadata: {
         userName: name,
