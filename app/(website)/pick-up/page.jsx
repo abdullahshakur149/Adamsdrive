@@ -15,7 +15,7 @@ const validationSchema = Yup.object({
         .min(2, "Name must be at least 2 characters long"),
     phonenumber: Yup.string()
         .required("Phone number is required")
-        .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits"),
+        // .matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits"),
 });
 
 const Pick = () => {
