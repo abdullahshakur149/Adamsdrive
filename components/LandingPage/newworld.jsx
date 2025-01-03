@@ -18,7 +18,7 @@ const Newworld = () => {
     return (
         <div className='bg-white flex justify-center relative mt-32 mb-32   w-full'>
             <Image src={opinion} className='absolute top-0 left-0 lg:flex hidden' />
-            <div className="data z-50 flex justify-center md:flex-row flex-col">
+            <div className="data  flex justify-center md:flex-row flex-col">
                 <div data-aos="fade-up" className="md:w-4/12 w-full  m-8 flex-col space-y-8 mt-32">
                     <span className='text-blue-500 text-sm font-extrabold font-monaBold'>News</span>
                     <h1 className='font-monaBold text-4xl '>What's<br></br> new in the <br></br> world of <br></br> drivers? </h1>
@@ -29,7 +29,7 @@ const Newworld = () => {
                 </div>
                 <div data-aos="fade-up" className="md:w-4/12 mt-10 m-8 flex relative flex-col">
                     <Image src={driving} className="object-contain w-full md:absolute -top-24 rounded-3xl" />
-                    <span className="text-4xl font-monaBold mt-20 mb-5">23 Sep</span>
+                    <span className="text-4xl font-monaBold md:mt-48 mt-5 mb-5">23 Sep</span>
                     <span className="text-blue-500 text-sm font-extrabold font-monaBold mb-5">
                         From January 1,<br></br> new regulations will be<br></br> introduced for drivers
                     </span>
@@ -49,7 +49,7 @@ const Newworld = () => {
 
                 <div data-aos="fade-up" className="md:w-4/12 mt-10 m-8 flex relative flex-col">
                     <Image src={driving} className="object-contain w-full md:absolute -top-24 rounded-3xl" />
-                    <span className="text-4xl font-monaBold mt-20 mb-5">18 Sep</span>
+                    <span className="text-4xl font-monaBold md:mt-48 mt-5 mb-5">18 Sep</span>
                     <span className="text-blue-500 text-sm font-extrabold font-monaBold mb-5">
                         From January 1,<br></br> new regulations will be<br></br> introduced for drivers
                     </span>

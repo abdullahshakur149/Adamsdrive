@@ -241,7 +241,7 @@ const ContactUs = () => {
           <footer className="mt-10 text-gray-500">
             <div className="flex justify-between items-center px-4">
               <div className="flex items-center space-x-2">
-                <Image src={logo} alt="Logo" className="w-24 h-20" />
+                {/* <Image src={logo} alt="Logo" className="w-24 h-20" /> */}
                 <span className="text-xl font-bold text-blue-600"> Lane View Driving School</span>
               </div>
               <button

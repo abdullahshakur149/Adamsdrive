@@ -26,7 +26,7 @@ const Instructors = () => {
       description: "Hi, I’m Muhammad Ubaid, a dedicated Practical Instructor focused on delivering clear, hands-on guidance to help students excel with confidence and ease.",
       boardIcon: <FaClipboardList />,
       effectivenessPercent: "99.7%",
-      effectivenessDesc: "Effectiveness of passing stats exam",
+      effectivenessDesc: "Effectiveness of passing  exam",
       facebookIcon: <FaFacebook />,
       twitterIcon: <FaTwitter />,
       instagramIcon: <FaInstagram />,
