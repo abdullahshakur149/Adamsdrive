@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import navbarlogo from "@/public/img/adamsdrive.png";
+import navbarlogo from "@/public/img/logo.jpeg"
 import { FaHome, FaShopify, FaUser } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 
