@@ -34,7 +34,7 @@ const Courses = () => {
 
     return (
         <div>
-                        <Image src={courseprice} className='fixed -z-50 object-cover w-full h-full top-0 left-0 inset-0'/>
+                        <Image src={courseprice} className='fixed -z-50 object-cover top-0 w-screen h-screen'/>
 
 
         <div className="w-11/12 mx-auto ">

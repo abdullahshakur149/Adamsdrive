@@ -11,7 +11,7 @@ const Contactpopup = () => {
     const [filteredCourse, setFilteredCourse] = useState([]);
     const [selectedData, setSelectedData] = useState({
         name: "",
-        city: "",
+        postalcode: "",
         email: "",
         phonenumber: "",
         courseCategory: "",
@@ -23,8 +23,9 @@ const Contactpopup = () => {
     useEffect(() => {
         const getData = async () => {
             try {
+                const url  = process.env.NEXT_PUBLIC_API_BASE_URL;
                 const response = await axios.get(
-                    "http://localhost:3000/api/courses/allCourses/"
+                    `${url}/courses/allCourses/`
                 );
                 setCourses(response.data.data);
             } catch (error) {
@@ -57,7 +58,7 @@ const Contactpopup = () => {
                 alert("Your message has been sent successfully!");
                 setSelectedData({
                     name: "",
-                    city: "",
+                    postalcode: "",
                     email: "",
                     phonenumber: "",
                     courseCategory: "",
@@ -106,11 +107,11 @@ const Contactpopup = () => {
                                 />
                                 <input
                                     type="text"
-                                    placeholder="Select City"
+                                    placeholder="Enter postalcode"
                                     className="p-3 border rounded-lg w-full"
-                                    value={selectedData.city}
+                                    value={selectedData.postalcode}
                                     onChange={(e) =>
-                                        setSelectedData({ ...selectedData, city: e.target.value })
+                                        setSelectedData({ ...selectedData, postalcode: e.target.value })
                                     }
                                 />
                                 <input

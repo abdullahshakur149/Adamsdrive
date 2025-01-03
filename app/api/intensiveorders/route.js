@@ -5,7 +5,7 @@ import connectDB from "@/lib/db";
 export async function GET() {
     try {
         await connectDB();
-        const orders = await Intensive.find();
+        const orders = await Intensive.find().populate('Course');
         console.log(orders)
         return NextResponse.json({ status: 200, orders })
 

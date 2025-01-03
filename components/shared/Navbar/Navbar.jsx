@@ -111,13 +111,13 @@ const Navbar = () => {
           <Link href="#" className="block text-lg mb-4">
             +91-802342523
           </Link>
-          <Link
+          {/* <Link
             href="/login"
             className="block bg-blue-500 px-4 py-2 text-center text-white rounded-lg hover:bg-blue-600 transition"
             onClick={() => setSidebarOpen(false)}
           >
             Login
-          </Link>
+          </Link> */}
         </div>
       </div>
 
