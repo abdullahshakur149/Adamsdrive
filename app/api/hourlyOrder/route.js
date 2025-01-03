@@ -36,3 +36,16 @@ export async function POST(req) {
         return NextResponse.json({ status: 500 });
     }
 }
+
+export async function GET() {
+    try {
+        await connectDB();
+        const orders = hourlyOrder.find();
+        console.log(orders)
+        return NextResponse.json({ status: 200, orders })
+
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({ status: 500, message: error })
+    }
+}
