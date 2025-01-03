@@ -2,7 +2,7 @@ import Stripe from 'stripe';
 import { NextResponse } from 'next/server';
 import connectDB from '@/lib/db'
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-import Intensive from '@/models/order';
+import Intensive from '@/models/Order';
 
 export async function POST(req) {
     const sig = req.headers.get('stripe-signature');
