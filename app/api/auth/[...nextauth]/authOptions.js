@@ -1,5 +1,7 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
+import User from '@/models/User';
 import bcrypt from 'bcryptjs';
+import connectDB from '@/lib/db';
 
 export const authOptions = {
     providers: [
@@ -7,83 +9,74 @@ export const authOptions = {
             id: 'credentials',
             name: 'Credentials',
             credentials: {
-                email: { label: 'Email:', type: 'text', placeholder: 'your-email' },
-                password: { label: 'Password:', type: 'password', placeholder: 'your-password' },
+                email: {
+                    label: 'email:',
+                    type: 'text',
+                    placeholder: 'your-email',
+                },
+                password: {
+                    label: 'password:',
+                    type: 'password',
+                    placeholder: 'your-password',
+                },
             },
             async authorize(credentials) {
-                const adminEmail = process.env.ADMIN_EMAIL;
-                const adminPassword = process.env.ADMIN_PASSWORD;
-
-                // Check if environment variables are loaded
-                console.log("Loaded Admin Email:", adminEmail);
-                console.log("Loaded Admin Password (hashed/plain):", adminPassword);
-
-                if (!adminEmail || !adminPassword) {
-                    throw new Error('Admin credentials are not properly configured.');
-                }
-
-                // Check if the email matches
-                if (credentials.email !== adminEmail) {
-                    console.log("Incorrect email provided.");
-                    throw new Error('No user exists with this email.');
-                }
-
-                // Compare passwords (hashed or plain text)
-                let isPasswordCorrect = false;
+                await connectDB();
                 try {
-                    console.log("Entered Password:", credentials.password);
+                    const user = await User.findOne({
+                        email: credentials.email,
+                    });
 
-                    // If adminPassword is hashed, compare with bcrypt
-                    isPasswordCorrect = await bcrypt.compare(credentials.password, adminPassword);
-
-                    // If bcrypt fails and passwords are plain text, fallback to direct comparison
-                    if (!isPasswordCorrect) {
-                        console.log("Bcrypt comparison failed. Trying plain text comparison...");
-                        isPasswordCorrect = credentials.password === adminPassword;
+                    if (!user) {
+                        throw new Error('No User Exists');
                     }
+                    const isPasswordCorrect = await bcrypt.compare(
+                        credentials.password,
+                        user.password
+                    );
+                    if (isPasswordCorrect) {
+                        console.log('Pass correct data:', user);
+                        console.log(user)
 
-                    console.log("Password Match Status:", isPasswordCorrect);
+                        return user;
+                    } else {
+                        throw new Error('Incorrect Password');
+                    }
                 } catch (error) {
-                    console.error("Error during password comparison:", error);
-                    throw new Error('Password comparison failed.');
+                    console.log(error);
                 }
-
-                if (!isPasswordCorrect) {
-                    console.log("Incorrect password provided.");
-                    throw new Error('Incorrect password.');
-                }
-
-                // Return admin user object on success
-                return {
-                    _id: '223002',
-                    username: 'Admin',
-                    role: 'admin',
-                };
+                return null;
             },
         }),
     ],
+    pages: {
+        signIn: '/login',
+        signOut: '/logout',
+    },
     session: {
         strategy: 'jwt',
-        maxAge: 10 * 24 * 60 * 60, // 10 days
+        //15 days
+        maxAge: 10 * 24 * 60 * 60,
     },
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
-                token._id = user._id;
+                token._id = user._id?.toString();
                 token.role = user.role;
-                token.name = user.username;
+                token.name = user.username
             }
-            console.log("Generated JWT Token:", JSON.stringify(token, null, 2));
+            // console.log("This is the token", JSON.stringify(token, null, 2));
             return token;
         },
         async session({ session, token }) {
             if (session) {
                 session.user._id = token._id;
                 session.user.role = token.role;
-                session.user.name = token.name;
+                session.user.name = token.name
             }
-            console.log("Session Data:", JSON.stringify(session, null, 2));
+            console.log("Session Data:", session);
+
             return session;
         },
     },
