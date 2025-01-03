@@ -25,7 +25,7 @@ module.exports = {
         'lg':'1023px' // Adjust as needed
       },
       fontSize:{
-        'xsmall':"7px"
+        'xsmall':"6px"
       }
       
     },
