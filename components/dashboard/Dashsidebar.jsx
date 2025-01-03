@@ -37,22 +37,22 @@ const Dashsidebar = ({ togglebutton,settogglebutton }) => {
             Dashboard
           </Link>
           <Link onClick={()=>settogglebutton(!togglebutton)}
-            href="/dashboard/users"
+            href="/dashboard/intensive"
             className={`mb-1 p-2 text-black hover:bg-blue-400 hover:text-white duration-100 ease-in-out w-52 rounded-lg flex text-lg ${
               path === "/dashboard/users" ? "bg-blue-400" : ""
             }`}
           >
-            <FaUser className="mr-1 mt-1" />
-            Users
+            <FaShopify className="mr-1 mt-1" />
+            intensive  Placed
           </Link>
           <Link onClick={()=>settogglebutton(!togglebutton)}
-            href="/dashboard/orders"
+            href="/dashboard/hourlyorder"
             className={`mb-1 p-2 text-black hover:bg-blue-400 hover:text-white duration-100 ease-in-out w-56 rounded-lg flex text-lg ${
               path === "/dashboard/orders" ? "bg-blue-400" : ""
             }`}
           >
             <FaShopify className="mr-1 mt-1" />
-            Order Placed
+           Hourly Order Placed
           </Link>
         </div>
       </div>
