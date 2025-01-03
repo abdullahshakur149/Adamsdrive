@@ -40,7 +40,7 @@ export async function POST(req) {
 export async function GET() {
     try {
         await connectDB();
-        const orders = hourlyOrder.find();
+        const orders = await hourlyOrder.find();
         console.log(orders)
         return NextResponse.json({ status: 200, orders })
 
