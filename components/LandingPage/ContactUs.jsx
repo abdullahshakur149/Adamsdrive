@@ -7,14 +7,6 @@ import {
   FaMapMarkerAlt,
   FaArrowUp,
 } from "react-icons/fa";
-import logo from "@/public/img/logo.jpeg";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaMapMarkerAlt,
-  FaArrowUp,
-} from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import contactimage from "@/public/img/images/images/contactus.png";
 import Image from "next/image";
@@ -59,27 +51,20 @@ const ContactUs = () => {
     const filtered = courses.filter(
       (course) => course.courseCategory === courseCategory
     );
-    const filtered = courses.filter(
-      (course) => course.courseCategory === courseCategory
-    );
     setFilteredCourse(filtered);
-    setSelectedData({ ...selectedData, courseCategory });
+    setSelectedData((prevData) => ({ ...prevData, courseCategory }));
   };
 
   const Submit = async (e) => {
     e.preventDefault();
 
-    const { name, email, courseTitle, message, privacyUnderstand } =
-      selectedData;
-    const { name, email, courseTitle, message, privacyUnderstand } =
-      selectedData;
+    const { name, email, courseTitle, message, privacyUnderstand } = selectedData;
     if (!name || !email || !courseTitle || !message || !privacyUnderstand) {
       alert("Please fill out all required fields.");
       return;
     }
 
     try {
-      const url = process.env.NEXT_PUBLIC_API_BASE_URL;
       const url = process.env.NEXT_PUBLIC_API_BASE_URL;
       const response = await axios.post(`${url}/contact/`, selectedData);
       if (response.status === 200) {
@@ -123,24 +108,9 @@ const ContactUs = () => {
           data-aos="fade-down"
           className="text-blue-500 font-extrabold text-sm md:text-md mb-5"
         >
-      <Image
-        src={contactimage}
-        alt="Contact Us"
-        className="absolute object-cover w-full h-full"
-      />
-      <div
-        data-aos="fade-up"
-        className="content relative mt-20 w-10/12 md:w-8/12 mx-auto"
-      >
-        <h1
-          data-aos="fade-down"
-          className="text-blue-500 font-extrabold text-sm md:text-md mb-5"
-        >
           Contact Us
         </h1>
         <h1 data-aos="fade-up" className="text-4xl font-bold mt-4 mb-4">
-          If you have any questions,
-          <br /> feel free to contact us
           If you have any questions,
           <br /> feel free to contact us
         </h1>
@@ -159,8 +129,6 @@ const ContactUs = () => {
               <p className="text-gray-600 mb-8">
                 Please fill in the form to reach out to us. We’ll get back to
                 you shortly.
-                Please fill in the form to reach out to us. We’ll get back to
-                you shortly.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 {/* Form Inputs */}
@@ -170,10 +138,10 @@ const ContactUs = () => {
                   className="p-3 border rounded-lg w-full"
                   value={selectedData.name}
                   onChange={(e) =>
-                    setSelectedData({ ...selectedData, name: e.target.value })
-                  }
-                  onChange={(e) =>
-                    setSelectedData({ ...selectedData, name: e.target.value })
+                    setSelectedData((prevData) => ({
+                      ...prevData,
+                      name: e.target.value,
+                    }))
                   }
                 />
                 <input
@@ -181,7 +149,12 @@ const ContactUs = () => {
                   placeholder="Enter postalcode"
                   className="p-3 border rounded-lg w-full"
                   value={selectedData.postalcode}
-                  onChange={(e) => setSelectedData({ ...selectedData, postalcode: e.target.value })}
+                  onChange={(e) =>
+                    setSelectedData((prevData) => ({
+                      ...prevData,
+                      postalcode: e.target.value,
+                    }))
+                  }
                 />
                 <input
                   type="email"
@@ -189,10 +162,10 @@ const ContactUs = () => {
                   className="p-3 border rounded-lg w-full"
                   value={selectedData.email}
                   onChange={(e) =>
-                    setSelectedData({ ...selectedData, email: e.target.value })
-                  }
-                  onChange={(e) =>
-                    setSelectedData({ ...selectedData, email: e.target.value })
+                    setSelectedData((prevData) => ({
+                      ...prevData,
+                      email: e.target.value,
+                    }))
                   }
                 />
                 <input
@@ -201,16 +174,10 @@ const ContactUs = () => {
                   className="p-3 border rounded-lg w-full"
                   value={selectedData.phonenumber}
                   onChange={(e) =>
-                    setSelectedData({
-                      ...selectedData,
+                    setSelectedData((prevData) => ({
+                      ...prevData,
                       phonenumber: e.target.value,
-                    })
-                  }
-                  onChange={(e) =>
-                    setSelectedData({
-                      ...selectedData,
-                      phonenumber: e.target.value,
-                    })
+                    }))
                   }
                 />
                 <select
@@ -229,14 +196,10 @@ const ContactUs = () => {
                     className="p-3 border rounded-lg w-full"
                     value={selectedData.courseTitle}
                     onChange={(e) =>
-                      setSelectedData({
-                        ...selectedData,
+                      setSelectedData((prevData) => ({
+                        ...prevData,
                         courseTitle: e.target.value,
-                      })
-                      setSelectedData({
-                        ...selectedData,
-                        courseTitle: e.target.value,
-                      })
+                      }))
                     }
                   >
                     <option value="" disabled hidden>
@@ -256,10 +219,10 @@ const ContactUs = () => {
                 rows="4"
                 value={selectedData.message}
                 onChange={(e) =>
-                  setSelectedData({ ...selectedData, message: e.target.value })
-                }
-                onChange={(e) =>
-                  setSelectedData({ ...selectedData, message: e.target.value })
+                  setSelectedData((prevData) => ({
+                    ...prevData,
+                    message: e.target.value,
+                  }))
                 }
               />
               <div className="flex items-center mb-4">
@@ -269,24 +232,13 @@ const ContactUs = () => {
                   className="mr-2"
                   checked={selectedData.privacyUnderstand}
                   onChange={(e) =>
-                    setSelectedData({
-                      ...selectedData,
+                    setSelectedData((prevData) => ({
+                      ...prevData,
                       privacyUnderstand: e.target.checked,
-                    })
-                    setSelectedData({
-                      ...selectedData,
-                      privacyUnderstand: e.target.checked,
-                    })
+                    }))
                   }
                 />
-                <label
-                  htmlFor="privacyPolicy"
-                  className="text-gray-500 text-sm"
-                >
-                <label
-                  htmlFor="privacyPolicy"
-                  className="text-gray-500 text-sm"
-                >
+                <label htmlFor="privacyPolicy" className="text-gray-500 text-sm">
                   I understand and agree to the{" "}
                   <span className="text-blue-500">Privacy Policy</span>.
                 </label>
@@ -301,16 +253,11 @@ const ContactUs = () => {
 
             {/* Address Section */}
             <div className="w-full md:w-1/3 bg-blue-500/95 text-white p-6 rounded-lg text-start">
-            <div className="w-full md:w-1/3 bg-blue-500/95 text-white p-6 rounded-lg text-start">
               <h3 className="text-lg font-semibold mb-4">
-                <FaMapMarkerAlt className="mr-2 inline-block text-white" /> Our
-                Address
                 <FaMapMarkerAlt className="mr-2 inline-block text-white" /> Our
                 Address
               </h3>
               <p className="text-sm leading-6 mb-4">
-                100 Orchard St,
-                <br />
                 100 Orchard St,
                 <br />
                 New York, NY 10002, USA
@@ -320,14 +267,7 @@ const ContactUs = () => {
                 <strong>Saturday:</strong> 08:00 AM - 06:00 PM
               </p>
               <p className="mt-4">
-                <a
-                  href="mailto:office@muffingroup.com"
-                  className="hover:underline"
-                >
-                <a
-                  href="mailto:office@muffingroup.com"
-                  className="hover:underline"
-                >
+                <a href="mailto:office@muffingroup.com" className="hover:underline">
                   office@muffingroup.com
                 </a>
                 <br />
@@ -351,13 +291,7 @@ const ContactUs = () => {
           <footer className="mt-10 text-gray-500">
             <div className="flex justify-between items-center px-4">
               <div className="flex items-center space-x-2">
-                {/* <Image src={logo} alt="Logo" className="w-24 h-20" /> */}
                 <span className="text-xl font-bold text-blue-600">
-                  {" "}
-                  Lane View Driving School
-                </span>
-                <span className="text-xl font-bold text-blue-600">
-                  {" "}
                   Lane View Driving School
                 </span>
               </div>
@@ -387,9 +321,6 @@ const ContactUs = () => {
                   </a>
                 </li>
               </ul>
-              <p className="mt-4 text-xs">
-                © 2024 Lane View Driving School. All Rights Reserved.
-              </p>
               <p className="mt-4 text-xs">
                 © 2024 Lane View Driving School. All Rights Reserved.
               </p>
