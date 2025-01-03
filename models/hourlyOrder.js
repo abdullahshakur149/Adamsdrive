@@ -2,27 +2,25 @@ import { model, models, Schema } from "mongoose";
 
 const hourlyOrderSchema = new Schema({
     Postalcode: {
-        type: Schema.Types.ObjectId,
-        ref: 'Postalcode',
-        required: true
+        type: String,
+        required: true, // Fixed typo
     },
     coursePrice: {
         type: Number,
-        required: true
+        required: true,
     },
     courseSelected: {
         type: String,
-        required: true
+        required: true,
     },
-
     name: {
         type: String,
-        required: true
+        required: true,
     },
     phonenumber: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
 }, {
     timestamps: true,
 });
