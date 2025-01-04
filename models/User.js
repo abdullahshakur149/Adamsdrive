@@ -4,7 +4,6 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     username: {
         type: String,
@@ -16,7 +15,7 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
-        default: 'judge'
+        default: 'admin'
     }
 }, { timestamps: true });
 
