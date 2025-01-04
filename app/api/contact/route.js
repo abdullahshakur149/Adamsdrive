@@ -12,7 +12,7 @@ export async function POST(req) {
 
     const {
       name,
-      city,
+      postalcode,
       email,
       phonenumber,
       courseTitle,
@@ -25,7 +25,7 @@ export async function POST(req) {
     // Validate required fields
     if (
       !name ||
-      !city ||
+      !postalcode ||
       !email ||
       !phonenumber ||
       !courseTitle ||
@@ -41,7 +41,7 @@ export async function POST(req) {
     // Save the contact document
     const contact = await Contact.create({
       name,
-      city,
+      postalcode,
       email,
       phonenumber,
       courseTitle,

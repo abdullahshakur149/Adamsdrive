@@ -3,7 +3,7 @@ import mongoose, { model, models, Schema } from "mongoose";
 const ContactSchema = new Schema(
   {
     name: { type: String, required: true },
-    city: { type: String, required: true },
+    postalcode: { type: String, required: true },
     email: { type: String, required: true },
     phonenumber: { type: String, required: true },
     courseTitle: {
