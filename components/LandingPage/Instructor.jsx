@@ -36,10 +36,10 @@ const Instructors = () => {
           className="mx-auto"
         />
       ),
-      name: "Muhammad Ubaid",
+      name: "Adam Zaza",
       status: "Practical Instructor",
       description:
-        "Hi, I’m Muhammad Ubaid, a dedicated Practical Instructor focused on delivering clear, hands-on guidance to help students excel with confidence and ease.",
+        "Hi, I’m Adam Zaza, a DVSA Qualified Driving Instructor with over 246+ student passes in the record over a 4-year period and counting with a pass rate of 89%. Being able to work previously with Red Driving School and DriveJohnson’s. I decided to start up my own Driving School dedicating my time and experience into this unique and precious business. I help learners of all ages and backgrounds become safe and confident drivers. I’m passionate about what I do and pride myself on tailoring each lesson to suit the individual needs of my students—whether you’re stepping into the driver’s seat for the first time or looking to refresh your skills.",
       boardIcon: <FaClipboardList />,
       effectivenessPercent: "99.7%",
       effectivenessDesc: "Effectiveness of passing exam",

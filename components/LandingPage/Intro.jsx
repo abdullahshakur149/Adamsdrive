@@ -40,19 +40,13 @@ const IntroSection = () => {
           <div className="feature flex items-center sm:mb-2">
             <FaCheckCircle className="text-blue-600 flex mr-2 text-xsmall  lg:text-sm" />
             <span className="text-xsmall md:text-xs   lg:text-xs xl:text-base font-sans font-bold">
-              Training for driving category B, C, and C+E
+              Specialized in Automatic lessons.{" "}
             </span>
           </div>
           <div className="feature flex items-center sm:mb-2">
             <FaCheckCircle className="text-blue-600 flex text-xsmall mr-2 text-xs  lg:text-sm" />
             <span className="text-xsmall md:text-xs   lg:text-xs xl:text-base font-sans font-bold">
-              Refresher courses for all drivers
-            </span>
-          </div>
-          <div className="feature flex items-center mb-1  lg:mb-5">
-            <FaCheckCircle className="text-blue-600 text-xsmall  flex mr-2 text-xs  lg:text-sm" />
-            <span className="text-xsmall md:text-xs   lg:text-xs xl:text-base font-sans font-bold">
-              99.8% pass of state exams
+              Train Learners for Automatic Lessons only{" "}
             </span>
           </div>
         </div>
@@ -77,10 +71,10 @@ const IntroSection = () => {
           </div>
           <div className="info">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">
-              8100+
+              246+
             </h2>
             <p className="text-xs  xl:text-base font-bold font-sans">
-              Students are trained <br /> every year by our instructors
+              Students are trained & Passed <br />
             </p>
           </div>
         </div>
@@ -90,7 +84,7 @@ const IntroSection = () => {
           </div>
           <div className="info">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-monaBold">
-              81.27
+              89%
             </h2>
             <p className="text-xs  xl:text-base font-bold font-sans">
               Our students pass <br /> the state exam the first time
