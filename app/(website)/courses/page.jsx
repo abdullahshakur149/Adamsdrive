@@ -1,85 +1,153 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Navbar from '@/components/shared/Navbar/Navbar';
-import axios from 'axios';
-import { FaArrowRight } from 'react-icons/fa';
-import ContactUs from '@/components/LandingPage/ContactUs';
-import Image from 'next/image';
-import courseprice from "@/public/img/images/images/course&price.gif"
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Navbar from "@/components/shared/Navbar/Navbar";
+import axios from "axios";
+import { FaArrowRight, FaClock, FaCheckCircle } from "react-icons/fa";
+import ContactUs from "@/components/LandingPage/ContactUs";
+import Image from "next/image";
+
+import courseprice from "@/public/img/images/images/course&price.gif";
+import steeringImage from "@/public/Steeringpicture.png";
+
+// Import Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const Courses = () => {
-    const [Course, setCourses] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [Course, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchCoursesData = async () => {
-            try {
-                const url = process.env.NEXT_PUBLIC_API_BASE_URL
-                const response = await axios.get(`${url}/courses/`);
-                if (response.data) {
-                    setCourses(response.data.data);
-                }
-            } catch (error) {
-                console.error("Error fetching courses data:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
+  useEffect(() => {
+    const fetchCoursesData = async () => {
+      try {
+        const url = process.env.NEXT_PUBLIC_API_BASE_URL;
+        const response = await axios.get(`${url}/courses/`);
+        if (response.data) {
+          setCourses(response.data.data);
+          console.log(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching courses data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        fetchCoursesData();
-    }, []);
+    fetchCoursesData();
+  }, []);
 
-    if (loading) return <div className='flex font-bold text-4xl justify-center items-center mt-60'>Loading courses...</div>;
-
+  if (loading)
     return (
-        <div>
-                        <Image src={courseprice} className='fixed -z-50 object-cover top-0 w-screen h-screen'/>
-
-
-        <div className="w-11/12 mx-auto ">
-            <Navbar />
-            <div className="content  rounded-xl ">
-                
-            <h1 data-aos="fade-up" className='text-3xl lg:text-4xl font-monaBold text-center mt-16 pt-16 p-4 text-blue-700 '>
-                intensive Courses<br /> 
-            </h1>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 xl:gap-8 p-5 mt-10 ">
-                {Course.map((course) => (
-                    <div 
-                        key={course.courseId}
-                        className="relative rounded-3xl bg-white h-auto border shadow-lg flex flex-col p-6 sm:p-8 lg:p-10 mt-14 max-w-sm md:max-w-md"
-                        style={{ minHeight: "400px", display: "flex", flexDirection: "column", justifyContent: "space-between" }} // Ensures the button stays at the bottom
-                    >
-                        <div>
-                            <h3 className="text-2xl font-semibold text-center text-cyan-700 mb-4">
-                                {course.courseTitle}
-                            </h3>
-                            
-                            <p className="text-gray-700 text-base mb-4 text-center">
-                                {course.courseDescription}
-                            </p>
-                        </div>
-                        
-                        <div className="text-center mt-4">
-                            <Link 
-                                href={`/courses/${course.courseId}`} 
-                                className="inline-flex items-center w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 text-lg font-semibold"
-                            >
-                                <span className="mr-2">Learn More</span>
-                                <FaArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            </div>
-            <div className="footer mt-10">
-                <ContactUs />
-            </div>
-        </div>
-        </div>
+      <div className="flex font-bold text-4xl justify-center items-center mt-60">
+        Loading courses...
+      </div>
     );
+
+  return (
+    <div>
+      {/* Background Image */}
+      <Image
+        src={courseprice}
+        className="fixed -z-50 object-cover top-0 w-screen h-screen"
+        alt="Background"
+      />
+
+      <div className="w-11/12 mx-auto">
+        <Navbar />
+
+        {/* Course Section */}
+        <div className="content rounded-xl">
+          <h1
+            data-aos="fade-up"
+            className="text-3xl md:text-4xl font-monaBold text-center mt-16 p-4 text-blue-700"
+          >
+            Intensive Courses
+          </h1>
+
+          <div className="courseInfo flex flex-col lg:flex-row justify-center items-center gap-8 mt-10">
+            {/* Image Section */}
+            <div className="w-full lg:order-1 order-2 lg:w-6/12">
+              <Image
+                src={steeringImage}
+                alt="Steering image"
+                className="w-full h-auto object-cover p-4 md:p-10"
+              />
+            </div>
+
+            {/* Carousel Section */}
+            <div className="w-full lg:order-2 order-1  lg:w-5/12">
+              <Swiper
+                modules={[Pagination, Navigation, Autoplay]}
+                spaceBetween={30}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 3000 }}
+              >
+                {Course.map((course) => (
+                  <SwiperSlide key={course.courseId}>
+                    <div className="relative rounded-3xl p-10 bg-white border shadow-lg  md:p-8 flex flex-col items-center gap-4 text-center">
+                      {/* Title Section */}
+                      <h2 className="text-4xl md:text-6xl font-extrabold text-blue-700">
+                        {course.Duration}
+                      </h2>
+                      <h3 className="text-xl md:text-2xl font-semibold text-gray-800">
+                        {course.courseTitle}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-sm md:text-lg text-gray-600 max-w-md">
+                        {course.courseDescription}
+                      </p>
+
+                      {/* Icons and Highlights */}
+                      <div className="flex justify-center gap-6 mt-4">
+                        <div className="flex flex-col items-center">
+                          <FaClock className="text-blue-500 text-3xl md:text-4xl" />
+                          <span className="mt-2 text-sm font-medium">
+                            {course.fastTrackIncluded ? "Fast Track Included" : ""}
+                          </span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <FaCheckCircle className="text-blue-500 text-3xl md:text-4xl" />
+                          <span className="mt-2 text-sm font-medium">
+                            {course.fastTrackTest ? "Test Available" : ""}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Price */}
+                      <p className="text-2xl md:text-4xl font-bold text-blue-600 mt-4">
+                        £ {course.coursePrice}
+                      </p>
+
+                      {/* Book Now Button */}
+                      <Link
+                        href={`/courses/${course.courseId}`}
+                        className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 mt-4 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition duration-300 text-sm md:text-lg font-semibold"
+                      >
+                        <span className="mr-2">Book Now</span>
+                        <FaArrowRight />
+                      </Link>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="footer mt-10">
+          <ContactUs />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Courses;
