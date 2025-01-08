@@ -35,7 +35,7 @@ const testimonials = [
   { image: img5, desc: "The best driving school experience I've ever had!", name_city: "Soho, London" },
   { image: img6, desc: "Amazing experience with professional instructors.", name_city: "Covent Garden, London" },
   { image: img7, desc: "Highly recommend Adam's Drive for anyone learning to drive!", name_city: "South Bank, London" },
-  { image: img8, desc: "Patient and skilled instructors made the process smooth.", name_city: "Chelsea, London" },
+  // { image: img8, desc: "Patient and skilled instructors made the process smooth.", name_city: "Chelsea, London" },
   { image: img9, desc: "Exceptional training experience!", name_city: "Mayfair, London" },
   { image: img10, desc: "A fantastic driving school with supportive instructors.", name_city: "Camden Town, London" },
   { image: img11, desc: "Top-notch driving lessons with great instructors.", name_city: "Bayswater, London" },
