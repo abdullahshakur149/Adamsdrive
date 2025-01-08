@@ -79,7 +79,7 @@ const Courses = () => {
             </div>
 
             {/* Carousel Section */}
-            <div className="w-full lg:order-2 order-1  lg:w-5/12">
+            <div className="w-full lg:order-2 order-1 lg:w-5/12">
               <Swiper
                 modules={[Pagination, Navigation, Autoplay]}
                 spaceBetween={30}
@@ -90,7 +90,7 @@ const Courses = () => {
               >
                 {Course.map((course) => (
                   <SwiperSlide key={course.courseId}>
-                    <div className="relative rounded-3xl p-10 bg-white border shadow-lg  md:p-8 flex flex-col items-center gap-4 text-center">
+                    <div className="relative rounded-3xl p-10 bg-white border shadow-lg md:p-8 flex flex-col items-center gap-4 text-center">
                       {/* Title Section */}
                       <h2 className="text-4xl md:text-6xl font-extrabold text-blue-700">
                         {course.Duration}
@@ -138,6 +138,20 @@ const Courses = () => {
                 ))}
               </Swiper>
             </div>
+          </div>
+
+          {/* Hourly Courses Section */}
+          <div className="text-center mt-16 mb-10">
+            <p className="text-lg md:text-xl text-gray-700 font-medium">
+              If you want to explore{" "}
+              <Link
+                href="/pick-up"
+                className="text-blue-500 font-bold underline hover:text-blue-700 transition duration-200"
+              >
+                Hourly Courses
+              </Link>
+              , click the link and start your journey today!
+            </p>
           </div>
         </div>
 
