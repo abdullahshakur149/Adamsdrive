@@ -3,22 +3,24 @@ import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
-const UserData = () => {
-  const fetchUsers = async () => {
+const ContactPage = () => {
+  // Fetching contact data
+  const fetchContacts = async () => {
     const url = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const response = await axios.get(`${url}/intensiveorders`);
-    console.log(response.data.orders);
-    return response.data.orders;
+    const response = await axios.get(`${url}/contact`);
+    console.log(response.data); 
+    return response.data;
   };
 
   const {
-    data: userData,
+    data: contactData,
     isLoading: queryLoading,
     error,
-  } = useQuery(["UserInformation"], fetchUsers, {
+  } = useQuery(["ContactInformation"], fetchContacts, {
     keepPreviousData: true,
   });
 
+  // Display loading state
   if (queryLoading) {
     return (
       <div className="flex justify-center items-center h-screen text-gray-600">
@@ -27,6 +29,7 @@ const UserData = () => {
     );
   }
 
+  // Display error state
   if (error) {
     return (
       <div className="text-red-500 text-center mt-10">
@@ -35,10 +38,11 @@ const UserData = () => {
     );
   }
 
+  // Main page content
   return (
     <div className="w-full px-4 md:px-8 lg:px-16">
       <h1 className="flex justify-center text-3xl mt-10 font-bold text-gray-800">
-        Intensive Courses
+        Contact Messages
       </h1>
       <div className="min-h-full w-full mt-8">
         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
@@ -47,17 +51,17 @@ const UserData = () => {
               <tr>
                 <th className="py-3 px-4 border-b text-left">ID</th>
                 <th className="py-3 px-4 border-b text-left">Name</th>
+                <th className="py-3 px-4 border-b text-left">City</th>
                 <th className="py-3 px-4 border-b text-left">Email</th>
                 <th className="py-3 px-4 border-b text-left">Phone</th>
-                <th className="py-3 px-4 border-b text-left">Address</th>
                 <th className="py-3 px-4 border-b text-left">Course Title</th>
-                <th className="py-3 px-4 border-b text-left">Course Price</th>
-                <th className="py-3 px-4 border-b text-left">Payment Status</th>
-                <th className="py-3 px-4 border-b text-left">Date Created</th>
+                <th className="py-3 px-4 border-b text-left">Message</th>
+                <th className="py-3 px-4 border-b text-left">Privacy Consent</th>
+                <th className="py-3 px-4 border-b text-left">Date</th>
               </tr>
             </thead>
-            <tbody className="text-gray-900 text-xs font-monaBold">
-              {userData?.map((user, index) => (
+            <tbody className="text-gray-600 text-sm font-monaBold">
+              {contactData?.map((contact, index) => (
                 <tr
                   key={index}
                   className={`${
@@ -65,25 +69,19 @@ const UserData = () => {
                   } hover:bg-gray-100`}
                 >
                   <td className="py-3 px-4 border-b">{index + 1}</td>
-                  <td className="py-3 px-4 border-b">{user.name}</td>
-                  <td className="py-3 px-4 border-b">{user.email}</td>
-                  <td className="py-3 px-4 border-b">{user.phonenumber}</td>
-                  <td className="py-3 px-4 border-b">{user.address}</td>
-                  <td className="py-3 px-4 border-b">{user.courseid.courseTitle}</td>
-                  <td className="py-3 px-4 border-b">{`$${user.courseid.coursePrice}`}</td>
+                  <td className="py-3 px-4 border-b">{contact.name}</td>
+                  <td className="py-3 px-4 border-b">{contact.city}</td>
+                  <td className="py-3 px-4 border-b">{contact.email}</td>
+                  <td className="py-3 px-4 border-b">{contact.phonenumber}</td>
                   <td className="py-3 px-4 border-b">
-                    {user.paymentStatus === "true" ? (
-                      <span className="text-green-600 font-semibold bg-green-100 py-1 px-2 rounded-md">
-                        Paid
-                      </span>
-                    ) : (
-                      <span className="text-red-600 font-semibold bg-red-100 py-1 px-2 rounded-md">
-                        Unpaid
-                      </span>
-                    )}
+                    {contact.courseTitle?.courseTitle}
+                  </td>
+                  <td className="py-3 px-4 border-b">{contact.message}</td>
+                  <td className="py-3 px-4 border-b">
+                    {contact.privacyUnderstand === "true" ? "Yes" : "No"}
                   </td>
                   <td className="py-3 px-4 border-b">
-                    {new Date(user.createdAt).toLocaleDateString()}
+                    {new Date(contact.createdAt).toLocaleDateString()}
                   </td>
                 </tr>
               ))}
@@ -95,4 +93,4 @@ const UserData = () => {
   );
 };
 
-export default UserData;
+export default ContactPage;

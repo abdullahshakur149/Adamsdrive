@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import navbarlogo from "@/public/img/logo.jpeg"
-import { FaHome, FaShopify, FaUser } from "react-icons/fa";
+import { FaHome, FaPhone, FaShopify, FaUser } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 
 const Dashsidebar = ({ togglebutton,settogglebutton }) => {
@@ -53,6 +53,15 @@ const Dashsidebar = ({ togglebutton,settogglebutton }) => {
           >
             <FaShopify className="mr-1 mt-1" />
            Hourly Order Placed
+          </Link>
+          <Link onClick={()=>settogglebutton(!togglebutton)}
+            href="/dashboard/contact"
+            className={`mb-1 p-2 text-black hover:bg-blue-400 hover:text-white duration-100 ease-in-out w-56 rounded-lg flex text-lg ${
+              path === "/dashboard/contact" ? "bg-blue-400" : ""
+            }`}
+          >
+            <FaPhone className="mr-1 mt-1" />
+           Contact Orders
           </Link>
         </div>
       </div>

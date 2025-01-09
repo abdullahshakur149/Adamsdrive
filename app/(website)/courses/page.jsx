@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import axios from "axios";
-import { FaArrowRight, FaClock, FaCheckCircle } from "react-icons/fa";
+import { FaArrowRight, FaClock, FaCheckCircle, FaMoneyBill } from "react-icons/fa";
 import ContactUs from "@/components/LandingPage/ContactUs";
 import Image from "next/image";
 
@@ -60,6 +60,7 @@ const Courses = () => {
         <Navbar />
 
         {/* Course Section */}
+        {/* Course Section */}
         <div className="content rounded-xl">
           <h1
             data-aos="fade-up"
@@ -68,6 +69,22 @@ const Courses = () => {
             Intensive Courses
           </h1>
 
+          {/* Description Text */}
+          <p className="text-lg md:text-xl text-center  w-2/3 mx-auto text-gray-600">
+            Discover intensive driving courses for all levels,<br></br>tailored to your needs and schedule!
+          </p>
+
+          {/* Link Button */}
+          <div className="flex justify-center mt-6">
+            <Link
+              href="/pick-up"
+              className="bg-orange-500 text-white font-semibold text-sm md:text-lg py-2 px-6 rounded-md shadow-lg hover:bg-orange-600 transition-all duration-300"
+            >
+              Checkout Hourly Courses
+            </Link>
+          </div>
+
+          {/* Main Course Info */}
           <div className="courseInfo flex flex-col lg:flex-row justify-center items-center gap-8 mt-10">
             {/* Image Section */}
             <div className="w-full lg:order-1 order-2 lg:w-6/12">
@@ -84,13 +101,13 @@ const Courses = () => {
                 modules={[Pagination, Navigation, Autoplay]}
                 spaceBetween={30}
                 slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
+                navigation  
+                // pagination={{ clickable: true }}
                 autoplay={{ delay: 3000 }}
               >
                 {Course.map((course) => (
                   <SwiperSlide key={course.courseId}>
-                    <div className="relative rounded-3xl p-10 bg-white border shadow-lg md:p-8 flex flex-col items-center gap-4 text-center">
+                    <div className="relative rounded-3xl p-16 bg-white/50 border shadow-lg md:p-8 flex flex-col items-center gap-4 text-center">
                       {/* Title Section */}
                       <h2 className="text-4xl md:text-6xl font-extrabold text-blue-700">
                         {course.Duration}
@@ -113,10 +130,17 @@ const Courses = () => {
                           </span>
                         </div>
                         <div className="flex flex-col items-center">
+                          {course.bestSeller ? <FaMoneyBill className="text-blue-500 text-3xl md:text-4xl" />: ""}
+                          <span className="mt-2 text-sm font-medium">
+                            {course.bestSeller ? "Best Seller" : ""}
+                          </span>
+                        </div>
+                        <div className="flex flex-col items-center">
                           <FaCheckCircle className="text-blue-500 text-3xl md:text-4xl" />
                           <span className="mt-2 text-sm font-medium">
                             {course.fastTrackTest ? "Test Available" : ""}
                           </span>
+
                         </div>
                       </div>
 
@@ -141,19 +165,9 @@ const Courses = () => {
           </div>
 
           {/* Hourly Courses Section */}
-          <div className="text-center mt-16 mb-10">
-            <p className="text-lg md:text-xl text-gray-700 font-medium">
-              If you want to explore{" "}
-              <Link
-                href="/pick-up"
-                className="text-blue-500 font-bold underline hover:text-blue-700 transition duration-200"
-              >
-                Hourly Courses
-              </Link>
-              , click the link and start your journey today!
-            </p>
-          </div>
+
         </div>
+
 
         {/* Footer */}
         <div className="footer mt-10">
