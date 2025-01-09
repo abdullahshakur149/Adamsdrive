@@ -79,7 +79,7 @@ const Advantage_Experience = () => {
             </p>
             <p className="mt-4 md:mt-10 text-xs md:text-sm">
               Join us and experience driving lessons that prioritize your
-              safety, confidence, and success.
+              safety, confidence, and success!
             </p>
           </div>
         </div>
