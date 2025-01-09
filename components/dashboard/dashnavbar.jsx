@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 const DashNav = ({ settogglebutton }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -69,19 +70,10 @@ const DashNav = ({ settogglebutton }) => {
         </button>
         {isUserMenuOpen && (
           <div className="absolute top-16 right-4 w-48  shadow-md rounded-md">
-            <Link
-              href="/profile"
-              className="block  px-4 py-2 text-sm  hover:bg-blue-500 "
+            <button
+              onClick={() => signOut({ callbackUrl: "/login" })}
+              className="block w-full text-left px-4 py-2 text-sm hover:bg-blue-500"
             >
-              Profile
-            </Link>
-            <Link
-              href="/settings"
-              className="block px-4 py-2 text-sm   hover:bg-blue-500 "
-            >
-              Settings
-            </Link>
-            <button className="block w-full text-left  px-4 py-2 text-sm  hover:bg-blue-500 ">
               Logout
             </button>
           </div>
