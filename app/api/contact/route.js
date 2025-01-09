@@ -61,3 +61,13 @@ export async function POST(req) {
     );
   }
 }
+
+export async function GET() {
+  try {
+    await connectDB();
+    const contacts = await Contact.find().populate('courseTitle');
+    return NextResponse.json(contacts, { status: 200 });
+  } catch (error) {
+    console.log(error)
+  }
+}
