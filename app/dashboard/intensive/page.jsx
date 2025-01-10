@@ -48,7 +48,7 @@ const UserData = () => {
                 <th className="py-3 px-4 border-b text-left">ID</th>
                 <th className="py-3 px-4 border-b text-left">Name</th>
                 <th className="py-3 px-4 border-b text-left">Email</th>
-                <th className="py-3 px-4 border-b text-left">Phone</th>
+                {/* <th className="py-3 px-4 border-b text-left">Phone</th> */}
                 <th className="py-3 px-4 border-b text-left">Address</th>
                 <th className="py-3 px-4 border-b text-left">Course Title</th>
                 <th className="py-3 px-4 border-b text-left">Course Price</th>
@@ -67,7 +67,7 @@ const UserData = () => {
                   <td className="py-3 px-4 border-b">{index + 1}</td>
                   <td className="py-3 px-4 border-b">{user.name}</td>
                   <td className="py-3 px-4 border-b">{user.email}</td>
-                  <td className="py-3 px-4 border-b">{user.phonenumber}</td>
+                  {/* <td className="py-3 px-4 border-b">{user.phonenumber}</td> */}
                   <td className="py-3 px-4 border-b">{user.address}</td>
                   <td className="py-3 px-4 border-b">{user.courseid.courseTitle}</td>
                   <td className="py-3 px-4 border-b">{`$${user.courseid.coursePrice}`}</td>

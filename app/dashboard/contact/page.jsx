@@ -53,7 +53,7 @@ const ContactPage = () => {
                 <th className="py-3 px-4 border-b text-left">Name</th>
                 <th className="py-3 px-4 border-b text-left">City</th>
                 <th className="py-3 px-4 border-b text-left">Email</th>
-                <th className="py-3 px-4 border-b text-left">Phone</th>
+                {/* <th className="py-3 px-4 border-b text-left">Phone</th> */}
                 <th className="py-3 px-4 border-b text-left">Course Title</th>
                 <th className="py-3 px-4 border-b text-left">Message</th>
                 <th className="py-3 px-4 border-b text-left">Privacy Consent</th>
@@ -72,7 +72,7 @@ const ContactPage = () => {
                   <td className="py-3 px-4 border-b">{contact.name}</td>
                   <td className="py-3 px-4 border-b">{contact.city}</td>
                   <td className="py-3 px-4 border-b">{contact.email}</td>
-                  <td className="py-3 px-4 border-b">{contact.phonenumber}</td>
+                  {/* <td className="py-3 px-4 border-b">{contact.phonenumber}</td> */}
                   <td className="py-3 px-4 border-b">
                     {contact.courseTitle?.courseTitle}
                   </td>
