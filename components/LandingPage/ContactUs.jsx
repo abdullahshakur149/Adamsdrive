@@ -263,6 +263,7 @@ const ContactUs = () => {
               </h3>
               <p className="text-sm leading-6 mb-4">North West London </p>
               <p className="mt-4">
+                Please contact us on
                 <br />
                 +07423843474
               </p>
