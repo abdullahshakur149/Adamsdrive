@@ -58,7 +58,8 @@ const ContactUs = () => {
   const Submit = async (e) => {
     e.preventDefault();
 
-    const { name, email, courseTitle, message, privacyUnderstand } = selectedData;
+    const { name, email, courseTitle, message, privacyUnderstand } =
+      selectedData;
     if (!name || !email || !courseTitle || !message || !privacyUnderstand) {
       alert("Please fill out all required fields.");
       return;
@@ -238,7 +239,10 @@ const ContactUs = () => {
                     }))
                   }
                 />
-                <label htmlFor="privacyPolicy" className="text-gray-500 text-sm">
+                <label
+                  htmlFor="privacyPolicy"
+                  className="text-gray-500 text-sm"
+                >
                   I understand and agree to the{" "}
                   <span className="text-blue-500">Privacy Policy</span>.
                 </label>
@@ -257,21 +261,10 @@ const ContactUs = () => {
                 <FaMapMarkerAlt className="mr-2 inline-block text-white" /> Our
                 Address
               </h3>
-              <p className="text-sm leading-6 mb-4">
-                100 Orchard St,
-                <br />
-                New York, NY 10002, USA
-              </p>
-              <p className="text-sm">
-                <strong>Monday - Friday:</strong> 08:00 AM - 06:00 PM <br />
-                <strong>Saturday:</strong> 08:00 AM - 06:00 PM
-              </p>
+              <p className="text-sm leading-6 mb-4">North West London </p>
               <p className="mt-4">
-                <a href="mailto:office@muffingroup.com" className="hover:underline">
-                  office@muffingroup.com
-                </a>
                 <br />
-                +44 7423 843474
+                +07423843474
               </p>
               <div className="flex mt-4 space-x-3">
                 <a href="#" className="text-blue-300 p-2 bg-white rounded-full">
