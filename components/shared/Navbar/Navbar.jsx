@@ -109,7 +109,7 @@ const Navbar = () => {
 
         <div className="mt-6">
           <Link href="#" className="block text-lg mb-4">
-            +91-802342523
+            +07423843474
           </Link>
           {/* <Link
             href="/login"
