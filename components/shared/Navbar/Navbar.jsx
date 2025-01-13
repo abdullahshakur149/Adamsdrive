@@ -46,8 +46,8 @@ const Navbar = () => {
         <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
           <div className="flex items-center text-gray-700">
             <FaPhoneAlt className="text-yellow-700/75 mr-2 text-lg lg:text-xl" />
-            <span  className="font-monaBold text-base md:text-sm lg:text-base xl:text-xl">
-            +44 7423 843474
+            <span className="font-monaBold text-base md:text-sm lg:text-base xl:text-xl">
+              +07423843474
             </span>
           </div>
           <div>
@@ -109,7 +109,7 @@ const Navbar = () => {
 
         <div className="mt-6">
           <Link href="#" className="block text-lg mb-4">
-            +91-802342523
+            +07423843474
           </Link>
           {/* <Link
             href="/login"

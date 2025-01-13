@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
 import Contact from "@/models/contact";
+import Course from "@/models/courses";
 
 export async function POST(req) {
   try {

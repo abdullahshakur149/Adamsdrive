@@ -74,7 +74,7 @@ const IntroSection = () => {
               246+
             </h2>
             <p className="text-xs  xl:text-base font-bold font-sans">
-              Students are trained & Passed <br />
+              Over 246+ have passed so far and counting! <br />
             </p>
           </div>
         </div>
