@@ -1,207 +1,237 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
-import { FaMapMarkerAlt } from "react-icons/fa";
-
-import "aos/dist/aos.css";
+import {
+  MapPin,
+  Mail,
+  Phone,
+  User,
+  MapPinned,
+  MessageSquare,
+  BookOpen,
+} from "lucide-react";
 import axios from "axios";
 
 const Contactpopup = () => {
-    const [courses, setCourses] = useState([]);
-    const [filteredCourse, setFilteredCourse] = useState([]);
-    const [selectedData, setSelectedData] = useState({
-        name: "",
-        postalcode: "",
-        email: "",
-        phonenumber: "",
-        courseCategory: "",
-        courseTitle: "",
-        message: "",
-        privacyUnderstand: false,
-    });
+  const [courses, setCourses] = useState([]);
+  const [filteredCourse, setFilteredCourse] = useState([]);
+  const [selectedData, setSelectedData] = useState({
+    name: "",
+    postalcode: "",
+    email: "",
+    phonenumber: "",
+    courseCategory: "",
+    courseTitle: "",
+    message: "",
+    privacyUnderstand: false,
+  });
 
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const url  = process.env.NEXT_PUBLIC_API_BASE_URL;
-                const response = await axios.get(
-                    `${url}/courses/allCourses/`
-                );
-                setCourses(response.data.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getData();
-    }, []);
-
-    const setCourseCategory = (courseCategory) => {
-        const filtered = courses.filter((course) => course.courseCategory === courseCategory);
-        setFilteredCourse(filtered);
-        setSelectedData({ ...selectedData, courseCategory });
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const url = process.env.NEXT_PUBLIC_API_BASE_URL;
+        const response = await axios.get(`${url}/courses/allCourses/`);
+        setCourses(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
+    getData();
+  }, []);
 
-    const Submit = async (e) => {
-        e.preventDefault();
-
-        // Validate required fields
-        const { name, email, courseTitle, message, privacyUnderstand } = selectedData;
-        if (!name || !email || !courseTitle || !message || !privacyUnderstand) {
-            alert("Please fill out all required fields.");
-            return;
-        }
-
-        try {
-            const url = process.env.NEXT_PUBLIC_API_BASE_URL;
-            const response = await axios.post(`${url}contact/`, selectedData);
-            if (response.status === 200) {
-                alert("Your message has been sent successfully!");
-                setSelectedData({
-                    name: "",
-                    postalcode: "",
-                    email: "",
-                    phonenumber: "",
-                    courseCategory: "",
-                    courseTitle: "",
-                    message: "",
-                    privacyUnderstand: false,
-                });
-                setFilteredCourse([]);
-            } else {
-                alert("Something went wrong. Please try again later.");
-            }
-        } catch (error) {
-            console.error("Error submitting form:", error);
-            alert("Error submitting form. Please try again later.");
-        }
-    };
-
-    return (
-        <div className="text-center py-12">
-            <div data-aos="fade-up" className="content mt-10 w-11/12 md:w-8/12 mx-auto">
-                <h1 className="text-2xl md:text-4xl text-white font-monaBold">Contact Us</h1>
-                <div className="py-8 px-4">
-                    <form onSubmit={Submit} className="max-w-5xl mx-auto flex flex-wrap justify-center">
-                        <div
-                            data-aos="fade-right"
-                            className="bg-white p-6 md:p-8 rounded-2xl shadow-lg flex-1 w-full md:w-8/12 mb-8"
-                        >
-                            <h2 className="text-orange-500 text-lg font-bold flex items-center">
-                                <FaMapMarkerAlt className="mr-2" />
-                            </h2>
-                            <p
-                                data-aos="fade-left"
-                                className="text-gray-600 mt-2 mb-6 text-sm md:text-base text-start font-bold"
-                            >
-                                Please fill in the form to reach out to us. We’ll get back to you shortly.
-                            </p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <input
-                                    type="text"
-                                    placeholder="Your name"
-                                    className="p-3 border rounded-lg w-full"
-                                    value={selectedData.name}
-                                    onChange={(e) =>
-                                        setSelectedData({ ...selectedData, name: e.target.value })
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Enter postalcode"
-                                    className="p-3 border rounded-lg w-full"
-                                    value={selectedData.postalcode}
-                                    onChange={(e) =>
-                                        setSelectedData({ ...selectedData, postalcode: e.target.value })
-                                    }
-                                />
-                                <input
-                                    type="email"
-                                    placeholder="Email address"
-                                    className="p-3 border rounded-lg w-full"
-                                    value={selectedData.email}
-                                    onChange={(e) =>
-                                        setSelectedData({ ...selectedData, email: e.target.value })
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Phone Number"
-                                    className="p-3 border rounded-lg w-full"
-                                    value={selectedData.phonenumber}
-                                    onChange={(e) =>
-                                        setSelectedData({ ...selectedData, phonenumber: e.target.value })
-                                    }
-                                />
-                                <select
-                                    className="p-3 border rounded-lg w-full"
-                                    value={selectedData.courseCategory}
-                                    onChange={(e) => setCourseCategory(e.target.value)}
-                                >
-                                    <option value="" disabled hidden>
-                                        Select a course category
-                                    </option>
-                                    <option value="hourly">Hourly</option>
-                                    <option value="intensive">Intensive</option>
-                                </select>
-                                {filteredCourse.length > 0 && (
-                                    <select
-                                        className="p-3 border rounded-lg w-full"
-                                        value={selectedData.courseTitle}
-                                        onChange={(e) =>
-                                            setSelectedData({ ...selectedData, courseTitle: e.target.value })
-                                        }
-                                    >
-                                        <option value="" disabled hidden>
-                                            Select a Course
-                                        </option>
-                                        {filteredCourse.map((course) => (
-                                            <option key={course._id} value={course._id}>
-                                                {course.courseTitle}
-                                            </option>
-                                        ))}
-                                    </select>
-                                )}
-                            </div>
-                            <textarea
-                                placeholder="Your message..."
-                                className="p-3 border rounded-lg w-full mb-4"
-                                rows="4"
-                                value={selectedData.message}
-                                onChange={(e) =>
-                                    setSelectedData({ ...selectedData, message: e.target.value })
-                                }
-                            ></textarea>
-                            <div className="flex items-center mb-4">
-                                <input
-                                    type="checkbox"
-                                    id="privacyPolicy"
-                                    className="mr-2"
-                                    checked={selectedData.privacyUnderstand}
-                                    onChange={(e) =>
-                                        setSelectedData({
-                                            ...selectedData,
-                                            privacyUnderstand: e.target.checked,
-                                        })
-                                    }
-                                />
-                                <label htmlFor="privacyPolicy" className="text-gray-500 text-sm">
-                                    I understand, and a{" "}
-                                    <span className="text-blue-500">Privacy Policy</span> data class
-                                    required area.
-                                </label>
-                            </div>
-                            <button
-                                type="submit"
-                                className="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold"
-                            >
-                                Send message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+  const setCourseCategory = (courseCategory) => {
+    const filtered = courses.filter(
+      (course) => course.courseCategory === courseCategory
     );
+    setFilteredCourse(filtered);
+    setSelectedData({ ...selectedData, courseCategory });
+  };
+
+  const Submit = async (e) => {
+    e.preventDefault();
+    const { name, email, courseTitle, message, privacyUnderstand } =
+      selectedData;
+    if (!name || !email || !courseTitle || !message || !privacyUnderstand) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    try {
+      const url = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const response = await axios.post(`${url}contact/`, selectedData);
+      if (response.status === 200) {
+        alert("Your message has been sent successfully!");
+        setSelectedData({
+          name: "",
+          postalcode: "",
+          email: "",
+          phonenumber: "",
+          courseCategory: "",
+          courseTitle: "",
+          message: "",
+          privacyUnderstand: false,
+        });
+        setFilteredCourse([]);
+      } else {
+        alert("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error submitting form. Please try again later.");
+    }
+  };
+
+  return (
+    <div className="p-4 bg-gray-50">
+      <p className="text-gray-600 text-sm mb-6">
+        Please fill in the form and we'll get back to you shortly.
+      </p>
+
+      <form onSubmit={Submit} className="space-y-4">
+        {/* Personal Information */}
+        <div className="space-y-3">
+          <div className="relative">
+            <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Your name *"
+              className="pl-10 p-3 border rounded-lg w-full bg-white"
+              value={selectedData.name}
+              onChange={(e) =>
+                setSelectedData({ ...selectedData, name: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="relative">
+            <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <input
+              type="email"
+              placeholder="Email address *"
+              className="pl-10 p-3 border rounded-lg w-full bg-white"
+              value={selectedData.email}
+              onChange={(e) =>
+                setSelectedData({ ...selectedData, email: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="relative">
+            <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Phone Number"
+              className="pl-10 p-3 border rounded-lg w-full bg-white"
+              value={selectedData.phonenumber}
+              onChange={(e) =>
+                setSelectedData({
+                  ...selectedData,
+                  phonenumber: e.target.value,
+                })
+              }
+            />
+          </div>
+
+          <div className="relative">
+            <MapPinned className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Postal code"
+              className="pl-10 p-3 border rounded-lg w-full bg-white"
+              value={selectedData.postalcode}
+              onChange={(e) =>
+                setSelectedData({ ...selectedData, postalcode: e.target.value })
+              }
+            />
+          </div>
+        </div>
+
+        {/* Course Selection */}
+        <div className="space-y-3">
+          <div className="relative">
+            <BookOpen className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <select
+              className="pl-10 p-3 border rounded-lg w-full bg-white appearance-none"
+              value={selectedData.courseCategory}
+              onChange={(e) => setCourseCategory(e.target.value)}
+            >
+              <option value="" disabled hidden>
+                Select a course category *
+              </option>
+              <option value="hourly">Hourly</option>
+              <option value="intensive">Intensive</option>
+            </select>
+          </div>
+
+          {filteredCourse.length > 0 && (
+            <div className="relative">
+              <BookOpen className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <select
+                className="pl-10 p-3 border rounded-lg w-full bg-white appearance-none"
+                value={selectedData.courseTitle}
+                onChange={(e) =>
+                  setSelectedData({
+                    ...selectedData,
+                    courseTitle: e.target.value,
+                  })
+                }
+              >
+                <option value="" disabled hidden>
+                  Select a Course *
+                </option>
+                {filteredCourse.map((course) => (
+                  <option key={course._id} value={course._id}>
+                    {course.courseTitle}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+        </div>
+
+        {/* Message */}
+        <div className="relative">
+          <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+          <textarea
+            placeholder="Your message... *"
+            className="pl-10 p-3 border rounded-lg w-full bg-white"
+            rows="3"
+            value={selectedData.message}
+            onChange={(e) =>
+              setSelectedData({ ...selectedData, message: e.target.value })
+            }
+          />
+        </div>
+
+        {/* Privacy Policy */}
+        <div className="flex items-start space-x-2">
+          <input
+            type="checkbox"
+            id="privacyPolicy"
+            className="mt-1"
+            checked={selectedData.privacyUnderstand}
+            onChange={(e) =>
+              setSelectedData({
+                ...selectedData,
+                privacyUnderstand: e.target.checked,
+              })
+            }
+          />
+          <label htmlFor="privacyPolicy" className="text-gray-500 text-sm">
+            I understand and agree to the{" "}
+            <span className="text-blue-500 cursor-pointer">Privacy Policy</span>{" "}
+            *
+          </label>
+        </div>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="w-full bg-orange-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-200"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default Contactpopup;
