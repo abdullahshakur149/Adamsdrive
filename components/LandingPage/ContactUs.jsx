@@ -14,6 +14,9 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const ContactUs = () => {
   const [courses, setCourses] = useState([]);
@@ -69,8 +72,9 @@ const ContactUs = () => {
     try {
       const url = process.env.NEXT_PUBLIC_API_BASE_URL;
       const response = await axios.post(`${url}/contact/`, selectedData);
-      if (response.status === 200) {
-        alert("Your message has been sent successfully!");
+
+      if (response.data.success === true) {
+        toast.success("Your message has been sent successfully!");
         setSelectedData({
           name: "",
           postalcode: "",
@@ -83,11 +87,11 @@ const ContactUs = () => {
         });
         setFilteredCourse([]);
       } else {
-        alert("Something went wrong. Please try again later.");
+        toast.error("Something went wrong. Please try again later.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Error submitting form. Please try again later.");
+      toast.error("Error submitting form. Please try again later.");
     }
   };
 
@@ -337,6 +341,7 @@ const ContactUs = () => {
               </p>
             </div>
           </footer>
+          <ToastContainer />
         </div>
       </div>
     </div>
