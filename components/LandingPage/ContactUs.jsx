@@ -7,6 +7,7 @@ import {
   FaMapMarkerAlt,
   FaArrowUp,
 } from "react-icons/fa";
+import { FaUser, FaClipboardList } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import contactimage from "@/public/img/images/images/contactus.png";
 import Image from "next/image";
@@ -123,15 +124,31 @@ const ContactUs = () => {
               className="flex-1 bg-white p-8 rounded-lg shadow-lg text-start"
               data-aos="fade-right"
             >
-              <h2 className="text-orange-500 text-lg font-bold mb-2 flex items-center">
-                <FaMapMarkerAlt className="mr-2" />
-                Online Form
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Please fill in the form to reach out to us. We’ll get back to
-                you shortly.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="flex justify-between items-center gap-6">
+                {/* 246+ Stat */}
+                <div className="flex items-center bg-white p-4 rounded-lg shadow-md w-full">
+                  <FaUser className="text-orange-500 text-3xl mr-3" />
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold">246+</h2>
+                    <p className="text-xs xl:text-base font-bold">
+                      Over 246+ have passed so far and counting!
+                    </p>
+                  </div>
+                </div>
+
+                {/* 89% Stat */}
+                <div className="flex items-center bg-white p-4 rounded-lg shadow-md w-full">
+                  <FaClipboardList className="text-orange-500 text-3xl mr-3" />
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold">89%</h2>
+                    <p className="text-xs xl:text-base font-bold">
+                      Our students pass the state exam the first time.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid mt-5 grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 {/* Form Inputs */}
                 <input
                   type="text"

@@ -8,7 +8,9 @@ import Instructor from "@/components/LandingPage/Instructor";
 import Newworld from "@/components/LandingPage/newworld";
 import Testimonials from "@/components/LandingPage/Testimonials";
 import ContactUs from "@/components/LandingPage/ContactUs";
+import Aboutme from "@/components/LandingPage/Aboutme";
 import Ad from "@/components/ad/Ad";
+import Gallery from "@/components/LandingPage/Gallery";
 const MainLanding = () => {
   return (
     <div>
@@ -19,11 +21,15 @@ const MainLanding = () => {
 
       <div className="w-11/12 bg-default   mx-auto">
         <Intro />
-        <Testimonials />
+        <Aboutme />
+        <div className="bg-white">
+          <Gallery />
+        </div>
+        {/* <Testimonials /> */}
         <CourseandPricing />
         <Advantage_Experience />
-        <Instructor />
-        <Newworld />
+        {/* <Instructor /> */}
+        {/* <Newworld /> */}
       </div>
       <div className="w-11/12 bg-white mx-auto">
         <ContactUs />
