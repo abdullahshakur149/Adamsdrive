@@ -62,7 +62,7 @@ const Navbar = () => {
       </div>
 
       {/* Sidebar and toggle button for mobile */}
-      <div className="lg:hidden flex items-center justify-between p-4 w-full">
+      <div className="lg:hidden  flex items-center justify-between p-4 w-full">
         <Link href="/">
           <Image src={logo} className="w-12" alt="logo" />
         </Link>
@@ -80,7 +80,7 @@ const Navbar = () => {
 
       {/* Sidebar content */}
       <div
-        className={`fixed sidebar top-0 right-0 z-50 h-full w-80 bg-gray-900 text-white p-6 transition-transform duration-300 ${
+        className={`fixed backdrop-blur-2xl sidebar top-0 right-0 z-50 h-full w-80  text-black p-6 transition-transform duration-300 ${
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -95,30 +95,25 @@ const Navbar = () => {
 
         <ul className="flex flex-col space-y-4">
           {Links.map((link, idx) => (
-            <li key={idx}>
+            <li key={idx} className="flex items-center space-x-2">
               <Link
                 href={link.path}
-                className="block p-2 hover:bg-gray-700 rounded"
+                className="block p-2 hover:bg-gray-200 rounded"
                 onClick={() => setSidebarOpen(false)}
               >
                 {link.pathname}
               </Link>
+              {/* Add the phone number next to "Contact Us" */}
+              {link.pathname === "Contact Us" && (
+                <div className="flex items-center text-black">
+                  <span className=" text-base"> 07423843474</span>
+                </div>
+              )}
             </li>
           ))}
         </ul>
 
-        <div className="mt-6">
-          <Link href="#" className="block text-lg mb-4">
-            +07423843474
-          </Link>
-          {/* <Link
-            href="/login"
-            className="block bg-blue-500 px-4 py-2 text-center text-white rounded-lg hover:bg-blue-600 transition"
-            onClick={() => setSidebarOpen(false)}
-          >
-            Login
-          </Link> */}
-        </div>
+        {/* Rest of the content (if needed) */}
       </div>
 
       {/* Overlay */}

@@ -81,7 +81,7 @@ const CourseandPricing = () => {
                 data-aos="fade-up"
                 data-aos-delay={`${index * 200}`}
               >
-                <div className="image absolute -top-12 left-0 right-0 rounded-3xl">
+                {/* <div className="image absolute -top-12 left-0 right-0 rounded-3xl">
                   <Image
                     src={icon}
                     alt={course.courseTitle}
@@ -89,7 +89,7 @@ const CourseandPricing = () => {
                     height={100}
                     className="mx-auto"
                   />
-                </div>
+                </div> */}
 
                 <div className="price text-blue-600 font-bold text-3xl sm:text-4xl lg:text-5xl text-center mb-8 lg:mb-10 mt-10">
                   £ {course.coursePrice}
