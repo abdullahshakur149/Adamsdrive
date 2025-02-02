@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/legacy/image";
-import navbarlogo from "@/public/img/logo.jpeg";
+import navbarlogo from "@/public/img/logo.png";
 import { FaHome, FaPhone, FaShopify, FaUser } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 

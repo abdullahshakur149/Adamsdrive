@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import logo from "@/public/img/logo.jpeg";
+import logo from "@/public/img/logo.png";
 import Image from "next/image";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -19,12 +19,17 @@ const Login = () => {
 
   // Validation Schema
   const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email address").required("Email is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .matches(/[a-z]/, "Password must contain at least one lowercase letter")
       .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
-      .matches(/[!@#$%^&*(),.?":{}|<>]/, "Password must contain a special character")
+      .matches(
+        /[!@#$%^&*(),.?":{}|<>]/,
+        "Password must contain a special character"
+      )
       .required("Password is required"),
   });
 
@@ -68,8 +73,12 @@ const Login = () => {
 
         {/* Right Side - Form */}
         <div className="md:w-4/12 mt-10 w-full max-sm:ml-3 flex p-4 flex-col justify-center bg-white">
-          <h1 className="text-3xl font-bold font-mono text-blue-400 text-center">Welcome to Lane View</h1>
-          <span className="text-gray-600 text-lg text-center font-thin">Sign-in</span>
+          <h1 className="text-3xl font-bold font-mono text-blue-400 text-center">
+            Welcome to Lane View
+          </h1>
+          <span className="text-gray-600 text-lg text-center font-thin">
+            Sign-in
+          </span>
 
           {/* Formik Form */}
           <Formik
@@ -86,7 +95,9 @@ const Login = () => {
                     type="email"
                     placeholder=""
                     className={`p-3 shadow-md shadow-blue-200 border-2 border-blue-300 w-full rounded-md transition-all duration-200 ease-in-out ${
-                      touched.email && errors.email ? "border-red-500" : "hover:border-blue-900"
+                      touched.email && errors.email
+                        ? "border-red-500"
+                        : "hover:border-blue-900"
                     }`}
                   />
                   <label
@@ -95,7 +106,11 @@ const Login = () => {
                   >
                     Email
                   </label>
-                  <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
                 </div>
 
                 {/* Password Field */}
@@ -105,7 +120,9 @@ const Login = () => {
                     type={showPassword ? "text" : "password"}
                     placeholder=""
                     className={`p-3 shadow-md shadow-blue-200 border-2 border-blue-300 w-full rounded-md transition-all duration-200 ease-in-out ${
-                      touched.password && errors.password ? "border-red-500" : "hover:border-blue-900"
+                      touched.password && errors.password
+                        ? "border-red-500"
+                        : "hover:border-blue-900"
                     }`}
                   />
                   <label
@@ -119,9 +136,17 @@ const Login = () => {
                     type="button"
                     className="absolute top-3 right-4"
                   >
-                    {showPassword ? <FaEyeSlash className="text-blue-500 mt-1" /> : <FaEye className="text-blue-500 mt-1" />}
+                    {showPassword ? (
+                      <FaEyeSlash className="text-blue-500 mt-1" />
+                    ) : (
+                      <FaEye className="text-blue-500 mt-1" />
+                    )}
                   </button>
-                  <ErrorMessage name="password" component="div" className="text-red-500 text-sm mt-1" />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
                 </div>
 
                 {/* Remember Me & Forgot Password */}
