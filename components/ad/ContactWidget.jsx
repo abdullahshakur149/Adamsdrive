@@ -28,6 +28,10 @@ const ContactWidget = () => {
     checkAndUpdateVisit();
   }, []);
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       {/* Floating action button */}
@@ -66,7 +70,7 @@ const ContactWidget = () => {
           className="h-full overflow-y-auto"
           style={{ maxHeight: "calc(85vh - 60px)" }}
         >
-          <Contactpopup />
+          <Contactpopup onFormSubmitSuccess={handleClose} />
         </div>
       </div>
 

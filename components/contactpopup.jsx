@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Contactpopup = () => {
+const Contactpopup = ({ onFormSubmitSuccess }) => {
   const [courses, setCourses] = useState([]);
   const [filteredCourse, setFilteredCourse] = useState([]);
   const [selectedData, setSelectedData] = useState({
@@ -71,6 +71,8 @@ const Contactpopup = () => {
           privacyUnderstand: false,
         });
         setFilteredCourse([]);
+        // Call the callback function to close the widget
+        onFormSubmitSuccess?.();
       } else {
         toast.error("Something went wrong. Please try again later.");
       }
