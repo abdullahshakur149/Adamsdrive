@@ -48,12 +48,12 @@ const CourseandPricing = () => {
   };
 
   return (
-    <div className="main-container relative w-full h-screen mt-80 mt-5   md:mt-52  md:mb-64  xl:mt-10 2xl:-mt-20 ">
+    <div className="main-container relative w-full h-screen  mt-5   md:mt-52  md:mb-64  xl:mt-10 2xl:-mt-20 ">
       <Image
         src={bgimage}
         className="absolute top-0 left-0 w-full h-full object-contain"
         alt="Course Pricing Background"
-        layout="fill"
+        fill
       />
 
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-gray-00 bg-opacity-50 flex flex-col justify-center items-center ">

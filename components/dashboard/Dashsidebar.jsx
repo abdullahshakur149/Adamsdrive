@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import navbarlogo from "@/public/img/logo.jpeg"
+import Image from "next/legacy/image";
+import navbarlogo from "@/public/img/logo.jpeg";
 import { FaHome, FaPhone, FaShopify, FaUser } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 
-const Dashsidebar = ({ togglebutton,settogglebutton }) => {
+const Dashsidebar = ({ togglebutton, settogglebutton }) => {
   const path = usePathname();
   return (
     <div className="min-h-screen flex">
@@ -17,17 +17,18 @@ const Dashsidebar = ({ togglebutton,settogglebutton }) => {
             : "transition-all duration-300 max-sm:w-0  -translate-x-96"
         } text-white bg-transparent`}
       >
-        <Link  className="border-b mx-auto" href="/dashboard">
+        <Link className="border-b mx-auto" href="/dashboard">
           <Image
             src={navbarlogo}
             alt="navbar-logo"
             className="w-32 mx-auto mt-3 md:mt-5"
-            layout="intrinsic" // Ensures the image respects the width and height props
+            intrinsic // Ensures the image respects the width and height props
           />
         </Link>
 
         <div className="ul flex flex-col flex-wrap translate-x-5 translate-y-11">
-          <Link onClick={()=>settogglebutton(!togglebutton)}
+          <Link
+            onClick={() => settogglebutton(!togglebutton)}
             href="/dashboard"
             className={`mb-1 p-2 text-black hover:bg-blue-400 hover:text-white duration-100 ease-in-out w-52 rounded-lg flex text-lg ${
               path === "/dashboard" ? "bg-blue-400" : ""
@@ -36,32 +37,35 @@ const Dashsidebar = ({ togglebutton,settogglebutton }) => {
             <FaHome className="mr-1 mt-1" />
             Dashboard
           </Link>
-          <Link onClick={()=>settogglebutton(!togglebutton)}
+          <Link
+            onClick={() => settogglebutton(!togglebutton)}
             href="/dashboard/intensive"
             className={`mb-1 p-2 text-black hover:bg-blue-400 hover:text-white duration-100 ease-in-out w-52 rounded-lg flex text-lg ${
               path === "/dashboard/users" ? "bg-blue-400" : ""
             }`}
           >
             <FaShopify className="mr-1 mt-1" />
-            intensive  Placed
+            intensive Placed
           </Link>
-          <Link onClick={()=>settogglebutton(!togglebutton)}
+          <Link
+            onClick={() => settogglebutton(!togglebutton)}
             href="/dashboard/hourlyorder"
             className={`mb-1 p-2 text-black hover:bg-blue-400 hover:text-white duration-100 ease-in-out w-56 rounded-lg flex text-lg ${
               path === "/dashboard/orders" ? "bg-blue-400" : ""
             }`}
           >
             <FaShopify className="mr-1 mt-1" />
-           Hourly Order Placed
+            Hourly Order Placed
           </Link>
-          <Link onClick={()=>settogglebutton(!togglebutton)}
+          <Link
+            onClick={() => settogglebutton(!togglebutton)}
             href="/dashboard/contact"
             className={`mb-1 p-2 text-black hover:bg-blue-400 hover:text-white duration-100 ease-in-out w-56 rounded-lg flex text-lg ${
               path === "/dashboard/contact" ? "bg-blue-400" : ""
             }`}
           >
             <FaPhone className="mr-1 mt-1" />
-           Contact Orders
+            Contact Orders
           </Link>
         </div>
       </div>
