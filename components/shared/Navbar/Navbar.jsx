@@ -17,13 +17,12 @@ const Navbar = () => {
 
   return (
     <div className="w-full">
-      {/* Navbar for larger screens */}
+      {/* Navbar for larger screens - unchanged */}
       <div className="hidden lg:flex md:mt-5 justify-between items-center">
-        {/* Logo and Links */}
         <div className="flex items-center">
           <div className="md:ml-5">
             <Link href="/">
-              <Image src={logo} className="w-20 md:w-32 " alt="logo" />
+              <Image src={logo} className="w-20 md:w-32" alt="logo" />
             </Link>
           </div>
           <div className="xl:ml-10 lg:ml-3">
@@ -42,33 +41,28 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Contact Number and Login Button */}
         <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
           <div className="flex items-center text-gray-700">
             <FaPhoneAlt className="text-yellow-700/75 mr-2 text-lg lg:text-xl" />
-            <span className="font-monaBold text-base md:text-sm lg:text-base xl:text-xl">
-              +07423843474
-            </span>
-          </div>
-          <div>
-            {/* <Link
-              href="/login"
-              className="bg-blue-600 text-white xl:px-7 xl:py-3 rounded-lg text-sm md:text-base lg:text-base hover:bg-blue-700 transition"
+            <Link
+              href="tel:07423843474"
+              className="font-monaBold text-base md:text-sm lg:text-base xl:text-xl"
             >
-              Login
-            </Link> */}
+              +07423843474
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Sidebar and toggle button for mobile */}
-      <div className="lg:hidden  flex items-center justify-between p-4 w-full">
+      {/* Mobile toggle button */}
+      <div className="lg:hidden flex items-center justify-between p-4 w-full">
         <Link href="/">
           <Image src={logo} className="w-12" alt="logo" />
         </Link>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           aria-label="Toggle Menu"
+          className="text-gray-700 hover:text-gray-900 transition-colors"
         >
           {sidebarOpen ? (
             <FaTimes className="text-black" size={24} />
@@ -78,48 +72,70 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Sidebar content */}
+      {/* Updated Sidebar content */}
       <div
-        className={`fixed backdrop-blur-2xl sidebar top-0 right-0 z-50 h-full w-80  text-black p-6 transition-transform duration-300 ${
+        className={`fixed backdrop-blur-2xl sidebar top-0 right-0 z-50 h-full w-80 bg-white/95 text-black transition-transform duration-300 ${
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center mb-8">
-          <Link href="/">
-            <Image src={logo} className="w-10" alt="logo" />
+        {/* Close button at top right */}
+        <button
+          onClick={() => setSidebarOpen(false)}
+          aria-label="Close Menu"
+          className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
+        >
+          <FaTimes size={24} className="text-gray-600" />
+        </button>
+
+        {/* Centered logo section */}
+        <div className="flex justify-center pt-12 pb-8">
+          <Link href="/" onClick={() => setSidebarOpen(false)}>
+            <Image src={logo} className="w-40 " alt="logo" />
           </Link>
-          <button onClick={() => setSidebarOpen(false)} aria-label="Close Menu">
-            <FaTimes size={24} />
-          </button>
         </div>
 
-        <ul className="flex flex-col space-y-4">
-          {Links.map((link, idx) => (
-            <li key={idx} className="flex items-center space-x-2">
-              <Link
-                href={link.path}
-                className="block p-2 hover:bg-gray-200 rounded"
-                onClick={() => setSidebarOpen(false)}
-              >
-                {link.pathname}
-              </Link>
-              {/* Add the phone number next to "Contact Us" */}
-              {link.pathname === "Contact Us" && (
-                <div className="flex items-center text-black">
-                  <span className=" text-base"> 07423843474</span>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+        {/* Navigation links */}
+        <div className="px-6">
+          <ul className="space-y-6">
+            {Links.map((link, idx) => (
+              <li key={idx}>
+                <Link
+                  href={link.path}
+                  className="flex items-center py-3 px-4 rounded-lg hover:bg-gray-300 transition-all duration-200"
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <span className="text-lg font-medium">{link.pathname}</span>
+                </Link>
+                {/* Phone number under Contact Us */}
+                {link.pathname === "Contact Us" && (
+                  <div className="flex items-center space-x-2 mt-2 px-4">
+                    <FaPhoneAlt className="text-yellow-700/75 text-sm" />
+                    <Link
+                      href="tel:07423843474"
+                      className="text-gray-600 text-base"
+                    >
+                      07423843474
+                    </Link>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        {/* Rest of the content (if needed) */}
+        {/* Footer section */}
+        <div className="absolute bottom-8 left-0 right-0 text-center px-6">
+          <div className="h-px bg-gray-200 w-full mb-6"></div>
+          <p className="text-sm text-gray-500">
+            © 2024 LaneView Driving School. All rights reserved.
+          </p>
+        </div>
       </div>
 
-      {/* Overlay */}
+      {/* Overlay - updated with smooth transition */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black opacity-50"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300"
           onClick={() => setSidebarOpen(false)}
         ></div>
       )}
