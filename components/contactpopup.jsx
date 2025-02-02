@@ -9,6 +9,8 @@ import {
   BookOpen,
 } from "lucide-react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contactpopup = () => {
   const [courses, setCourses] = useState([]);
@@ -57,8 +59,8 @@ const Contactpopup = () => {
     try {
       const url = process.env.NEXT_PUBLIC_API_BASE_URL;
       const response = await axios.post(`${url}contact/`, selectedData);
-      if (response.status === 200) {
-        alert("Your message has been sent successfully!");
+      if (response.data.success === true) {
+        toast.success("Message sent successfully.");
         setSelectedData({
           name: "",
           postalcode: "",
@@ -71,7 +73,7 @@ const Contactpopup = () => {
         });
         setFilteredCourse([]);
       } else {
-        alert("Something went wrong. Please try again later.");
+        toast.error("Something went wrong. Please try again later.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
