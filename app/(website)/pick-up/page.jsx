@@ -4,7 +4,7 @@ import { FaArrowLeft, FaLocationArrow } from "react-icons/fa";
 import { useFormik } from "formik";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 
@@ -289,7 +289,6 @@ const Pick = () => {
           )}
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

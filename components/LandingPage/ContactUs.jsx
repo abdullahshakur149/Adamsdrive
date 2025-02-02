@@ -14,8 +14,6 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const ContactUs = () => {
@@ -341,7 +339,6 @@ const ContactUs = () => {
               </p>
             </div>
           </footer>
-          <ToastContainer />
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import "@/app/globals.css";
 import ContactWidget from "@/components/ad/ContactWidget";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RootLayout = ({ children }) => {
   return (
@@ -8,6 +10,7 @@ const RootLayout = ({ children }) => {
       <body className="bg-white  font-mona text-black">
         <ContactWidget />
         <main>{children}</main>
+        <ToastContainer />
       </body>
     </html>
   );
