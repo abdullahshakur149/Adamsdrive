@@ -12,7 +12,7 @@ const Gallery = () => {
           <br /> confirm our effectiveness
         </h1>
       </div> */}
-      <div className="grid bg-white grid-cols-2 md:grid-cols-3 gap-5 mt-10">
+      <div className="grid bg-white grid-cols-2 md:grid-cols-3 gap-5 mt-10  pb-40">
         {images.map((src, index) => (
           <div key={index} className="relative w-full h-40 md:h-52">
             <Image
