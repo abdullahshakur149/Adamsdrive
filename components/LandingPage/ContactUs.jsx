@@ -1,5 +1,5 @@
 "use client"; // Make the component a Client Component
-import logo from "@/public/img/logo.jpeg";
+import logo from "@/public/img/logo.png";
 import {
   FaFacebook,
   FaTwitter,

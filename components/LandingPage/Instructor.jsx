@@ -9,7 +9,7 @@ import {
   FaArrowRight,
   FaArrowLeft,
 } from "react-icons/fa";
-import image from "@/public/img/logo.jpeg";
+import image from "@/public/img/logo.png";
 import bgimage from "@/public/img/images/images/course&price.gif";
 import AOS from "aos";
 import "aos/dist/aos.css";
