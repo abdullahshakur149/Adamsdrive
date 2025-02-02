@@ -58,7 +58,7 @@ const Contactpopup = () => {
 
     try {
       const url = process.env.NEXT_PUBLIC_API_BASE_URL;
-      const response = await axios.post(`${url}contact/`, selectedData);
+      const response = await axios.post(`${url}/contact/`, selectedData);
       if (response.data.success === true) {
         toast.success("Message sent successfully.");
         setSelectedData({
