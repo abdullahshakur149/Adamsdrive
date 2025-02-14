@@ -21,7 +21,7 @@ const MainLanding = () => {
 
       <div className="w-11/12 bg-default   mx-auto">
         <Intro />
-        <Aboutme />
+        {/* <Aboutme /> */}
         <div className="bg-white">
           <Gallery />
         </div>
