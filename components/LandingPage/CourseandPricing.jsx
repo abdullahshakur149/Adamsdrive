@@ -2,13 +2,10 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import bgimage from "@/public/img/images/images/course&price.gif";
-import "aos/dist/aos.css";
-import Aos from "aos";
-import icon1 from "@/public/img/images/images/icon1.png";
-import icon2 from "@/public/img/images/images/11.png";
-import axios from "axios";
 import Link from "next/link";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import axios from "axios";
 
 const CourseandPricing = () => {
   useEffect(() => {
@@ -49,99 +46,90 @@ const CourseandPricing = () => {
   // courses and pricing fixed
 
   return (
-    <div className="main-container relative w-full h-screen  mt-5   md:mt-52  md:mb-64  xl:mt-10 2xl:-mt-20 ">
+    <div className="relative w-full min-h-screen py-16 md:py-24 lg:py-32">
       <Image
-        src={bgimage}
-        className="absolute top-0 left-0 w-full h-full object-contain"
+        src={"/img/images/images/course&price.gif"}
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
         alt="Course Pricing Background"
         fill
+        priority
       />
 
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gray-00 bg-opacity-50 flex flex-col justify-center items-center ">
-        <h1
-          data-aos="fade-in"
-          className="sm:text-xs lg:text-md text-blue-500 font-monaBold max-sm:mt-52 md:mt-40"
-        >
-          Courses & Pricing
-        </h1>
-        <h1
-          data-aos="fade-up"
-          className="text-3xl lg:text-5xl mt-6 font-monaBold text-center  md:mb-10 lg:mb-20"
-        >
-          Best Sellers
-        </h1>
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h3
+            data-aos="fade-in"
+            className="text-blue-500 font-bold text-sm md:text-base lg:text-lg mb-4"
+          >
+            Courses & Pricing
+          </h3>
+          <h2
+            data-aos="fade-up"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold"
+          >
+            Best Sellers
+          </h2>
+        </div>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 xl:gap-8 p-5">
-          {bestcourses.map((course, index) => {
-            // Choose an icon based on the index for variety
-            const icon = [icon1, icon2][index % 2];
-            return (
-              <div
-                key={course.courseId}
-                className="rounded-3xl lg:w-2/3 bg-white h-auto border shadow-lg flex flex-col p-6 sm:p-8 lg:p-10 mt-14 max-w-sm md:max-w-md"
-                data-aos="fade-up"
-                data-aos-delay={`${index * 200}`}
-              >
-                {/* <div className="image absolute -top-12 left-0 right-0 rounded-3xl">
-                  <Image
-                    src={icon}
-                    alt={course.courseTitle}
-                    width={60}
-                    height={100}
-                    className="mx-auto"
-                  />
-                </div> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {bestcourses.map((course, index) => (
+            <div
+              key={course.courseId}
+              className="bg-white rounded-3xl shadow-lg p-6 md:p-8 transform transition-all duration-300 hover:scale-102"
+              data-aos="fade-up"
+              data-aos-delay={`${index * 200}`}
+            >
+              <div className="text-blue-600 font-bold text-3xl md:text-4xl text-center mb-8">
+                £{course.coursePrice}
+              </div>
 
-                <div className="price text-blue-600 font-bold text-3xl sm:text-4xl lg:text-5xl text-center mb-8 lg:mb-10 mt-10">
-                  £ {course.coursePrice}
-                </div>
-                <hr className="border-gray-300 mb-8" />
+              <hr className="border-gray-200 mb-6" />
 
-                {/* Enhanced Features Section */}
-                <div className="features space-y-4 mb-8">
-                  <div className="desc flex items-center text-gray-700 text-md bg-gray-100 p-3 rounded-lg shadow-sm hover:bg-gray-200 transition">
-                    <FaCheckCircle className="text-blue-600 m-1 text-4xl" />
-                    <span className="font-semibold">
-                      {course.courseDescription}
-                    </span>
-                  </div>
-                  <div className="desc flex items-center text-gray-700 text-md bg-gray-100 p-3 rounded-lg shadow-sm hover:bg-gray-200 transition">
-                    <FaCheckCircle className="text-blue-600 m-1 text-xl" />
-                    <span className="font-semibold">
-                      Duration: {course.duration} hours
-                    </span>
-                  </div>
-                  <div className="desc flex items-center text-gray-700 text-md bg-gray-100 p-3 rounded-lg shadow-sm hover:bg-gray-200 transition">
-                    <FaCheckCircle className="text-blue-600 m-1 text-xl" />
-                    <span className="font-semibold">
-                      Fast Track Test:{" "}
-                      {course.fastTrackTest ? "Included" : "Not Included"}
-                    </span>
-                  </div>
+              <div className="space-y-4 mb-8">
+                {/* Course Description */}
+                <div className="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <FaCheckCircle className="text-blue-600 text-xl mt-1 flex-shrink-0" />
+                  <span className="ml-4 font-medium text-gray-700">
+                    {course.courseDescription}
+                  </span>
                 </div>
 
-                {/* Enhanced Category Section */}
-                <div className="desc2 text-center p-4 bg-blue-100 border-2 border-blue-300 rounded-lg hover:bg-blue-200 transition">
-                  <p className="text-gray-800 font-semibold text-md">
-                    Category:{" "}
-                    <span className="text-blue-600">
-                      {course.courseCategory}
-                    </span>
-                  </p>
+                {/* Duration */}
+                <div className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <FaCheckCircle className="text-blue-600 text-xl flex-shrink-0" />
+                  <span className="ml-4 font-medium text-gray-700">
+                    Duration: {course.duration} hours
+                  </span>
                 </div>
 
-                <div className="btn text-center mt-16">
-                  <Link
-                    onClick={() => handleBookNow(course)}
-                    href="/Info"
-                    className="px-4 py-4 font-semibold text-white text-xl bg-orange-500 rounded-lg hover:bg-orange-600 transition"
-                  >
-                    Book Now
-                  </Link>
+                {/* Fast Track Test */}
+                <div className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <FaCheckCircle className="text-blue-600 text-xl flex-shrink-0" />
+                  <span className="ml-4 font-medium text-gray-700">
+                    Fast Track Test:{" "}
+                    {course.fastTrackTest ? "Included" : "Not Included"}
+                  </span>
                 </div>
               </div>
-            );
-          })}
+
+              <div className="bg-blue-50 p-4 rounded-lg mb-8">
+                <p className="text-center font-medium">
+                  Category:{" "}
+                  <span className="text-blue-600">{course.courseCategory}</span>
+                </p>
+              </div>
+
+              <div className="text-center">
+                <Link
+                  href="/Info"
+                  onClick={() => handleBookNow(course)}
+                  className="inline-block w-full md:w-auto px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors"
+                >
+                  Book Now
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

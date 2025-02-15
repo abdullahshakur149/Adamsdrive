@@ -20,11 +20,11 @@ const MainLanding = () => {
         <Navbar />
       </div>
 
-      <div className="w-11/12 bg-default mx-auto">
+      <div className="bg-default mx-auto">
         <Intro />
         <Aboutme />
 
-        <div className="bg-white mb-20 md:mb-0">
+        <div className="bg-white">
           <Gallery />
         </div>
         {/* <Testimonials /> */}
@@ -33,7 +33,7 @@ const MainLanding = () => {
         {/* <Instructor /> */}
         {/* <Newworld /> */}
       </div>
-      <div className="w-11/12 bg-white mx-auto">
+      <div className="bg-white mx-auto">
         <ContactUs />
       </div>
     </div>

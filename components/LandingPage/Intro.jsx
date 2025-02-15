@@ -20,7 +20,7 @@ const IntroSection = () => {
     });
   }, []);
   return (
-    <div className=" w-full   ">
+    <div className=" w-full ">
       {/* Intro Image and Text */}
       <Image
         src={intro}
