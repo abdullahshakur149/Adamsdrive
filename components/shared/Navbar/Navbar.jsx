@@ -57,7 +57,7 @@ const Navbar = () => {
       {/* Mobile toggle button */}
       <div className="lg:hidden flex items-center justify-between p-4 w-full">
         <Link href="/">
-          <Image src={logo} className="w-12" alt="logo" />
+          <Image src={logo} className="w-24" alt="logo" />
         </Link>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -90,7 +90,7 @@ const Navbar = () => {
         {/* Centered logo section */}
         <div className="flex justify-center pt-12 pb-8">
           <Link href="/" onClick={() => setSidebarOpen(false)}>
-            <Image src={logo} className="w-40 " alt="logo" />
+            <Image src={logo} className="w-48" alt="logo" />
           </Link>
         </div>
 
