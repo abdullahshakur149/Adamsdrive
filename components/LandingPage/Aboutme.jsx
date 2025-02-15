@@ -1,49 +1,27 @@
 import React from "react";
-import Image from "next/image";
 
-const Aboutme = () => {
+const AboutMe = () => {
   return (
-    <section className="pt-10 overflow-hidden bg-white md:pt-0 sm:pt-16 2xl:pt-16">
-      <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid items-center grid-cols-1 md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-bold leading-tight text-black  sm:text-4xl lg:text-5xl">
-              Hey 👋 I am
-              <br className="block sm:hidden" />
-              Adam Zaza
-            </h2>
-            <p className="max-w-lg mt-3 text-xl leading-relaxed text-black font-extrabold md:mt-8">
-              Hi, I’m Adam Zaza, a DVSA Qualified Driving Instructor with over
-              246+ student passes in the record over a 4-year period and
-              counting with a pass rate of 89%. Being able to work previously
-              with Red Driving School and DriveJohnson’s. I decided to start up
-              my own Driving School dedicating my time and experience into this
-              unique and precious business. I help learners of all ages and
-              backgrounds become safe and confident drivers. I’m passionate
-              about what I do and pride myself on tailoring each lesson to suit
-              the individual needs of my students—whether you’re stepping into
-              the driver’s seat for the first time or looking to refresh your
-              skills.
-            </p>
-          </div>
-
-          <div className="relative">
-            <img
-              className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2"
-              src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg"
-              alt=""
-            />
-
-            <img
-              className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
-              src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/business-woman.png"
-              alt=""
-            />
-          </div>
-        </div>
+    <section className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-gray-200 px-6 py-12">
+      <div className="bg-white shadow-xl rounded-3xl p-10 max-w-3xl text-center transform hover:scale-105 transition-transform duration-300">
+        <h2 className="text-5xl font-extrabold text-gray-900 mb-4">
+          Hey 👋 I am Adam Zaza
+        </h2>
+        <p className="text-lg leading-relaxed text-gray-700 font-medium">
+          Hi, I’m Adam Zaza, a DVSA Qualified Driving Instructor with over 246+
+          student passes in the record over a 4-year period and counting with a
+          pass rate of 89%. Having previously worked with Red Driving School and
+          DriveJohnson’s, I decided to start my own Driving School, dedicating
+          my time and experience to this unique and valuable business. I help
+          learners of all ages and backgrounds become safe and confident
+          drivers. I’m passionate about what I do and pride myself on tailoring
+          each lesson to suit the individual needs of my students—whether you’re
+          stepping into the driver’s seat for the first time or looking to
+          refresh your skills.
+        </p>
       </div>
     </section>
   );
 };
 
-export default Aboutme;
+export default AboutMe;
