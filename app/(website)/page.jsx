@@ -11,6 +11,7 @@ import ContactUs from "@/components/LandingPage/ContactUs";
 import Aboutme from "@/components/LandingPage/Aboutme";
 import Ad from "@/components/ad/Ad";
 import Gallery from "@/components/LandingPage/Gallery";
+
 const MainLanding = () => {
   return (
     <div>
@@ -19,10 +20,11 @@ const MainLanding = () => {
         <Navbar />
       </div>
 
-      <div className="w-11/12 bg-default   mx-auto">
+      <div className="w-11/12 bg-default mx-auto">
         <Intro />
         <Aboutme />
-        <div className="bg-white">
+
+        <div className="bg-white mb-20 md:mb-0">
           <Gallery />
         </div>
         {/* <Testimonials /> */}
