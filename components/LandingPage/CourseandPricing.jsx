@@ -46,6 +46,7 @@ const CourseandPricing = () => {
       localStorage.setItem("coursedetail", JSON.stringify(courseData));
     }
   };
+  // courses and pricing fixed
 
   return (
     <div className="main-container relative w-full h-screen  mt-5   md:mt-52  md:mb-64  xl:mt-10 2xl:-mt-20 ">
