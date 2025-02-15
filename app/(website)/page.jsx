@@ -6,7 +6,6 @@ import CourseandPricing from "@/components/LandingPage/CourseandPricing";
 import Advantage_Experience from "@/components/LandingPage/Advantage&Experience";
 import Instructor from "@/components/LandingPage/Instructor";
 import Newworld from "@/components/LandingPage/newworld";
-import Testimonials from "@/components/LandingPage/Testimonials";
 import ContactUs from "@/components/LandingPage/ContactUs";
 import Aboutme from "@/components/LandingPage/Aboutme";
 import Ad from "@/components/ad/Ad";
@@ -22,12 +21,11 @@ const MainLanding = () => {
 
       <div className="bg-default mx-auto">
         <Intro />
-        <Aboutme />
-
         <div className="bg-white">
           <Gallery />
         </div>
-        {/* <Testimonials /> */}
+        <Aboutme />
+
         <CourseandPricing />
         <Advantage_Experience />
         {/* <Instructor /> */}
